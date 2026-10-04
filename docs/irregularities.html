@@ -102,4 +102,35 @@ snapshot; this repository stamps every value with its read time.</p>
 <h2>IR-34-07 — a sibling knowledge file cites an unverified URL</h2>
 <p><code>sibling knowledge/06_slot_strategy_2026-09-26.md</code> names NBMG Quaternary-fault mapping as the next
 proxy source and gives a URL its own author did not check. It is recorded here as
-<em>named-but-unverified</em>, and no claim in this repository depends on it.</p><footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>
+<em>named-but-unverified</em>, and no claim in this repository depends on it.</p>
+<h2>IR-34-08 — no organizer receipt exists for any score in this group's history</h2>
+<p>Every score on this site is a <strong>user-reported claim</strong>. GEMSDOE32's own README says
+<em>"no organizer receipt exists"</em> for the 0.2778 artifact; GEMSDOE31's docs/data/feed.json carries no
+submission id; the artifact's own <code>.zip</code> is 0 bytes (IR-34-04). The consequence is measured rather
+than rhetorical: the calibration in <code>docs/data/score-diagnostics.json</code> is fitted against five
+<em>claims</em>, and its RMSE of 0.0045 is a fit to those claims, not to an independent record. If one
+claim is wrong the calibration degrades gracefully (the residuals are published individually), but
+it cannot be <em>verified</em> from inside this workspace. Nothing here should be quoted as an organizer
+result.</p>
+<h2>IR-34-09 — the calibrated instrument is licensed only inside 37,654–61,328 dots</h2>
+<p>The identity <code>score = T/(0.2n + 0.8K)</code> with one fitted constant reproduces the group's five nested
+dotted artifacts to RMSE 0.0045, but adding the 91,533-dot artifact forces <code>K = 24,707</code> and pushes
+RMSE to <strong>0.1125</strong>, mis-ranking it (0.3661 predicted, 0.1352 live). The fitted instrument is
+therefore one-sided: it systematically <strong>over-credits mass</strong> beyond ~62,000 dots and must not be
+used to justify a larger emission. Recorded here because the temptation to extrapolate it upward is
+exactly the error that produced the 0.1563 collapse.</p>
+<h2>IR-34-10 — the two calibrated instruments disagree about the direction of the dot count</h2>
+<p>The credit curve of the shipped field says <em>more</em> dots help (elasticity of total credit with
+respect to n is +0.970, far above the +0.449 break-even); the ledger's mass slope says <em>fewer</em> dots
+help (<code>.</code> <code>Spearman(score, n) = −1.000</code> across the ten pure isolated-dot artifacts, and removing
+6,436 dots from the group's own family bought +0.0178). This repository reports the disagreement,
+ships the interior point (28,000, inside the intersection of the two rules), and states on
+<code>answer-0.2778.md</code> §7 that the question is settled only by a scored submission.</p>
+<h2>IR-34-11 — the sample submission writes NaN outside the footprint; the scored artifacts write zeros</h2>
+<p><code>sample_submission.tif</code> is NaN outside the 5,167,373-cell valid footprint (measured: <code>finite ==
+(labels != -1)</code>), while the artifacts that carry live scores from this group are their <code>-zeros</code>
+variants (for example <code>gemsdoe32-h33-h33-2-b2-…-zeros.tif</code>, the 0.2778 claim) and the <code>-nan</code>
+variants are the unscored twins. Two conventions for the same field cannot both be what the portal
+expects, and the evidence from the group's own scored rows favours <code>0.0</code>. This repository ships
+<code>0.0</code> outside the footprint, states the choice here, and reports it in the format receipt. It is
+flagged because the problem statement's wording ("outside null/nan") points the other way.</p><footer>Generated 2026-10-04 20:24 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>
