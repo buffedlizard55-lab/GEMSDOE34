@@ -1,0 +1,179 @@
+{
+  "generated_utc": "2026-10-04T19:21:20.490259+00:00",
+  "question": "Why did h33-h33-2-b2 score 0.2778, and can it be beaten from this workspace?",
+  "calibration": {
+    "family": "five binary isolated-dot artifacts of one family, 37,654 <= n <= 61,328 dots, all with 0 pixels on the public catalogue",
+    "model": "score(n) = T / (0.2*n + 0.8*K_eff), where T is the triangular-kernel credit of the artifact measured against USGS SGMC faults absent from the competition catalogue",
+    "K_eff_px": 15303,
+    "rmse": 0.0045,
+    "table": [
+      {
+        "n": 37654,
+        "live": 0.2778,
+        "T": 5399.8,
+        "predicted": 0.2731,
+        "residual": -0.0047
+      },
+      {
+        "n": 40199,
+        "live": 0.2708,
+        "T": 5440.7,
+        "predicted": 0.2682,
+        "residual": -0.0026
+      },
+      {
+        "n": 44090,
+        "live": 0.26,
+        "T": 5448.4,
+        "predicted": 0.2587,
+        "residual": -0.0013
+      },
+      {
+        "n": 60069,
+        "live": 0.2477,
+        "T": 6089.8,
+        "predicted": 0.2511,
+        "residual": 0.0034
+      },
+      {
+        "n": 61328,
+        "live": 0.2449,
+        "T": 6192.2,
+        "predicted": 0.2527,
+        "residual": 0.0078
+      }
+    ],
+    "verdict": "one fitted constant reproduces five live leaderboard scores to RMSE 0.0045 -- half a leaderboard point. The credit T is therefore a *transferable* measurement inside this family, and it is measurable here without the organizers' labels."
+  },
+  "failure": {
+    "artifact": "h19-5 powerlaw-budget family member with n=91,533",
+    "live": 0.1352,
+    "T": 13938.7,
+    "predicted_with_K_eff": 0.2981,
+    "predicted_with_free_K": 0.3661,
+    "detail": "Fitting K on all six artifacts (K=24,707) leaves RMSE 0.1125 and mis-ranks the 91,533-dot artifact above the 37,654-dot one. Both fits under-predict the mass penalty at large n: every instrument available here is one-sided because it cannot see the organizers' hidden truth.",
+    "consequence": "the calibrated model may only be used inside 37,654 <= n <= 61,328 dots, and any count above that window is refused by this workspace's own evidence."
+  },
+  "field": {
+    "definition": "0.85 * |l1-l2| structure-tensor anisotropy of the detrended-elevation band (sigma 1.5/3/6 px) + 0.15 * fault-tip extrapolation, normalised to [0,1]",
+    "screen_receipt": "docs/data/field-screen.json",
+    "credit_curve": [
+      {
+        "n": 5000,
+        "T": 678.2,
+        "c": 0.1356
+      },
+      {
+        "n": 10000,
+        "T": 1525.7,
+        "c": 0.1526
+      },
+      {
+        "n": 15000,
+        "T": 2525.4,
+        "c": 0.1684
+      },
+      {
+        "n": 20000,
+        "T": 3616.8,
+        "c": 0.1808
+      },
+      {
+        "n": 24000,
+        "T": 4379.2,
+        "c": 0.1825
+      },
+      {
+        "n": 28000,
+        "T": 5240.5,
+        "c": 0.1872
+      },
+      {
+        "n": 35000,
+        "T": 6754.0,
+        "c": 0.193
+      },
+      {
+        "n": 45000,
+        "T": 8836.1,
+        "c": 0.1964
+      },
+      {
+        "n": 60000,
+        "T": 12007.1,
+        "c": 0.2001
+      }
+    ],
+    "pool": 62484,
+    "same_n_credit": {
+      "n": 37654,
+      "shipped_field_T": 7306,
+      "group_best_T": 5399.8,
+      "gain_pct": 35.3,
+      "note": "interpolated between the measured 35,000 and 45,000 points"
+    }
+  },
+  "count_rule": {
+    "instrument_A": "credit model at K_eff=15,303: below n=27,000 this field projects under the group best 0.2778 (n=24,000 -> 0.245; n=20,000 -> 0.223), above it the projection rises (n=28,000 -> 0.2937)",
+    "instrument_B": "ledger mass slope measured within the same family (44,090 -> 37,654 dots removed 6,436, score +0.0178): every dot above ~38,000 is priced against us",
+    "intersection_px": [
+      27000,
+      38000
+    ],
+    "shipped": 28000,
+    "projection": {
+      "value": 0.2937,
+      "method": "T/(0.2n+0.8*K_eff) at n=28,000",
+      "independent": {
+        "value": 0.3045,
+        "method": "0.2778 + (37654-28000)/6436*0.0178, within-family slope"
+      },
+      "quoted_range": [
+        0.28,
+        0.31
+      ]
+    },
+    "caveat": "both are ESTIMATES from instruments that are one-sided against mass; neither is a receipt. The only scored receipt in this repository is 0.2778 (user-reported)."
+  },
+  "pass4_blend": {
+    "field": "norm(score^2-weighted consensus of 16 live-scored artifacts) + norm(curvature ridge)",
+    "pooled_T": 5698.6,
+    "sgmc_payload_dti": 0.10507,
+    "sgmc_T": 5771.6,
+    "vs_curv_only": {
+      "pooled_T": 5454.7,
+      "sgmc_payload_dti": 0.09847,
+      "gain_pct": 6.7
+    },
+    "blockings": {
+      "3x3": {
+        "curv": 779.24,
+        "blend": 814.08,
+        "folds": 7
+      },
+      "4x4": {
+        "curv": 495.88,
+        "blend": 518.05,
+        "folds": 11
+      },
+      "5x5": {
+        "curv": 303.04,
+        "blend": 316.59,
+        "folds": 18
+      }
+    },
+    "consensus_alone": {
+      "pooled_T": 4398.3,
+      "verdict": "the group's own best live-scored artifacts are a WORSE proxy for the official SGMC off-catalogue population than a plain elevation-curvature ridge; their value is complementary, not authoritative"
+    },
+    "projection": {
+      "credit_model": 0.3235,
+      "slope_model": 0.3249,
+      "quoted_range": [
+        0.3,
+        0.33
+      ],
+      "caveat": "both estimators inherit the SGMC-to-hidden-truth transfer assumption, which no instrument in this workspace can validate"
+    }
+  }
+}

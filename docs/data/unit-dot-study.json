@@ -1,0 +1,228 @@
+{
+  "generated_utc": "2026-10-04T19:45:41.899818+00:00",
+  "question": "Which dot count maximises the score, and does official-catalogue credit transfer across fields?",
+  "identity": "score = T/(0.2n + 0.8K); T = triangular-kernel credit, K = hidden truth mass. K_eff = 15,303 fitted on the five-artifact family.",
+  "finding_1": {
+    "name": "a clean dose-response exists, inside ONE field lineage",
+    "detail": "Six artifacts are nested thinnings of one field (121,131 superset of 61,328 superset of 60,069 superset of 44,090 superset of 40,199 superset of 37,654) and their live scores are strictly monotone in the dot count: 0.1922, 0.2449, 0.2477, 0.2600, 0.2708, 0.2778. This is the only clean dose-response in the whole corpus, and the direction is unambiguous: fewer dots scored higher every time, over a 3.2x range. Nothing below 37,654 has been tested by anyone.",
+    "implication": "The shipped count (28,000) is a bounded extrapolation of this curve, not a preference."
+  },
+  "finding_2": {
+    "name": "the same identity does NOT transfer across fields",
+    "detail": "Applied out of family, the fitted model predicts 0.4563 / 0.4331 / 0.3142 / 0.2724 for four other unit-dot artifacts whose live scores are 0.1352 / 0.0904 / 0.1294 / 0.1223 (errors +0.15 to +0.34). The instrument is a good model of one lineage and a bad model of the corpus.",
+    "implication": "Any projection for a NEW field (this repository's composite, whose SGMC credit is 38 % above the family at equal n) is not validated: the family's transfer ratio is ~1.0 while another field's is 0.30."
+  },
+  "finding_3": {
+    "name": "spread, count and catalogue distance do not separate the winners",
+    "detail": "All ten unit-dot artifacts occupy 34 of 64 five-hundred-pixel blocks with HHI 0.039-0.049; the top ten blocks carry 48-60 % of the dots in every case. Something else -- the field's placement accuracy on the hidden truth -- is what separates 0.28 from 0.09, and no instrument in this workspace can measure it.",
+    "implication": "The field is chosen on geological grounds and on the pre-registered SGMC screen, with the uncertainty stated rather than hidden."
+  },
+  "table": [
+    {
+      "artifact": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "live": 0.2778,
+      "n": 37654,
+      "T_pnf": 5399.8,
+      "comps": 37654,
+      "blocks": 34,
+      "hhi": 0.039,
+      "predicted": 0.2731,
+      "error": -0.0047,
+      "cbar_pnf": 0.1434,
+      "live_credit_from_identity": 5493.0,
+      "transfer_ratio": 1.017
+    },
+    {
+      "artifact": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "live": 0.2708,
+      "n": 40199,
+      "T_pnf": 5440.7,
+      "comps": 40199,
+      "blocks": 34,
+      "hhi": 0.039,
+      "predicted": 0.2682,
+      "error": -0.0026,
+      "cbar_pnf": 0.1353,
+      "live_credit_from_identity": 5492.4,
+      "transfer_ratio": 1.01
+    },
+    {
+      "artifact": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "live": 0.26,
+      "n": 44090,
+      "T_pnf": 5448.4,
+      "comps": 44090,
+      "blocks": 34,
+      "hhi": 0.039,
+      "predicted": 0.2587,
+      "error": -0.0013,
+      "cbar_pnf": 0.1236,
+      "live_credit_from_identity": 5475.7,
+      "transfer_ratio": 1.005
+    },
+    {
+      "artifact": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+      "live": 0.2477,
+      "n": 60069,
+      "T_pnf": 6089.8,
+      "comps": 60069,
+      "blocks": 34,
+      "hhi": 0.039,
+      "predicted": 0.2511,
+      "error": 0.0034,
+      "cbar_pnf": 0.1014,
+      "live_credit_from_identity": 6008.3,
+      "transfer_ratio": 0.987
+    },
+    {
+      "artifact": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "live": 0.2449,
+      "n": 61328,
+      "T_pnf": 6192.2,
+      "comps": 61283,
+      "blocks": 34,
+      "hhi": 0.039,
+      "predicted": 0.2527,
+      "error": 0.0078,
+      "cbar_pnf": 0.101,
+      "live_credit_from_identity": 6002.0,
+      "transfer_ratio": 0.969
+    },
+    {
+      "artifact": "gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+      "live": 0.1839,
+      "n": 69281,
+      "T_pnf": 5620.6,
+      "comps": 69281,
+      "blocks": 34,
+      "hhi": 0.043,
+      "predicted": 0.2154,
+      "error": 0.0315,
+      "cbar_pnf": 0.0811,
+      "live_credit_from_identity": 4799.5,
+      "transfer_ratio": 0.854
+    },
+    {
+      "artifact": "gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif",
+      "live": 0.1352,
+      "n": 91533,
+      "T_pnf": 13938.7,
+      "comps": 91533,
+      "blocks": 32,
+      "hhi": 0.045,
+      "predicted": 0.4563,
+      "error": 0.3211,
+      "cbar_pnf": 0.1523,
+      "live_credit_from_identity": 4130.2,
+      "transfer_ratio": 0.296
+    },
+    {
+      "artifact": "12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62_allfinite.tif",
+      "live": 0.1294,
+      "n": 103347,
+      "T_pnf": 10342.3,
+      "comps": 103347,
+      "blocks": 34,
+      "hhi": 0.044,
+      "predicted": 0.3142,
+      "error": 0.1848,
+      "cbar_pnf": 0.1001,
+      "live_credit_from_identity": 4258.8,
+      "transfer_ratio": 0.412
+    },
+    {
+      "artifact": "gems26-dilcond-oof-v1-20261003-47629f496133-nan.tif",
+      "live": 0.1223,
+      "n": 60068,
+      "T_pnf": 6607.4,
+      "comps": 60056,
+      "blocks": 34,
+      "hhi": 0.049,
+      "predicted": 0.2724,
+      "error": 0.1501,
+      "cbar_pnf": 0.11,
+      "live_credit_from_identity": 2966.5,
+      "transfer_ratio": 0.449
+    },
+    {
+      "artifact": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "live": 0.0904,
+      "n": 206895,
+      "T_pnf": 23221.1,
+      "comps": 206895,
+      "blocks": 34,
+      "hhi": 0.039,
+      "predicted": 0.4331,
+      "error": 0.3427,
+      "cbar_pnf": 0.1122,
+      "live_credit_from_identity": 4847.4,
+      "transfer_ratio": 0.209
+    }
+  ],
+  "instrument": {
+    "K_eff_px": 15303,
+    "rmse_in_family": 0.0047,
+    "n_in_family": 6,
+    "rmse_out_of_family": 0.192,
+    "n_out_of_family": 4,
+    "note": "K_eff is fitted on the family (five artifacts used for the fit, the sixth checked), so the in-family RMSE is optimistic; the out-of-family failures are the honest measure of generalisation."
+  },
+  "shipped_field_curve": {
+    "source": "docs/data/score-diagnostics.json",
+    "T_pnf": [
+      {
+        "n": 5000,
+        "T": 988.6
+      },
+      {
+        "n": 10000,
+        "T": 1856.2
+      },
+      {
+        "n": 15000,
+        "T": 2890.1
+      },
+      {
+        "n": 20000,
+        "T": 4009.9
+      },
+      {
+        "n": 24000,
+        "T": 4878.4
+      },
+      {
+        "n": 28000,
+        "T": 5679.9
+      },
+      {
+        "n": 37654,
+        "T": 7461.5
+      },
+      {
+        "n": 45000,
+        "T": 8833.8
+      },
+      {
+        "n": 60000,
+        "T": 11550.2
+      },
+      {
+        "n": 90000,
+        "T": 16544.9
+      }
+    ],
+    "cbar": [
+      0.1977,
+      0.1856,
+      0.1927,
+      0.2005,
+      0.2033,
+      0.2029,
+      0.1982,
+      0.1963,
+      0.1925,
+      0.1838
+    ],
+    "note": "The shipped field's credit-per-dot is flat-to-rising in n (elasticity ~0.93), unlike the family's falling density (~0.31). If that property also transfers, a larger emission would score higher; if the family's behaviour is the general one, a smaller one does. The shipped 28,000 is the compromise, and it is the single most falsifiable choice in this repository."
+  }
+}

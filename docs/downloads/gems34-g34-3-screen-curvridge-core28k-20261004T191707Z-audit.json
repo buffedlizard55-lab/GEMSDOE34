@@ -1,0 +1,82 @@
+{
+  "caveat": "No organizer score exists for this file. Both offline instruments are reported; docs/data/calibration.json measures that neither ranks the group's 27 live-scored artifacts (rho = -0.11 / +0.12), so this validation is a sanity floor, not a prediction. The payload-size reduction is supported by a 10-point monotone live relationship (rho = -1.000) whose extrapolation below 37,654 dots is unconstrained by any observation.",
+  "counts": {
+    "free_carpet": 60988,
+    "payload": 28000,
+    "total": 88988
+  },
+  "emission_rule": {
+    "carpet": true,
+    "collar_px": 3,
+    "spacing_px": 3,
+    "target_payload": 28000,
+    "value": 1.0
+  },
+  "evidence_class": [
+    "DERIVED",
+    "PROXY"
+  ],
+  "format": {
+    "all_in_unit_interval": true,
+    "bands": 1,
+    "bounds": [
+      243350.0,
+      4135550.0,
+      572550.0,
+      4508550.0
+    ],
+    "bytes": 381742,
+    "convention": "none",
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "file": "docs/downloads/gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.tif",
+    "format_ok": true,
+    "height": 3730,
+    "max": 1.0,
+    "min": 0.0,
+    "n_nan_outside": false,
+    "n_nonfinite": 0,
+    "n_positive": 88988,
+    "nodata": "nan",
+    "nodata_is_nan": true,
+    "nodata_is_none": false,
+    "res": [
+      100.0,
+      100.0
+    ],
+    "sample_convention": true,
+    "sha256": "a17cb236f1003c7df7dcc9b3e9d38bf9b557180c54a48bd0dab89b577d11884d",
+    "sha256_canonical": "49b0a5ef01abfada9efed05b4d4f44082e2d0d7918d011bb2c3fd96bf0380bde",
+    "sha256_mask": "cad0c5310e911f7854f6b65590873d5c38c560afd395d4f5096a43a71f44c3ff",
+    "width": 3292
+  },
+  "gate": {
+    "note": "registry.gate signature differs; run scripts/run_gate.py"
+  },
+  "generated_utc": "2026-10-04T19:17:08.323461+00:00",
+  "hypothesis": "H6 concealed basin-margin step + H5 potential-field lineaments + detrended-elevation curvature ridge (docs/hypotheses.md)",
+  "name": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z",
+  "validation": {
+    "catalogue_blocked_folds": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "catalogue_blocked_mean_payload_only": 0.0,
+    "catalogue_blocked_mean_with_carpet": 0.47511236255906675,
+    "payload_components": 28000,
+    "payload_mean_component_size": 1.0,
+    "payload_median_nn_px": 3.0,
+    "pnf_dti_payload_only": 0.09846822033438808,
+    "pnf_dti_with_carpet": 0.09846822033438808,
+    "pnf_pixels": 61664
+  }
+}
