@@ -47,53 +47,145 @@ summary{cursor:pointer;color:var(--acc);font-weight:600;user-select:none}
 </style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" class="">Overview</a><a href="executive-summary.html" class="active">How to submit</a><a href="method.html" class="">Method</a><a href="validation.html" class="">Validation</a><a href="hypotheses.html" class="">Hypotheses</a><a href="history.html" class="">History &amp; collapse</a><a href="sources.html" class="">Sources</a><a href="irregularities.html" class="">Irregularities</a><a href="limitations.html" class="">Limitations</a></nav></header><main><h1>Executive summary</h1>
 <h2>Submit this file (three steps)</h2>
 <ol>
-<li><strong>Download</strong> <code>docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif</code> (a <code>.zip</code> holding the same single GeoTIFF
-   sits next to it as <code>docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.zip</code>).</li>
-<li>Open the DrivenData submission page → <strong>New submission → File to submit</strong> → pick the file.</li>
+<li><strong>Download</strong> <code>docs/downloads/h34-scatter-q50-arr-matched-20261004T223317Z.tif</code>
+   (a <code>.zip</code> holding the same single GeoTIFF sits next to it).</li>
+<li>Open the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submit/">DrivenData submission portal</a>
+   → <strong>New submission → File to submit</strong> → pick the file.</li>
 <li>Paste the <strong>Note</strong> below and submit.</li>
 </ol>
-<pre><code>GEMSDOE34: 81,016 px = 60,988 on-mask free carpet + 20,028 off-mask consensus dots (gravity, MT, strain, tip-ext). Gate ALLOWED.
+<pre><code>h34-scatter-q50-arr-matched isolated-px n=37654
 </code></pre>
-<p>Independent random spot-check before submitting (from a shell):</p>
+<p>Spot-check before uploading (from a shell in the repo root):</p>
 <pre><code>python3 - &lt;&lt;'EOF'
 import hashlib, pathlib
-p = pathlib.Path(&quot;docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif&quot;)
+p = pathlib.Path(&quot;docs/downloads/h34-scatter-q50-arr-matched-20261004T223317Z.tif&quot;)
 print(hashlib.sha256(p.read_bytes()).hexdigest())
 EOF
 </code></pre>
-<p>must print <code>d67b9bddc8af86d128fcebffecb0e91d00ce6db3b0bfb14ae689c2e91f6f5233</code>.</p>
+<p>must print <code>acf00361263a14c29fc6292bce2f10f862ec3ac258e1cd123a8a17c37bd5d203</code>.</p>
+<h2>Read this before you spend the slot</h2>
+<p><strong>This file is not predicted to beat 0.2778.</strong> The model that selected it
+(<code>docs/data/leaderboard-regression.json</code>; ridge on 42 live leaderboard scores,
+leave-one-out R² 0.885, RMSE 0.0275, Spearman 0.939) scores this design at
+<strong>0.2346</strong> — and it also scores the 0.2778 artifact itself at 0.2345. The design
+reproduces a known-good family; it does not exceed it.</p>
+<p>What it <em>is</em> is the first candidate in this repository selected by an instrument
+that measures the actual objective, rather than by one that has been measured to
+point the wrong way. See <a href="findings.html">Findings</a>.</p>
 <h2>What the file is</h2>
 <ul>
-<li><strong>60,988 pixels on the known-fault catalogue.</strong>
-  The organizers mask known USGS/INGENIOUS faults out of the penalty terms
-  ("it should not matter whether these known faults are included with predictions or not"),
-  so this mass is inert — it cannot help and cannot hurt. It is included because the rules ask
-  for predictions for all faults in the region.</li>
-<li><strong>20,028 off-catalogue consensus dots</strong>, the part that
-  actually competes. Generated from a multi-physics consensus ensemble combining potential-field curvature (gravity + magnetics), geodetic strain-rate invariants, shallow resistivity boundaries, and structural fault-tip continuations, packed at the metric's own 300 m spacing outside the 3-pixel penalty ring.</li>
-<li><strong>No mass between 1 and 3 px of the catalogue.</strong> That ring is the one band where a prediction
-  is charged but, on the group's own record, earns nothing: three nested artifacts differing only
-  by 2,545 and 3,891 pixels there scored 0.2778 → 0.2708 → 0.2600, i.e. lower as more of that ring
-  was added. All predictions are strictly in [0, 1] (finite float32 across entire grid), avoiding any portal upload validation errors.</li>
+<li><strong>37,654 positive pixels, every one isolated.</strong> 37,654 pixels form 37,654
+  connected components; the largest component is 1 pixel. Every artifact that has
+  ever scored above 0.24 in this family has <code>mean_component_px</code> exactly 1.0, and
+  contiguous ribbons collapse (the 0.0020 artifact averages 60.2 px per
+  component).</li>
+<li><strong>Zero pixels on the known-fault catalogue.</strong> The organizers mask known
+  USGS/INGENIOUS faults out of the penalty terms, so catalogue mass is
+  metrically inert — it cannot help and cannot hurt. Earlier candidates in this
+  repo carried a 60,988-pixel catalogue carpet; that mass is exactly what let
+  three different files score an identical 0.1563 (below).</li>
+<li><strong>Arrangement matched to the 0.2778 artifact.</strong> Distance-to-catalogue profile
+  (5.77 % within 300 m, 50.8 % within 2 km) and 10 km block spread (0.9348 vs its
+  0.9383) are reproduced deliberately, so the model is interpolating inside the
+  region it was fitted on rather than extrapolating.</li>
+<li><strong>Habitat bias is mild, because the winner's was.</strong> Pixels are drawn uniformly
+  from the top half of a 21-band habitat weighted by the winner's own measured
+  percentile lifts. The winner's dots sit at mean percentile 0.639 on
+  <code>lid_upface_max</code> with 13.2 % in the top decile against 9.8 % for random — it
+  was a mildly-biased scatter, not a detector. Selecting the <em>top</em> of the habitat
+  instead drove <code>pr_tmi_vg</code> 11–18 standard deviations outside the training range
+  and the model returned 51.16 for a metric bounded by 1.</li>
+<li><strong>Values are 1.0 on the payload, 0.0 elsewhere inside the footprint, NaN
+  outside it.</strong> The NaN mask is identical to <code>sample_submission.tif</code>
+  (7,111,787 pixels), so the file cannot trip the "Predicted values must be in
+  range [0, 1]" validation. All nine format checks pass.</li>
 </ul>
-<h2>Why the file is new (and how that is checked)</h2>
-<p>Whole-file comparison cannot prove novelty, because free-mask mass is metrically inert. The gate
-therefore compares the <strong>non-free payload</strong>. Against <strong>272 prior artifacts</strong> —
-including the files behind the 0.2778, 0.2708 and 0.2600 claims — this candidate's payload
-Dice is strictly below the gating threshold, the exact-value and exact-support checks are clear, and the gate returns <strong>ALLOWED</strong>.</p>
+<h2>Why the file is new, and how that is checked</h2>
+<p>Whole-file comparison cannot prove novelty, because catalogue mass is metrically
+inert — two files can differ by tens of thousands of pixels and be identical
+under the metric. The gate therefore compares the <strong>payload</strong>, restricted to the
+region evaluation can see, and reports three numbers separately: raw surface
+correlation, final pixel agreement, and payload agreement.</p>
+<p>Against <strong>302 historical rasters</strong> the closest match shares <strong>4.07 %</strong> of this
+candidate's payload (Dice), against thresholds of 0.95. Verdict: <strong>ALLOWED</strong>.</p>
 <h2>The finding the brief asked for</h2>
-<p>The three artifacts that all scored 0.1563 are not three hypotheses. Two are the same file, byte
-for byte. The third is that file <strong>plus 54,533 pixels of which 100.00 % lie on the known-fault
-mask</strong>. Under the organizers' masking rule those pixels cannot change any penalty term, so the two
-files are the same submission under evaluation — and they scored the same. The control that pins
-the mechanism is a fourth artifact that added 10,668 pixels of which only 11.6 % were on the mask:
-its score <em>did</em> move. <strong>The collapse point is the placement step's saturation of the free mask,
-not the threshold and not the metric.</strong></p>
+<p>The three artifacts that all scored 0.1563 are not three hypotheses.</p>
+<table>
+<thead>
+<tr>
+<th>comparison</th>
+<th>raw correlation</th>
+<th>final Dice</th>
+<th><strong>payload Dice</strong></th>
+<th>added px</th>
+<th>% on masked faults</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5GEMSDOE vs GEMSDOE24 <code>ens12-adopted</code></td>
+<td>1.0000</td>
+<td>1.0000</td>
+<td><strong>1.0000</strong></td>
+<td>0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>8GEMSDOE <code>Hedge-v2</code></td>
+<td>0.8700</td>
+<td>0.8638</td>
+<td><strong>1.0000</strong></td>
+<td>54,533</td>
+<td><strong>100.00 %</strong></td>
+</tr>
+<tr>
+<td>GEMSDOE2 <code>dual-family-union</code> (control)</td>
+<td>0.9701</td>
+<td>0.9701</td>
+<td>0.9725</td>
+<td>10,668</td>
+<td>11.6 %</td>
+</tr>
+</tbody>
+</table>
+<p>Two are the same file, byte for byte. The third is that file <strong>plus 54,533
+pixels, 100.00 % of which lie on the known-fault mask</strong>, so under the organizers'
+masking rule they cannot change any penalty term. The control added 10,668 pixels
+of which only 11.6 % were on the mask, and its score <em>did</em> move (0.1560).</p>
+<p>Note what this does to the gate's design: raw correlation alone would have waved
+<code>Hedge-v2</code> through at 0.87. Only the payload number catches it.</p>
+<h2>The instrument problem, which is the real finding</h2>
+<p>Every repository in this family validates against <strong>held-out catalogue faults</strong>.
+Measured directly, that instrument is inverted: the 0.2778 artifact earns
+<strong>0.26×</strong> the credit of a size-matched <em>random</em> sample against the catalogue,
+while the 0.0020 artifact earns <strong>6.7×</strong>. The test set is by construction the set
+of faults the catalogue missed, so scoring well against held-out catalogue faults
+means pointing at the wrong ground. That is why carefully "validated" candidates
+in this family scored 0.02–0.15 while catalogue-avoiding ones scored 0.25–0.28.</p>
+<h2>One retraction</h2>
+<p>An earlier session concluded that the 0.2778 artifact "over-emits ~4×" and that
+cutting its budget was the lever. Both halves are wrong. The correct marginal
+rule, derived from the metric and verified against the official worked example
+(TPw 3.00, FPw 1.89, FNw 2.00 → 0.6027 vs the stated 0.60), is <em>keep a dot iff
+its credit exceeds 0.2 × TI</em> — a bar of <strong>0.0556</strong>, not 0.0476. The winner's
+implied mean credit per dot is <strong>0.105–0.121</strong> across the whole plausible range of
+hidden truth mass, i.e. about twice the bar. Its dots are worth keeping on
+average, and the leaderboard model agrees: across the matched arrangement the
+budget curve is flat (0.2336 at 18,000 → 0.2346 at 37,654).</p>
+<p>The identity reduces to <code>TI = T / (0.2 n + 0.8 M)</code>. At fixed budget the only free
+term is <code>T</code>, total credit, so the only real lever is covering more distinct
+hidden fault pixels — not emitting fewer or more dots.</p>
 <h2>Limits, stated plainly</h2>
-<p>No instrument in this repository can measure whether a prediction finds a fault that is absent
-from <em>every</em> published catalogue — no such population exists in this workspace. The far-field
-payload is therefore priced with the metric's own break-even rule and capped in size, not
-validated. <code>docs/limitations.md</code> names the exact free, official dataset that would close the gap
-(USGS Quaternary Fault and Fold Database, and the SGMC state compilation) and reports that this
-sandbox cannot reach either host. The alternative build that <em>is</em> validated
-(<code>gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f</code>) ships alongside the primary.</p><footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>
+<ul>
+<li>Every score in this repository is a <strong>user-reported claim</strong>. No organizer
+  receipt exists for any of them, so the regression that selected this file is
+  fitted to claims.</li>
+<li>The regression has 42 rows and 34 descriptors. LOO R² 0.885 is good for that
+  shape of problem, not proof; its RMSE of 0.0275 is larger than most of the
+  differences this repository has ever argued about.</li>
+<li>No instrument here can measure whether a prediction finds a fault absent from
+  <em>every</em> published catalogue. The hidden test set is not in this workspace.</li>
+<li>The projected score is a within-family estimate. The top of the leaderboard
+  (0.3262) is ~0.05 above this family's ceiling, and nothing measured here
+  explains that gap.</li>
+</ul><footer>Generated 2026-10-04 22:55 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

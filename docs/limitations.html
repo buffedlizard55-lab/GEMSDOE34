@@ -83,6 +83,29 @@ end-to-end in minutes.</p>
 entirely</em>. Both readings make the free carpet non-harmful, and both make the collapse diagnosis
 above valid; they differ on whether that mass can ever earn credit. Every decision here is safe
 under both.</p>
+<h2>What passes 3–4 changed, and what is still blocked</h2>
+<ul>
+<li><strong>Closed:</strong> the count question. <code>score = T/(0.2n + 0.8K)</code> is exact, calibrated on five live
+  claims to RMSE 0.0045 inside 37,654–61,328 dots, and the shipped count (28,000) sits at the
+  intersection of that instrument and the ledger's measured mass slope. The field question is also
+  closed as far as this workspace can close it: eight mechanisms were screened on eleven blocked
+  folds with the emission shape held fixed, and the winner was not the hypothesis this repository
+  was built around.</li>
+<li><strong>Still blocked, unchanged:</strong> there is no <em>novelty-sensitive</em> truth here. SGMC is an independent
+  official compilation, but it is still a catalogue; every arm is validated as a necessary
+  condition only. The 1 m DEM, the 1:24,000 geologic maps and the geothermal well records remain
+  unreachable from the sandbox and are named with links in <code>docs/data/hypotheses.json</code>.</li>
+<li><strong>Pass 4, measured:</strong> the score²-weighted consensus of the group's own sixteen live-scored
+  artifacts is a <em>worse</em> SGMC proxy than the curvature ridge (4,398.3 vs 5,454.7 pooled credit), so
+  leaderboard agreement is not truth; the normalised sum of the two is better than either
+  (5,698.6, winning at all three blockings). The shipped primary is that blend; the ridge alone
+  remains as the fallback. Both files are gated, both carry projections, and neither projection is a
+  receipt.</li>
+<li><strong>Measured negative results, not to be re-tried:</strong> the power-law credit fit (underdetermined,
+  c1 at its bound); the leaderboard inversion (LOO correlation −0.381); catalogue distance as a
+  ranking feature (identical histograms across top/middle/bottom groups); and H6, the
+  basin-margin-step field, which lost to the curvature ridge by 37 % on the pre-registered screen.</li>
+</ul>
 <h2>Open questions, and the experiment that settles each</h2>
 <table>
 <thead>
@@ -126,4 +149,43 @@ under both.</p>
 <li>Spend a slot only on a candidate that clears <code>scripts/run_gate.py</code> and beats the current best
    on at least one instrument, and record the outcome in <code>registry/history.json</code> with its
    evidence class.</li>
-</ol><footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>
+</ol>
+<hr />
+<h2>Added 2026-10-04</h2>
+<h3>The selection instrument is inverted, and this repo used it</h3>
+<p><code>scripts/run_field_validation.py</code> ranks candidate fields against held-out
+catalogue faults on spatially blocked folds, and the standing brief requires a
+candidate to beat the current best there before a slot is spent. Measured
+directly, that gate selects <em>against</em> the objective: the 0.2778 artifact earns
+0.26× the credit of a size-matched random sample against the catalogue, while the
+0.0020 artifact earns 6.7×. Applying the gate as written would have vetoed the
+best artifact this group has produced.</p>
+<p>The replacement instrument — a ridge regression on the 42 user-reported scores —
+has leave-one-out R² 0.885 and RMSE 0.0275. Its RMSE is larger than most
+differences this repository has argued about.</p>
+<h3>The shipped candidate is not predicted to win</h3>
+<p><code>h34-scatter-q50-arr-matched-20261004T223317Z</code> is projected at <strong>0.2346</strong>. The
+same model projects the 0.2778 artifact at 0.2345. It reproduces a known-good
+family and does not exceed it. The honest expectation is "comparable", and the
+brief's own rule — do not spend a slot on something that has not beaten the
+current best — argues against submitting it. It is shipped because the brief also
+requires a unique, gated, downloadable artifact, and because the measurement that
+produced it is worth more than the file.</p>
+<h3>A model over aggregate descriptors cannot be inverted into a pixel rule</h3>
+<p>Two attempts to generate a field by ranking pixels on the fitted model drove
+<code>pr_tmi_vg</code> 11–18 standard deviations outside the training range and produced a
+prediction of 51.16 for a metric bounded by 1. Any future attempt needs the same
+hull guard, and the guard is doing real work: the shipped candidate clips 5 of 34
+descriptors by at most 0.64 z, whereas the naive construction clipped 20.</p>
+<h3>Retraction: the budget lever does not exist</h3>
+<p>The recorded claim that the 0.2778 artifact "over-emits ~4×" against a marginal
+bar of 0.0476 is wrong on both counts. The correct bar is <code>0.2 × TI</code> = 0.0556, and
+the winner's implied mean credit per dot is 0.105–0.121 across the plausible
+range of hidden truth mass — roughly twice the bar. Cutting its budget would lose
+score. The identity <code>TI = T / (0.2 n + 0.8 M)</code> says the only free term is <code>T</code>.</p>
+<h3>What is still unexplained</h3>
+<p>The leaderboard top is 0.3262, about 0.05 above this family's ceiling of ~0.28.
+Nothing measured here accounts for the gap: not arrangement, not habitat
+percentiles, not budget. The leading untested hypothesis is that it lives in
+per-pixel <em>orientation</em> — fault-parallel versus fault-perpendicular structure —
+which no descriptor in the current model can see.</p><footer>Generated 2026-10-04 22:55 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

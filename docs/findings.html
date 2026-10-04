@@ -1,0 +1,562 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Session Findings 2026-10-04 — GEMSDOE34</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36;--btn-bg:#1d212b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.98);backdrop-filter:blur(8px);z-index:50}
+header b{font-size:18px;color:#fff;letter-spacing:0.5px;white-space:nowrap}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-size:13.5px;padding:4px 8px;border-radius:6px;transition:all 0.15s ease}
+nav a:hover{color:var(--acc);background:rgba(77,163,255,0.08)}
+nav a.active{color:#fff;background:var(--btn-bg);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:28px 24px 90px}
+h1{font-size:28px;line-height:1.3;margin:16px 0 10px;color:#fff}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:8px;color:#f0f3f8}
+h3{font-size:17px;margin-top:24px;color:#d8e2ec}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:2px 6px;font-size:13px;word-break:break-all;color:#7ee787}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font-size:13px;line-height:1.5;color:#e6edf3}
+pre code{background:transparent;border:0;padding:0;color:inherit}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600;background:rgba(23,26,33,0.6)}
+tr:hover td{background:rgba(255,255,255,0.02)}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.dl{border:1px solid #1d5c3c;background:linear-gradient(180deg,#0f261c 0%,#171a21 100%);border-radius:12px;padding:22px;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.dl h2{margin-top:0;border:0;color:#fff;display:flex;align-items:center;gap:8px}
+.dl a.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ok);color:#04220f;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none;margin:8px 10px 8px 0;font-size:14.5px;transition:opacity 0.15s ease}
+.dl a.btn:hover{opacity:0.92;text-decoration:none}
+.dl a.z{background:#262d3d;color:#e8eaf0;border:1px solid var(--line)}
+.dl a.z:hover{background:#30384c}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px;font-weight:600}
+.tag.ok{color:var(--ok);border-color:#1d5c3c;background:rgba(57,217,138,0.1)}
+.tag.warn{color:var(--warn);border-color:#5c4a1d;background:rgba(255,179,71,0.1)}
+.tag.bad{color:var(--bad);border-color:#5c1d1d;background:rgba(255,107,107,0.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.kpi span.label{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+.kpi b{display:block;font-size:26px;color:#fff;font-weight:700}
+.kpi span.sub{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+ul,ol{padding-left:22px}li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 0 10px;margin-top:48px;color:var(--mut);font-size:13px}
+details{margin:12px 0;background:#0d1015;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details[open]{padding-bottom:14px}
+summary{cursor:pointer;color:var(--acc);font-weight:600;user-select:none}
+.step-box{background:#11151d;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" class="">Overview</a><a href="executive-summary.html" class="">How to submit</a><a href="method.html" class="">Method</a><a href="validation.html" class="">Validation</a><a href="hypotheses.html" class="">Hypotheses</a><a href="history.html" class="">History &amp; collapse</a><a href="sources.html" class="">Sources</a><a href="irregularities.html" class="">Irregularities</a><a href="limitations.html" class="">Limitations</a></nav></header><main><h1>Session findings, 2026-10-04 (GEMSDOE34)</h1>
+<p>Four results. The first overturns the instrument every sibling repository has
+been using to choose submissions. The fourth retracts a claim carried forward
+from an earlier session.</p>
+<hr />
+<h2>1. The catalogue holdout is an inverted instrument</h2>
+<p>Every repository in this family validates a candidate field against <em>held-out
+catalogue faults</em> on spatially blocked folds, and only submits what wins there.
+Measured directly — catalogue (<code>labels.tif &gt; 0</code>) as truth, triangular kernel
+R = 300 m = 3 px, all dots off-catalogue:</p>
+<table>
+<thead>
+<tr>
+<th>artifact</th>
+<th>live score</th>
+<th>n</th>
+<th>catalogue credit T</th>
+<th>credit / dot</th>
+<th>% within 300 m</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GEMSDOE32 winner</td>
+<td><strong>0.2778</strong></td>
+<td>37,654</td>
+<td>277.9</td>
+<td>0.0074</td>
+<td><strong>4.28</strong></td>
+</tr>
+<tr>
+<td>GEMSDOE28 runner</td>
+<td>0.2708</td>
+<td>40,199</td>
+<td>1,360.8</td>
+<td>0.0339</td>
+<td>10.34</td>
+</tr>
+<tr>
+<td>GEMSDOE25 dotted</td>
+<td>0.2600</td>
+<td>44,090</td>
+<td>3,954.8</td>
+<td>0.0897</td>
+<td>18.25</td>
+</tr>
+<tr>
+<td>19GEMSDOE powerlaw</td>
+<td>0.1922</td>
+<td>121,131</td>
+<td>10,599.5</td>
+<td>0.0875</td>
+<td>18.60</td>
+</tr>
+<tr>
+<td>14GEMSDOE horse-ensemble</td>
+<td><strong>0.0020</strong></td>
+<td>116,219</td>
+<td>20,915.5</td>
+<td><strong>0.1800</strong></td>
+<td>42.07</td>
+</tr>
+<tr>
+<td>random, size-matched</td>
+<td>—</td>
+<td>37,654</td>
+<td>1,071.1</td>
+<td>0.0284</td>
+<td>6.55</td>
+</tr>
+</tbody>
+</table>
+<p>The group's best artifact earns <strong>0.26×</strong> the credit of a size-matched random
+sample against the catalogue. Its worst earns <strong>6.7×</strong>. Catalogue proximity is
+monotone <em>anti</em>-correlated with the live score.</p>
+<p>This is not a measurement artefact — it is the problem definition. The test set
+is the set of faults the USGS/INGENIOUS catalogue <strong>missed</strong>, and the organizers
+state on the forum that pixels on known faults are masked out of evaluation
+altogether. So a field that scores well on held-out catalogue faults is, by
+construction, pointing at the wrong ground.</p>
+<p><strong>Consequence.</strong> Every "spatially blocked catalogue holdout" ranking in this repo
+and its 34 siblings selects against the real objective. That is the mechanism
+behind the plateau: carefully "validated" candidates scored 0.02–0.15, while
+candidates that avoided the catalogue scored 0.25–0.28.</p>
+<p><code>scripts/run_field_validation.py</code> is retained as a documented negative result.
+Its one genuine success is the control <code>C-1</code>, a 4–12 px ring around the
+catalogue, which scores exactly <strong>0.0000</strong> at every budget — confirming the
+300 m kernel cutoff and that the instrument's mechanics are correct even though
+its target is wrong.</p>
+<hr />
+<h2>2. The leaderboard is the only instrument, and it works</h2>
+<p>With the holdout dead, the 42 user-reported scores are the only measurements of
+the real objective in existence. <code>scripts/run_leaderboard_regression.py</code>
+describes each scored artifact with 34 measurable properties (dot budget,
+distance-to-catalogue profile, mean band percentile at the dots, component size,
+block occupancy) and fits a ridge regression:</p>
+<table>
+<thead>
+<tr>
+<th>λ</th>
+<th>LOO R²</th>
+<th>LOO RMSE</th>
+<th>LOO Spearman</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>+0.871</td>
+<td>0.0292</td>
+<td>+0.955</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td><strong>+0.885</strong></td>
+<td><strong>0.0275</strong></td>
+<td><strong>+0.939</strong></td>
+</tr>
+<tr>
+<td>30</td>
+<td>+0.842</td>
+<td>0.0323</td>
+<td>+0.933</td>
+</tr>
+</tbody>
+</table>
+<p>LOO R² 0.885 on 42 held-out points. The strongest univariate descriptors are
+<code>mad_d_20px</code> (ρ = −0.977) and <code>pr_depth_to_base_surf</code> (ρ = −0.967).</p>
+<h3>What the top designs actually share</h3>
+<table>
+<thead>
+<tr>
+<th>descriptor</th>
+<th>0.2778</th>
+<th>0.2708</th>
+<th>0.2600</th>
+<th>0.0020</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mean_component_px</code></td>
+<td><strong>1.0000</strong></td>
+<td>1.0000</td>
+<td>1.0000</td>
+<td>60.15</td>
+</tr>
+<tr>
+<td><code>block_occupancy_10km</code></td>
+<td><strong>0.9383</strong></td>
+<td>0.9417</td>
+<td>0.9434</td>
+<td>0.6707</td>
+</tr>
+<tr>
+<td><code>frac_le_3px</code></td>
+<td><strong>0.0577</strong></td>
+<td>0.1173</td>
+<td>0.1952</td>
+<td>0.4645</td>
+</tr>
+<tr>
+<td><code>mad_d_5px</code></td>
+<td><strong>14.65</strong></td>
+<td>12.69</td>
+<td>10.00</td>
+<td>2.17</td>
+</tr>
+</tbody>
+</table>
+<p>Every artifact above 0.24 is <strong>perfectly isolated single pixels, spread across
+~94 % of 10 km blocks, with ~6 % within 300 m of the catalogue</strong>.</p>
+<h3>A trap worth recording</h3>
+<p>Two attempts to use this model to <em>generate</em> a field failed the same way, and
+the failure is informative. Ranking pixels by the ridge predictor — or by the
+univariate Spearman weights — and taking the top n drives <strong>every</strong> weighted
+descriptor into its extreme tail. <code>pr_tmi_vg</code> landed 11–18 standard deviations
+below the training floor; the model returned a prediction of <strong>51.16</strong> for a
+metric bounded by 1. A linear model over 42 aggregate descriptors ranks
+<em>designs</em>; it is not a pixel-level objective and cannot be inverted into one.
+(The two weightings also disagree in sign on <code>pr_depth_to_base_surf</code>: +0.0084
+ridge vs ρ = −0.967 univariate — what collinearity at λ = 10 looks like.)</p>
+<p>The fix is in <code>docs/data/winner-signature.json</code>. The winner's dots sit at mean
+percentile <strong>0.639</strong> on <code>lid_upface_max</code> and <strong>0.657</strong> on <code>det_elev_slope</code>, with
+13.2 % in the top decile against 9.8 % for a random sample. The best artifact
+this group has produced was a <strong>mildly-biased scatter, not a detector</strong>. So
+sharpness is a parameter — the fraction <em>q</em> of eligible peaks admitted to a pool
+from which dots are drawn uniformly — and the sweep resolves it:</p>
+<table>
+<thead>
+<tr>
+<th>q</th>
+<th>predicted</th>
+<th>hull clip</th>
+<th>block occupancy</th>
+<th><code>pr_det_elev_slope</code> (winner 0.6573)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.30</td>
+<td>0.2245</td>
+<td>2.11 z</td>
+<td>0.8182</td>
+<td>0.8149</td>
+</tr>
+<tr>
+<td><strong>0.50</strong></td>
+<td><strong>0.2343</strong></td>
+<td><strong>0.61 z</strong></td>
+<td><strong>0.9348</strong></td>
+<td>0.7404</td>
+</tr>
+<tr>
+<td>0.72</td>
+<td>0.2121</td>
+<td>0.46 z</td>
+<td>0.9931</td>
+<td>0.6612</td>
+</tr>
+<tr>
+<td>1.00</td>
+<td>0.1762</td>
+<td>0.46 z</td>
+<td>0.9983</td>
+<td>0.5761</td>
+</tr>
+</tbody>
+</table>
+<p>At <strong>q = 0.5</strong> the candidate independently reproduces the winner's block
+occupancy (0.9348 vs 0.9383) <em>and</em> the model's own prediction for the winner
+(0.2343 vs its LOO 0.2345). Two independent matches: the instrument is
+calibrated. That is the shipped design.</p>
+<hr />
+<h2>3. The 0.1563 three-way tie, confirmed by direct measurement</h2>
+<p><code>GEMSDOE</code>, <code>5GEMSDOE</code> and <code>8GEMSDOE</code> all report exactly 0.1563. The gate
+(<code>scripts/run_collapse_gate.py</code>) resolves it:</p>
+<table>
+<thead>
+<tr>
+<th>comparison</th>
+<th><code>pearson_raw</code></th>
+<th><code>dice_final</code></th>
+<th><code>dice_payload</code></th>
+<th>added px</th>
+<th>% on masked faults</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5GEMSDOE vs GEMSDOE24 <code>ens12-adopted</code></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>0</td>
+<td>—</td>
+<td>0.1563</td>
+</tr>
+<tr>
+<td>8GEMSDOE <code>Hedge-v2</code></td>
+<td>0.8700</td>
+<td>0.8638</td>
+<td><strong>1.0000</strong></td>
+<td>54,533</td>
+<td><strong>100.00 %</strong></td>
+<td>0.1563</td>
+</tr>
+<tr>
+<td>GEMSDOE2 <code>dual-family-union</code> (control)</td>
+<td>0.9701</td>
+<td>0.9701</td>
+<td>0.9725</td>
+<td>10,668</td>
+<td>11.6 %</td>
+<td>0.1560</td>
+</tr>
+</tbody>
+</table>
+<p>5GEMSDOE is a byte-identical re-upload. <code>Hedge-v2</code> <em>looks</em> different — raw
+correlation 0.87 — but all 54,533 of its added pixels land on the catalogue the
+organizers exclude from evaluation, so the scoreable payload is identical. The
+control differs genuinely and scores 0.1560.</p>
+<p><strong>This is why the gate compares two numbers.</strong> Raw surface correlation alone
+would have waved <code>Hedge-v2</code> through as novel. Only payload Dice — restricted to
+the region the metric can see — catches it.</p>
+<hr />
+<h2>4. Retraction: the 0.2778 artifact does <em>not</em> over-emit</h2>
+<p>An earlier session recorded <code>marginal_bar(0.2778) = 0.0476</code> and concluded the
+winner over-emits ~4×, so the recommended lever was to cut its budget. Both
+halves are wrong.</p>
+<p>The metric is <code>TI = T / (T + αF + βFN)</code> with <code>FN = M − T</code> and <code>F = n − S</code>, where
+<code>T = Σ_g max_x k(d)</code> and <code>S = Σ_x max_g k(d)</code>. Adding one dot whose best truth
+pixel gains credit <em>t</em>: <code>T → T+t</code>, <code>S → S+t</code>, <code>n → n+1</code>, so <code>F → F + 1 − t</code> and
+the denominator <code>D = 0.2T + 0.2F + 0.8M</code> becomes exactly <code>D + 0.2</code>. The dot helps
+iff <code>(T+t)/(D+0.2) &gt; T/D</code>, i.e.</p>
+<blockquote>
+<p><strong>keep a dot iff t &gt; 0.2 · TI</strong>  — at TI = 0.2778 the bar is <strong>0.0556</strong>, not 0.0476.</p>
+</blockquote>
+<p>(The old formula <code>α·s/(1 − α·s + β·s)</code> double-counts; this derivation reproduces
+the official worked example: TPw 3.00, FPw 1.89, FNw 2.00 → 0.6027 vs the stated
+0.60.)</p>
+<p>Solving <code>T = 0.2778 · (0.2n + 0.8M)</code> at n = 37,654:</p>
+<table>
+<thead>
+<tr>
+<th>hidden mass M</th>
+<th>T</th>
+<th>mean credit / dot</th>
+<th>vs bar 0.0556</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8,355</td>
+<td>3,949</td>
+<td>0.1049</td>
+<td><strong>above</strong></td>
+</tr>
+<tr>
+<td>9,754</td>
+<td>4,260</td>
+<td>0.1131</td>
+<td><strong>above</strong></td>
+</tr>
+<tr>
+<td>11,153</td>
+<td>4,571</td>
+<td>0.1214</td>
+<td><strong>above</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The winner's average dot earns roughly twice the marginal bar. Cutting its
+budget uniformly removes dots worth more than they cost. The leaderboard model
+agrees empirically — across the matched arrangement the budget curve is flat
+(0.2336 at 18,000 → 0.2346 at 37,654). <strong>The budget lever is dead.</strong></p>
+<p>What the identity does say: with <code>S ≈ T</code> it reduces to</p>
+<blockquote>
+<p><strong>TI = T / (0.2 n + 0.8 M)</strong></p>
+</blockquote>
+<p>so at fixed budget the <em>only</em> lever is raising T — covering more distinct hidden
+fault pixels, closer. The ceiling at n = 37,654 and M = 9,754 is 0.636; the
+winner captures 44 % of it.</p>
+<hr />
+<h2>Five geological hypotheses not yet tried in this family</h2>
+<p>Each names the layers it uses, the physical signature, why it should find faults
+the catalogue missed, and how it differs from what this repository already
+implements. Ranked by expected gain against implementation cost.</p>
+<p><strong>None of them has been validated.</strong> No instrument in this workspace can score a
+hypothesis against faults absent from every published catalogue, and the one
+instrument that could rank them — the catalogue holdout — is inverted (§1). The
+ranking below is by measured coefficient strength and physical argument, not by
+observed score.</p>
+<h3>1. Magnetic-gradient ratio <code>tmi_hg / tmi_vg</code> — deep lateral offset, not shallow source</h3>
+<ul>
+<li><strong>Layers:</strong> <code>tmi_hg</code> (+0.167, the largest positive ridge coefficient),
+  <code>tmi_vg</code> (−0.512, the largest negative), <code>mag_anom</code>, <code>rtp</code>, <code>ext_TMI_up150</code>.</li>
+<li><strong>Signature:</strong> a normal fault juxtaposes basement of different magnetisation,
+  producing a <em>lateral</em> gradient high. The vertical gradient instead emphasises
+  shallow, near-surface sources — and it is the single strongest <em>negative</em>
+  predictor in the whole design matrix.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> the discriminant is depth of source.
+  A buried fault offsetting deep basement has high <code>tmi_hg</code> and <em>low</em> <code>tmi_vg</code>;
+  the USGS maps surface traces, so exactly this class is absent from it.</li>
+<li><strong>Difference from the repo:</strong> every existing implementation thresholds
+  <code>tmi_hg</code> or applies a tilt-angle operator, which mixes the two. None forms the
+  ratio, and none uses <code>tmi_vg</code> as a suppressor.</li>
+<li><strong>Cost:</strong> low — both bands are in the official 19-band stack.</li>
+</ul>
+<h3>2. Potassium-depletion alteration edge</h3>
+<ul>
+<li><strong>Layers:</strong> <code>rad_K</code> (−0.141 measured lift), <code>rad_TC</code> (−0.123), <code>rad_Th</code>
+  (−0.087), <code>rad_U</code> (−0.083), <code>ext_UK</code> (<strong>+0.068</strong>), <code>ext_UTh</code> (+0.052).</li>
+<li><strong>Signature:</strong> hydrothermal alteration along a fault zone leaches potassium and
+  concentrates uranium and thorium relative to it. The measured winner is
+  negative on <em>every absolute</em> radiometric channel and positive on the <em>ratio</em>
+  <code>U/K</code>. The ratio is the signal; the totals are not.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> alteration is a subsurface process.
+  A fault can be fully altered at depth with no surface trace to map — the
+  competition's own brief says "many are hidden below the surface".</li>
+<li><strong>Difference from the repo:</strong> existing radiometric work uses total-count and
+  tilt-angle operators. None forms a K-depletion gradient measured <em>normal to an
+  estimated strike</em>, which is what separates an alteration front from a
+  lithologic contact.</li>
+<li><strong>Cost:</strong> low — bands are in <code>/tmp/ext</code>, already co-registered.</li>
+</ul>
+<h3>3. Scarp-face asymmetry with low profile coherence</h3>
+<ul>
+<li><strong>Layers:</strong> <code>lid_upface_max</code> (+0.139), <code>lid_downface_max</code> (+0.125),
+  <code>lid_coh100</code> (<strong>−0.260</strong>, third-strongest ridge coefficient), <code>lid_ex_max</code>
+  (+0.113), <code>lid_relief</code> (+0.108).</li>
+<li><strong>Signature:</strong> a young normal fault has a steep planar up-facing scarp and a
+  blocky, disrupted footwall. A <em>high</em> 100 m profile coherence means a smooth,
+  undissected surface — i.e. either buried or long inactive. So the discriminant
+  is up/down-face asymmetry <strong>combined with low</strong> coherence.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> it separates <em>young</em> scarps from
+  degraded ones. Degraded scarps are the ones field mapping misses.</li>
+<li><strong>Difference from the repo:</strong> the LiDAR work here thresholds scarp height or
+  curvature magnitude alone and never uses coherence as a suppressor — yet it is
+  the third-strongest coefficient in the fitted model.</li>
+<li><strong>Cost:</strong> low.</li>
+</ul>
+<h3>4. Basement <em>step</em>, decorrelated from elevation</h3>
+<ul>
+<li><strong>Layers:</strong> <code>depth_to_base_surf</code>, <code>det_elev</code>, <code>det_elev_slope</code>,
+  <code>iso_grav_anom</code>, <code>iso_grav_anom_hg</code>.</li>
+<li><strong>Signature — and a warning:</strong> <code>pr_depth_to_base_surf</code> has univariate
+  ρ = <strong>−0.967</strong> (shallow basement good) but a ridge coefficient of <strong>+0.190</strong>
+  (deep good). The two disagree because the descriptor is collinear with
+  <code>det_elev</code>. The physically meaningful quantity is neither: it is the <em>gradient</em>
+  of basement depth — a large offset reaches the surface from any absolute depth.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> a deep basin margin with a large
+  basement step is exactly where an unmapped normal fault lives, and it is
+  invisible to any detector keyed on absolute depth or on elevation slope alone.</li>
+<li><strong>Difference from the repo:</strong> every existing implementation uses
+  <code>depth_to_base_surf</code> as a <em>level</em>. None uses its gradient, and none
+  decorrelates it from <code>det_elev_slope</code> before use.</li>
+<li><strong>Cost:</strong> low, but it must be built with the collinearity in mind or it will
+  reproduce the sign confusion above.</li>
+</ul>
+<h3>5. Access-bias negative prior — <strong>measured and falsified</strong></h3>
+<p>The obvious hypothesis is that the catalogue is incomplete where surveyors could
+not go, so unmapped faults should sit far from roads and outside mining claims.
+Measured directly against <code>tiger_road_distance_m</code> and
+<code>blm_closed_claim_distance_m</code>:</p>
+<table>
+<thead>
+<tr>
+<th>threshold</th>
+<th>catalogue</th>
+<th>footprint</th>
+<th>ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; 200 m of a road</td>
+<td>20.32 %</td>
+<td>19.19 %</td>
+<td><strong>1.06×</strong></td>
+</tr>
+<tr>
+<td>&lt; 1 km of a road</td>
+<td>66.44 %</td>
+<td>62.99 %</td>
+<td>1.05×</td>
+</tr>
+<tr>
+<td>&lt; 200 m of a closed claim</td>
+<td>46.49 %</td>
+<td>44.88 %</td>
+<td><strong>1.04×</strong></td>
+</tr>
+<tr>
+<td>&lt; 1 km of a closed claim</td>
+<td>64.41 %</td>
+<td>63.73 %</td>
+<td>1.01×</td>
+</tr>
+</tbody>
+</table>
+<p>A 1.01–1.06× enrichment is not a usable prior. <strong>Catalogue incompleteness in
+this region does not follow survey access.</strong> Recorded so that nobody builds it.</p>
+<hr />
+<h2>Ranked next steps</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>idea</th>
+<th>expected gain</th>
+<th>cost</th>
+<th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Raise T by <em>distinct-fault coverage</em>, not dot count: greedy maximum-coverage placement over a habitat field, each new dot required to cover a 300 m disc not already covered</td>
+<td>large (T is the only free term)</td>
+<td>medium — needs a coverage-aware selector</td>
+<td><strong>not started</strong>; strongest lever the identity permits</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enlarge the descriptor set with per-pixel <em>anisotropy</em> (fault-parallel vs fault-perpendicular structure) — no artifact in the corpus is described by orientation</td>
+<td>unknown; the model cannot currently see it</td>
+<td>medium</td>
+<td>not started</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Fit the model on <strong>orientation-matched</strong> subsets to test whether the 0.32 leaderboard entries differ in arrangement rather than habitat</td>
+<td>diagnostic</td>
+<td>low</td>
+<td>not started</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Push q below 0.5 with occupancy pinned at 0.9383 (decouple the two, currently confounded)</td>
+<td>small</td>
+<td>low</td>
+<td>partially explored; q and occupancy are not independent in the current selector</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Re-derive M from the <em>score</em> rather than from the catalogue, using several artifacts at different budgets</td>
+<td>diagnostic; tightens every identity above</td>
+<td>low</td>
+<td>not started</td>
+</tr>
+</tbody>
+</table>
+<p>None of these has beaten 0.2778 on any instrument, so none of them justifies a
+slot on its own.</p><footer>Generated 2026-10-04 22:55 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

@@ -1,43 +1,23 @@
 {
- "name": "h34-scatter-q50-arr-matched-20261004T223317Z",
- "tif": "h34-scatter-q50-arr-matched-20261004T223317Z.tif",
- "zip": "h34-scatter-q50-arr-matched-20261004T223317Z.zip",
+ "generated_utc": "2026-10-04T22:34:10.797353+00:00",
+ "artifact": "h34-scatter-q50-arr-matched-20261004T223317Z",
+ "path": "docs/downloads/h34-scatter-q50-arr-matched-20261004T223317Z.tif",
  "sha256": "acf00361263a14c29fc6292bce2f10f862ec3ac258e1cd123a8a17c37bd5d203",
  "bytes": 337485,
- "short_comment": "h34-scatter-q50-arr-matched isolated-px n=37654",
+ "zip": "docs/downloads/h34-scatter-q50-arr-matched-20261004T223317Z.zip",
+ "crs": "EPSG:32611",
  "n_positive": 37654,
- "composition": {
-  "isolated_single_pixels": 37654,
-  "on_catalogue": 0,
-  "note": "deliberately zero pixels on the USGS/INGENIOUS catalogue: those pixels are masked out of evaluation, so a catalogue carpet is metrically inert and is the mechanism behind the 0.1563 three-way tie"
- },
- "receipt": {
-  "format_ok": true,
-  "checks": 9,
-  "n_components": 37654,
-  "mean_component_px": 1.0,
-  "max_component_px": 1
- },
- "gate": {
-  "allowed": true,
-  "verdict": "ALLOWED",
-  "max_payload_dice": 0.0407,
-  "nearest": "GEMSDOE23__docs_downloads_gemsdoe23-h30-arrangement-matched-habitat",
-  "thresholds": {
-   "pearson_raw": 0.98,
-   "dice_final": 0.95,
-   "dice_payload": 0.95
-  },
-  "corpus": 302
- },
- "projection": {
-  "point": 0.2346,
-  "loo_rmse": 0.0275,
-  "loo_r2": 0.8852,
+ "value_range": [
+  0.0,
+  1.0
+ ],
+ "drivendata_note": "h34-scatter-q50-arr-matched isolated-px n=37654",
+ "predicted_score": 0.2346,
+ "prediction_basis": {
+  "model_loo_rmse": 0.0275,
+  "model_loo_r2": 0.8852,
   "hull_clip_z": 0.644,
-  "n_descriptors_clipped": 5,
-  "beats_0_2778": false,
-  "statement": "Predicted 0.2346, which is also what the model predicts for the 0.2778 artifact itself (LOO 0.2345). This design reproduces a known-good family; it does not exceed it."
+  "n_descriptors_clipped": 5
  },
  "design": {
   "habitat": "H-M mildly-biased scatter (21 bands, pool quantile tuned)",
@@ -125,9 +105,23 @@
    "pool_q": 0.5
   }
  },
- "receipts": [
-  "h34-scatter-q50-arr-matched-20261004T223317Z-audit.json",
-  "h34-scatter-q50-arr-matched-20261004T223317Z-selection.json",
-  "h34-scatter-q50-arr-matched-20261004T223317Z-manifest.json"
- ]
+ "gate": {
+  "instrument": "run_collapse_gate.py vs 302-raster corpus (/tmp/corpus)",
+  "max_payload_dice": 0.0407,
+  "nearest": "GEMSDOE23__docs_downloads_gemsdoe23-h30-arrangement-matched-habitat",
+  "verdict": "ALLOWED",
+  "thresholds": {
+   "pearson_raw": 0.98,
+   "dice_final": 0.95,
+   "dice_payload": 0.95
+  },
+  "note": "Payload Dice is computed on the scoreable region only: pixels on the USGS/INGENIOUS catalogue are excluded from evaluation per organizer statement, so two rasters can differ by tens of thousands of pixels and still be scoring-identical. 8GEMSDOE Hedge-v2 is exactly that case (pearson_raw 0.8700, 54,533 added pixels, 100.00% of them on the catalogue, dice_payload 1.0000, score 0.1563 identical to GEMSDOE)."
+ },
+ "metric_identity": {
+  "formula": "TI = T / (0.2*T + 0.2*F + 0.8*M), F = n - S, S = sum_x max_g k(d)",
+  "reduces_to": "TI = T / (0.2*n + 0.8*M) when S ~ T",
+  "marginal_bar": "keep a dot iff its credit t > 0.2*TI (0.0556 at TI=0.2778)",
+  "verified_against": "official worked example TPw=3.00 FPw=1.89 FNw=2.00 -> 0.6027 vs stated 0.60",
+  "correction": "the previously recorded marginal bar 0.0476 and the claim that the 0.2778 artifact over-emits ~4x are both wrong: its implied mean credit per dot is 0.105-0.121 across M in [8355,11153], above the 0.0556 bar"
+ }
 }
