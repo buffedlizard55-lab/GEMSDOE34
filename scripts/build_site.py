@@ -142,45 +142,61 @@ def build() -> int:
     receipt = sub.get("receipt", {})
     note = sub.get("short_comment", sub.get("note_string", ""))
     n_pos = sub.get("n_positive", 81016)
-    n_carpet = sub.get("n_carpet", comp.get("carpet", 60988))
+    n_carpet = sub.get("n_carpet", comp.get("carpet", 0))
     n_payload = sub.get("n_payload", comp.get("dots", n_pos - n_carpet))
 
+    proj = sub.get("projection", {})
+    comp_note = comp.get("note", "")
     dl = f"""<div class="dl">
-<h2>⬇ Official Competition Submission File (Ready for Upload)</h2>
-<p>This candidate satisfies all competition requirements: EPSG:32611 CRS, 100 m resolution, 3730×3292 grid, 100% finite float32 in strictly [0, 1] range (eliminating DrivenData upload form validation errors), and fully gated against 272 prior submissions.</p>
+<h2>⬇ Download the submission (ready to upload)</h2>
+<p>
+<a class="btn" href="downloads/{escape(tif)}" download>⬇ Download {escape(tif)} ({sub.get("bytes", receipt.get("bytes", 0)):,} B)</a>
+<a class="btn z" href="downloads/{escape(zipn)}" download>📦 Download .zip</a>
+</p>
 
 <div class="step-box">
-<strong>Submission Instructions (3 Steps):</strong>
+<strong>How to submit (3 steps):</strong>
 <ol>
-<li><strong>Download the GeoTIFF:</strong> Click the green button below to download <code>{escape(tif)}</code> (or the .zip).</li>
-<li><strong>Upload to DrivenData:</strong> Navigate to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submit/" target="_blank" rel="noopener">DrivenData Submission Portal</a> → Click <em>New submission → File to submit</em> → Select the downloaded file.</li>
-<li><strong>Paste Note:</strong> Copy and paste the short comment string below into the Note field and click Submit.</li>
+<li>Click the green button above to download <code>{escape(tif)}</code>.</li>
+<li>Open the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submit/" target="_blank" rel="noopener">DrivenData submission portal</a> → <em>New submission → File to submit</em> → select the file.</li>
+<li>Paste the note string below into the Note field and submit.</li>
 </ol>
 </div>
 
-<p>
-<a class="btn" href="downloads/{escape(tif)}" download>⬇ Download {escape(tif)} ({receipt.get('bytes', 366278):,} B)</a>
-<a class="btn z" href="downloads/{escape(zipn)}" download>📦 Download .zip Archive</a>
-</p>
-
-<p class="mut">
-<strong>File SHA-256:</strong> <code>{escape(sha)}</code><br>
-<strong>Positive Support:</strong> {n_pos:,} pixels ({n_carpet:,} known-fault carpet + {n_payload:,} off-catalogue consensus dots)<br>
-<strong>Value Range:</strong> [0.0, 1.0] strictly finite float32 ·
-<span class="tag {'ok' if receipt.get('format_ok') else 'bad'}">format_ok={str(receipt.get('format_ok'))}</span>
-<span class="tag {'ok' if gate.get('allowed') else 'bad'}">Gate ALLOWED={str(gate.get('allowed'))}</span>
-(Checked vs {len(reg.get('entries', []))} historical artifacts)
-</p>
-
-<details><summary>📋 DrivenData Submission Note String (Click to Expand)</summary>
+<details open><summary>📋 DrivenData note string (copy this)</summary>
 {pre(note)}
 </details>
 
-<details><summary>📜 Audit Receipts &amp; Gate Reports (Shipped Next to Raster)</summary>
+<p class="mut">
+<strong>SHA-256:</strong> <code>{escape(sha)}</code><br>
+<strong>Payload:</strong> {n_pos:,} positive pixels, {receipt.get('n_components', 0):,} connected
+components, max component {receipt.get('max_component_px', 0)} px — every dot is isolated, and
+{comp.get('on_catalogue', 0):,} of them sit on the USGS/INGENIOUS catalogue.<br>
+<strong>Values:</strong> 1.0 on the payload, 0.0 elsewhere inside the footprint, NaN outside.
+The NaN mask is identical to <code>sample_submission.tif</code> (7,111,787 px), so the file
+cannot trip the "Predicted values must be in range [0, 1]" check.<br>
+<span class="tag {'ok' if receipt.get('format_ok') else 'bad'}">{receipt.get('checks', 0)}/9 format checks PASS</span>
+<span class="tag {'ok' if gate.get('allowed') else 'bad'}">uniqueness gate {escape(str(gate.get('verdict')))}</span>
+<span class="tag warn">projected {proj.get('point')} ± {proj.get('loo_rmse')}</span>
+</p>
+
+<div class="step-box">
+<strong>What this file is, and what it is not.</strong>
+It is {n_pos:,} isolated single pixels drawn uniformly from the top half of a 21-band
+habitat field, with their distance-to-catalogue profile and 10 km block spread matched to the
+0.2778 artifact. Its pixels are new: the closest of {gate.get('corpus', 0)} historical rasters
+shares {100 * gate.get('max_payload_dice', 0):.2f} % of its payload (Dice), so it is not a
+re-upload.
+<br><br>
+It is <strong>not</strong> predicted to beat 0.2778. {escape(proj.get('statement', ''))}
+Read <a href="limitations.html">Limitations</a> before spending a weekly slot.
+<br><br>
+{escape(comp_note)}
+</div>
+
+<details><summary>📜 Receipts shipped next to the raster</summary>
 <ul>
-<li><code>docs/downloads/{name}-audit.json</code> — Strict byte-level format receipt verifying CRS, resolution, bounds, and [0,1] range</li>
-<li><code>docs/downloads/{name}-gate.json</code> — Full pre-submission gate report against 272 historical artifacts</li>
-<li><code>docs/downloads/{name}-manifest.json</code> — Submission manifest and generation parameter ledger</li>
+{"".join(f"<li><code>docs/downloads/{escape(r)}</code></li>" for r in sub.get("receipts", []))}
 </ul>
 </details>
 </div>"""
@@ -332,6 +348,7 @@ A formal gate hashes and correlates all candidates against 272 historical submis
         "sources.html": page("Verified Official Sources", md("docs/sources.md") + "\n\n" + md("docs/knowledge/01_official_sources.md"), "sources.html"),
         "irregularities.html": page("Data Irregularities", md("docs/irregularities.md"), "irregularities.html"),
         "limitations.html": page("Limitations & Future Work", md("docs/limitations.md"), "limitations.html"),
+        "findings.html": page("Session Findings 2026-10-04", md("docs/findings-2026-10-04.md"), "findings.html"),
     })
 
 

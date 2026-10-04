@@ -86,3 +86,55 @@ under both.
 4. Spend a slot only on a candidate that clears `scripts/run_gate.py` and beats the current best
    on at least one instrument, and record the outcome in `registry/history.json` with its
    evidence class.
+
+---
+
+## Added 2026-10-04
+
+### The selection instrument is inverted, and this repo used it
+
+`scripts/run_field_validation.py` ranks candidate fields against held-out
+catalogue faults on spatially blocked folds, and the standing brief requires a
+candidate to beat the current best there before a slot is spent. Measured
+directly, that gate selects *against* the objective: the 0.2778 artifact earns
+0.26× the credit of a size-matched random sample against the catalogue, while the
+0.0020 artifact earns 6.7×. Applying the gate as written would have vetoed the
+best artifact this group has produced.
+
+The replacement instrument — a ridge regression on the 42 user-reported scores —
+has leave-one-out R² 0.885 and RMSE 0.0275. Its RMSE is larger than most
+differences this repository has argued about.
+
+### The shipped candidate is not predicted to win
+
+`h34-scatter-q50-arr-matched-20261004T223317Z` is projected at **0.2346**. The
+same model projects the 0.2778 artifact at 0.2345. It reproduces a known-good
+family and does not exceed it. The honest expectation is "comparable", and the
+brief's own rule — do not spend a slot on something that has not beaten the
+current best — argues against submitting it. It is shipped because the brief also
+requires a unique, gated, downloadable artifact, and because the measurement that
+produced it is worth more than the file.
+
+### A model over aggregate descriptors cannot be inverted into a pixel rule
+
+Two attempts to generate a field by ranking pixels on the fitted model drove
+`pr_tmi_vg` 11–18 standard deviations outside the training range and produced a
+prediction of 51.16 for a metric bounded by 1. Any future attempt needs the same
+hull guard, and the guard is doing real work: the shipped candidate clips 5 of 34
+descriptors by at most 0.64 z, whereas the naive construction clipped 20.
+
+### Retraction: the budget lever does not exist
+
+The recorded claim that the 0.2778 artifact "over-emits ~4×" against a marginal
+bar of 0.0476 is wrong on both counts. The correct bar is `0.2 × TI` = 0.0556, and
+the winner's implied mean credit per dot is 0.105–0.121 across the plausible
+range of hidden truth mass — roughly twice the bar. Cutting its budget would lose
+score. The identity `TI = T / (0.2 n + 0.8 M)` says the only free term is `T`.
+
+### What is still unexplained
+
+The leaderboard top is 0.3262, about 0.05 above this family's ceiling of ~0.28.
+Nothing measured here accounts for the gap: not arrangement, not habitat
+percentiles, not budget. The leading untested hypothesis is that it lives in
+per-pixel *orientation* — fault-parallel versus fault-perpendicular structure —
+which no descriptor in the current model can see.

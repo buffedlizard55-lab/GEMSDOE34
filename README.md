@@ -8,6 +8,19 @@
 [site](docs/index.html) for the file, its SHA-256, its format receipt and the
 Note string to paste into the submission form.**
 
+**Current candidate:** `docs/downloads/h34-scatter-q50-arr-matched-20261004T223317Z.tif`
+· 37,654 isolated single pixels · SHA-256
+`acf00361263a14c29fc6292bce2f10f862ec3ac258e1cd123a8a17c37bd5d203` · uniqueness
+gate **ALLOWED** (closest of 302 rasters shares 4.07 % of payload) · projected
+**0.2346 ± 0.0275**, i.e. *not* predicted to beat 0.2778.
+
+**Read [`docs/findings-2026-10-04.md`](docs/findings-2026-10-04.md) first.** It
+records that the spatially-blocked catalogue holdout used by every repository in
+this family is an **inverted instrument**: measured against the catalogue as
+truth, the 0.2778 artifact earns 0.26× the credit of a size-matched random
+sample and the 0.0020 artifact earns 6.7×. It also retracts the earlier
+"over-emits 4×" claim.
+
 ---
 
 ## Standing brief (read this first, every session)

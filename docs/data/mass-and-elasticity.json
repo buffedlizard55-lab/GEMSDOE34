@@ -1,0 +1,1506 @@
+{
+ "generated_utc": "2026-10-04T20:53:52.267400+00:00",
+ "method": "T(s,n,M) = s(0.2n+0.8M)/(1-0.2s); M bounded by subset-monotonicity and T<=M",
+ "approximation": "F ~ n (every off-mask dot charged 1.0); exact when no dot lands within 300 m of truth",
+ "n_artifacts": 42,
+ "n_nested_pairs": 23,
+ "M_lower": 8355.4,
+ "M_upper": 11153.3,
+ "binding_constraints": [
+  {
+   "kind": "monotonicity",
+   "pair": "h23-a-dti-optimal-emission-6pct-\u2026 -> h23-b-dti-optimal-emission-10pct-\u2026",
+   "bound": "M <=",
+   "value": 46524.7
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "dotted-h19-5-d2-8-20261002-e56ea318af89 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "bound": "M <=",
+   "value": 40755.0
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "efd28-repro-20261003-1cc7dc534d51 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "bound": "M <=",
+   "value": 40755.0
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "d28-poisson300m-offcat-44090-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "bound": "M <=",
+   "value": 40755.0
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "bound": "M <=",
+   "value": 36764.5
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "bound": "M <=",
+   "value": 36764.5
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h25-1-dotted-h19-5-d1-5-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "bound": "M <=",
+   "value": 35231.2
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "bound": "M <=",
+   "value": 34847.9
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "bound": "M <=",
+   "value": 13840.7
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-solo-d28-20261004-8acb75e1-nan",
+   "bound": "M <=",
+   "value": 13840.7
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "bound": "M <=",
+   "value": 12783.7
+  },
+  {
+   "kind": "monotonicity",
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> efd28-repro-20261003-1cc7dc534d51",
+   "bound": "M <=",
+   "value": 12783.7
+  }
+ ],
+ "nested_pairs": [
+  {
+   "small": "gems-submission-20260925T001403Z-7f00890a",
+   "big": "gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "small_repo": "GEMSDOE",
+   "big_repo": "GEMSDOE2",
+   "n_small": 166519,
+   "n_big": 175949,
+   "containment": 1.0,
+   "s_small": 0.1563,
+   "s_big": 0.156
+  },
+  {
+   "small": "gems-submission-20260926T175114Z-7f00890a",
+   "big": "gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "small_repo": "5GEMSDOE",
+   "big_repo": "GEMSDOE2",
+   "n_small": 166519,
+   "n_big": 175949,
+   "containment": 1.0,
+   "s_small": 0.1563,
+   "s_big": 0.156
+  },
+  {
+   "small": "Hedge-v2_submission",
+   "big": "gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "small_repo": "8GEMSDOE",
+   "big_repo": "GEMSDOE2",
+   "n_small": 166519,
+   "n_big": 175949,
+   "containment": 1.0,
+   "s_small": 0.1563,
+   "s_big": 0.156
+  },
+  {
+   "small": "h23-a-dti-optimal-emission-6pct-\u2026",
+   "big": "h23-b-dti-optimal-emission-10pct-\u2026",
+   "small_repo": "GEMSDOE22",
+   "big_repo": "GEMSDOE22",
+   "n_small": 335879,
+   "n_big": 516738,
+   "containment": 1.0,
+   "s_small": 0.1002,
+   "s_big": 0.0748
+  },
+  {
+   "small": "h25-1-dotted-h19-5-d1-5-\u2026",
+   "big": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "small_repo": "GEMSDOE24",
+   "big_repo": "19GEMSDOE",
+   "n_small": 60069,
+   "n_big": 121131,
+   "containment": 1.0,
+   "s_small": 0.2477,
+   "s_big": 0.1922
+  },
+  {
+   "small": "h25-1-dotted-h19-5-d1-5-\u2026",
+   "big": "topo-gap-closure-t-v2-on-d1-5-\u2026",
+   "small_repo": "GEMSDOE24",
+   "big_repo": "GEMSDOE27",
+   "n_small": 60069,
+   "n_big": 61328,
+   "containment": 1.0,
+   "s_small": 0.2477,
+   "s_big": 0.2449
+  },
+  {
+   "small": "dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "big": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "small_repo": "GEMSDOE25",
+   "big_repo": "19GEMSDOE",
+   "n_small": 44090,
+   "n_big": 121131,
+   "containment": 1.0,
+   "s_small": 0.26,
+   "s_big": 0.1922
+  },
+  {
+   "small": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "big": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "small_repo": "GEMSDOE28",
+   "big_repo": "19GEMSDOE",
+   "n_small": 40199,
+   "n_big": 121131,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.1922
+  },
+  {
+   "small": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "big": "dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "small_repo": "GEMSDOE28",
+   "big_repo": "GEMSDOE25",
+   "n_small": 40199,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.26
+  },
+  {
+   "small": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "big": "efd28-repro-20261003-1cc7dc534d51",
+   "small_repo": "GEMSDOE28",
+   "big_repo": "GEMSDOE29",
+   "n_small": 40199,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.26
+  },
+  {
+   "small": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "big": "d28-poisson300m-offcat-44090-\u2026",
+   "small_repo": "GEMSDOE28",
+   "big_repo": "GEMSDOE30",
+   "n_small": 40199,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.26
+  },
+  {
+   "small": "efd28-repro-20261003-1cc7dc534d51",
+   "big": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "small_repo": "GEMSDOE29",
+   "big_repo": "19GEMSDOE",
+   "n_small": 44090,
+   "n_big": 121131,
+   "containment": 1.0,
+   "s_small": 0.26,
+   "s_big": 0.1922
+  },
+  {
+   "small": "d28-poisson300m-offcat-44090-\u2026",
+   "big": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "small_repo": "GEMSDOE30",
+   "big_repo": "19GEMSDOE",
+   "n_small": 44090,
+   "n_big": 121131,
+   "containment": 1.0,
+   "s_small": 0.26,
+   "s_big": 0.1922
+  },
+  {
+   "small": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "big": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "small_repo": "GEMSDOE31",
+   "big_repo": "19GEMSDOE",
+   "n_small": 40199,
+   "n_big": 121131,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.1922
+  },
+  {
+   "small": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "big": "dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "small_repo": "GEMSDOE31",
+   "big_repo": "GEMSDOE25",
+   "n_small": 40199,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.26
+  },
+  {
+   "small": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "big": "efd28-repro-20261003-1cc7dc534d51",
+   "small_repo": "GEMSDOE31",
+   "big_repo": "GEMSDOE29",
+   "n_small": 40199,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.26
+  },
+  {
+   "small": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "big": "d28-poisson300m-offcat-44090-\u2026",
+   "small_repo": "GEMSDOE31",
+   "big_repo": "GEMSDOE30",
+   "n_small": 40199,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2708,
+   "s_big": 0.26
+  },
+  {
+   "small": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "big": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "small_repo": "GEMSDOE32",
+   "big_repo": "19GEMSDOE",
+   "n_small": 37654,
+   "n_big": 121131,
+   "containment": 1.0,
+   "s_small": 0.2778,
+   "s_big": 0.1922
+  },
+  {
+   "small": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "big": "dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "small_repo": "GEMSDOE32",
+   "big_repo": "GEMSDOE25",
+   "n_small": 37654,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2778,
+   "s_big": 0.26
+  },
+  {
+   "small": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "big": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "small_repo": "GEMSDOE32",
+   "big_repo": "GEMSDOE28",
+   "n_small": 37654,
+   "n_big": 40199,
+   "containment": 1.0,
+   "s_small": 0.2778,
+   "s_big": 0.2708
+  },
+  {
+   "small": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "big": "efd28-repro-20261003-1cc7dc534d51",
+   "small_repo": "GEMSDOE32",
+   "big_repo": "GEMSDOE29",
+   "n_small": 37654,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2778,
+   "s_big": 0.26
+  },
+  {
+   "small": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "big": "d28-poisson300m-offcat-44090-\u2026",
+   "small_repo": "GEMSDOE32",
+   "big_repo": "GEMSDOE30",
+   "n_small": 37654,
+   "n_big": 44090,
+   "containment": 1.0,
+   "s_small": 0.2778,
+   "s_big": 0.26
+  },
+  {
+   "small": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "big": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "small_repo": "GEMSDOE32",
+   "big_repo": "GEMSDOE31",
+   "n_small": 37654,
+   "n_big": 40199,
+   "containment": 1.0,
+   "s_small": 0.2778,
+   "s_big": 0.2708
+  }
+ ],
+ "elasticity": [
+  {
+   "M": 8355.4,
+   "pair": "gems-submission-20260925T001403Z-7f00890a -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6451.8,
+   "dT": 290.9,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.8188
+  },
+  {
+   "M": 9754.3,
+   "pair": "gems-submission-20260925T001403Z-7f00890a -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6632.4,
+   "dT": 290.6,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.7955
+  },
+  {
+   "M": 11153.3,
+   "pair": "gems-submission-20260925T001403Z-7f00890a -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6813.0,
+   "dT": 290.2,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.7734
+  },
+  {
+   "M": 8355.4,
+   "pair": "gems-submission-20260926T175114Z-7f00890a -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6451.8,
+   "dT": 290.9,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.8188
+  },
+  {
+   "M": 9754.3,
+   "pair": "gems-submission-20260926T175114Z-7f00890a -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6632.4,
+   "dT": 290.6,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.7955
+  },
+  {
+   "M": 11153.3,
+   "pair": "gems-submission-20260926T175114Z-7f00890a -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6813.0,
+   "dT": 290.2,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.7734
+  },
+  {
+   "M": 8355.4,
+   "pair": "Hedge-v2_submission -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6451.8,
+   "dT": 290.9,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.8188
+  },
+  {
+   "M": 9754.3,
+   "pair": "Hedge-v2_submission -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6632.4,
+   "dT": 290.6,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.7955
+  },
+  {
+   "M": 11153.3,
+   "pair": "Hedge-v2_submission -> gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "n_small": 166519,
+   "n_big": 175949,
+   "n_mid": 171234,
+   "T_small": 6813.0,
+   "dT": 290.2,
+   "dn": 9430,
+   "marginal_credit": 0.0308,
+   "elasticity": 0.7734
+  },
+  {
+   "M": 8355.4,
+   "pair": "h23-a-dti-optimal-emission-6pct-\u2026 -> h23-b-dti-optimal-emission-10pct-\u2026",
+   "n_small": 335879,
+   "n_big": 516738,
+   "n_mid": 426308,
+   "T_small": 7552.1,
+   "dT": 803.3,
+   "dn": 180859,
+   "marginal_credit": 0.0044,
+   "elasticity": 0.2507
+  },
+  {
+   "M": 9754.3,
+   "pair": "h23-a-dti-optimal-emission-6pct-\u2026 -> h23-b-dti-optimal-emission-10pct-\u2026",
+   "n_small": 335879,
+   "n_big": 516738,
+   "n_mid": 426308,
+   "T_small": 7666.6,
+   "dT": 773.8,
+   "dn": 180859,
+   "marginal_credit": 0.0043,
+   "elasticity": 0.2379
+  },
+  {
+   "M": 11153.3,
+   "pair": "h23-a-dti-optimal-emission-6pct-\u2026 -> h23-b-dti-optimal-emission-10pct-\u2026",
+   "n_small": 335879,
+   "n_big": 516738,
+   "n_mid": 426308,
+   "T_small": 7781.0,
+   "dT": 744.4,
+   "dn": 180859,
+   "marginal_credit": 0.0041,
+   "elasticity": 0.2255
+  },
+  {
+   "M": 8355.4,
+   "pair": "h25-1-dotted-h19-5-d1-5-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 60069,
+   "n_big": 121131,
+   "n_mid": 90600,
+   "T_small": 4872.9,
+   "dT": 1305.6,
+   "dn": 61062,
+   "marginal_credit": 0.0214,
+   "elasticity": 0.3975
+  },
+  {
+   "M": 9754.3,
+   "pair": "h25-1-dotted-h19-5-d1-5-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 60069,
+   "n_big": 121131,
+   "n_mid": 90600,
+   "T_small": 5164.6,
+   "dT": 1237.6,
+   "dn": 61062,
+   "marginal_credit": 0.0203,
+   "elasticity": 0.3556
+  },
+  {
+   "M": 11153.3,
+   "pair": "h25-1-dotted-h19-5-d1-5-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 60069,
+   "n_big": 121131,
+   "n_mid": 90600,
+   "T_small": 5456.3,
+   "dT": 1169.6,
+   "dn": 61062,
+   "marginal_credit": 0.0192,
+   "elasticity": 0.3181
+  },
+  {
+   "M": 8355.4,
+   "pair": "h25-1-dotted-h19-5-d1-5-\u2026 -> topo-gap-closure-t-v2-on-d1-5-\u2026",
+   "n_small": 60069,
+   "n_big": 61328,
+   "n_mid": 60698,
+   "T_small": 4872.9,
+   "dT": 6.9,
+   "dn": 1259,
+   "marginal_credit": 0.0055,
+   "elasticity": 0.0685
+  },
+  {
+   "M": 9754.3,
+   "pair": "h25-1-dotted-h19-5-d1-5-\u2026 -> topo-gap-closure-t-v2-on-d1-5-\u2026",
+   "n_small": 60069,
+   "n_big": 61328,
+   "n_mid": 60698,
+   "T_small": 5164.6,
+   "dT": 3.5,
+   "dn": 1259,
+   "marginal_credit": 0.0027,
+   "elasticity": 0.0322
+  },
+  {
+   "M": 11153.3,
+   "pair": "h25-1-dotted-h19-5-d1-5-\u2026 -> topo-gap-closure-t-v2-on-d1-5-\u2026",
+   "n_small": 60069,
+   "n_big": 61328,
+   "n_mid": 60698,
+   "T_small": 5456.3,
+   "dT": -0.0,
+   "dn": 1259,
+   "marginal_credit": -0.0,
+   "elasticity": -0.0001
+  },
+  {
+   "M": 8355.4,
+   "pair": "dotted-h19-5-d2-8-20261002-e56ea318af89 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4251.7,
+   "dT": 1926.8,
+   "dn": 77041,
+   "marginal_credit": 0.025,
+   "elasticity": 0.486
+  },
+  {
+   "M": 9754.3,
+   "pair": "dotted-h19-5-d2-8-20261002-e56ea318af89 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4558.6,
+   "dT": 1843.6,
+   "dn": 77041,
+   "marginal_credit": 0.0239,
+   "elasticity": 0.4337
+  },
+  {
+   "M": 11153.3,
+   "pair": "dotted-h19-5-d2-8-20261002-e56ea318af89 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4865.6,
+   "dT": 1760.3,
+   "dn": 77041,
+   "marginal_credit": 0.0228,
+   "elasticity": 0.3879
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 40199,
+   "n_big": 121131,
+   "n_mid": 80665,
+   "T_small": 4215.6,
+   "dT": 1962.9,
+   "dn": 80932,
+   "marginal_credit": 0.0243,
+   "elasticity": 0.4641
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 40199,
+   "n_big": 121131,
+   "n_mid": 80665,
+   "T_small": 4536.0,
+   "dT": 1866.2,
+   "dn": 80932,
+   "marginal_credit": 0.0231,
+   "elasticity": 0.4101
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 40199,
+   "n_big": 121131,
+   "n_mid": 80665,
+   "T_small": 4856.4,
+   "dT": 1769.5,
+   "dn": 80932,
+   "marginal_credit": 0.0219,
+   "elasticity": 0.3631
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4215.6,
+   "dT": 36.1,
+   "dn": 3891,
+   "marginal_credit": 0.0093,
+   "elasticity": 0.0927
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4536.0,
+   "dT": 22.6,
+   "dn": 3891,
+   "marginal_credit": 0.0058,
+   "elasticity": 0.054
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4856.4,
+   "dT": 9.1,
+   "dn": 3891,
+   "marginal_credit": 0.0023,
+   "elasticity": 0.0203
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4215.6,
+   "dT": 36.1,
+   "dn": 3891,
+   "marginal_credit": 0.0093,
+   "elasticity": 0.0927
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4536.0,
+   "dT": 22.6,
+   "dn": 3891,
+   "marginal_credit": 0.0058,
+   "elasticity": 0.054
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4856.4,
+   "dT": 9.1,
+   "dn": 3891,
+   "marginal_credit": 0.0023,
+   "elasticity": 0.0203
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4215.6,
+   "dT": 36.1,
+   "dn": 3891,
+   "marginal_credit": 0.0093,
+   "elasticity": 0.0927
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4536.0,
+   "dT": 22.6,
+   "dn": 3891,
+   "marginal_credit": 0.0058,
+   "elasticity": 0.054
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4856.4,
+   "dT": 9.1,
+   "dn": 3891,
+   "marginal_credit": 0.0023,
+   "elasticity": 0.0203
+  },
+  {
+   "M": 8355.4,
+   "pair": "efd28-repro-20261003-1cc7dc534d51 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4251.7,
+   "dT": 1926.8,
+   "dn": 77041,
+   "marginal_credit": 0.025,
+   "elasticity": 0.486
+  },
+  {
+   "M": 9754.3,
+   "pair": "efd28-repro-20261003-1cc7dc534d51 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4558.6,
+   "dT": 1843.6,
+   "dn": 77041,
+   "marginal_credit": 0.0239,
+   "elasticity": 0.4337
+  },
+  {
+   "M": 11153.3,
+   "pair": "efd28-repro-20261003-1cc7dc534d51 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4865.6,
+   "dT": 1760.3,
+   "dn": 77041,
+   "marginal_credit": 0.0228,
+   "elasticity": 0.3879
+  },
+  {
+   "M": 8355.4,
+   "pair": "d28-poisson300m-offcat-44090-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4251.7,
+   "dT": 1926.8,
+   "dn": 77041,
+   "marginal_credit": 0.025,
+   "elasticity": 0.486
+  },
+  {
+   "M": 9754.3,
+   "pair": "d28-poisson300m-offcat-44090-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4558.6,
+   "dT": 1843.6,
+   "dn": 77041,
+   "marginal_credit": 0.0239,
+   "elasticity": 0.4337
+  },
+  {
+   "M": 11153.3,
+   "pair": "d28-poisson300m-offcat-44090-\u2026 -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 44090,
+   "n_big": 121131,
+   "n_mid": 82610,
+   "T_small": 4865.6,
+   "dT": 1760.3,
+   "dn": 77041,
+   "marginal_credit": 0.0228,
+   "elasticity": 0.3879
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 40199,
+   "n_big": 121131,
+   "n_mid": 80665,
+   "T_small": 4215.6,
+   "dT": 1962.9,
+   "dn": 80932,
+   "marginal_credit": 0.0243,
+   "elasticity": 0.4641
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 40199,
+   "n_big": 121131,
+   "n_mid": 80665,
+   "T_small": 4536.0,
+   "dT": 1866.2,
+   "dn": 80932,
+   "marginal_credit": 0.0231,
+   "elasticity": 0.4101
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 40199,
+   "n_big": 121131,
+   "n_mid": 80665,
+   "T_small": 4856.4,
+   "dT": 1769.5,
+   "dn": 80932,
+   "marginal_credit": 0.0219,
+   "elasticity": 0.3631
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4215.6,
+   "dT": 36.1,
+   "dn": 3891,
+   "marginal_credit": 0.0093,
+   "elasticity": 0.0927
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4536.0,
+   "dT": 22.6,
+   "dn": 3891,
+   "marginal_credit": 0.0058,
+   "elasticity": 0.054
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4856.4,
+   "dT": 9.1,
+   "dn": 3891,
+   "marginal_credit": 0.0023,
+   "elasticity": 0.0203
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4215.6,
+   "dT": 36.1,
+   "dn": 3891,
+   "marginal_credit": 0.0093,
+   "elasticity": 0.0927
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4536.0,
+   "dT": 22.6,
+   "dn": 3891,
+   "marginal_credit": 0.0058,
+   "elasticity": 0.054
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4856.4,
+   "dT": 9.1,
+   "dn": 3891,
+   "marginal_credit": 0.0023,
+   "elasticity": 0.0203
+  },
+  {
+   "M": 8355.4,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4215.6,
+   "dT": 36.1,
+   "dn": 3891,
+   "marginal_credit": 0.0093,
+   "elasticity": 0.0927
+  },
+  {
+   "M": 9754.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4536.0,
+   "dT": 22.6,
+   "dn": 3891,
+   "marginal_credit": 0.0058,
+   "elasticity": 0.054
+  },
+  {
+   "M": 11153.3,
+   "pair": "h27-4-solo-d28-20261004-8acb75e1-nan -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 40199,
+   "n_big": 44090,
+   "n_mid": 42144,
+   "T_small": 4856.4,
+   "dT": 9.1,
+   "dn": 3891,
+   "marginal_credit": 0.0023,
+   "elasticity": 0.0203
+  },
+  {
+   "M": 8355.4,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 37654,
+   "n_big": 121131,
+   "n_mid": 79392,
+   "T_small": 4181.3,
+   "dT": 1997.2,
+   "dn": 83477,
+   "marginal_credit": 0.0239,
+   "elasticity": 0.4543
+  },
+  {
+   "M": 9754.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 37654,
+   "n_big": 121131,
+   "n_mid": 79392,
+   "T_small": 4510.5,
+   "dT": 1891.7,
+   "dn": 83477,
+   "marginal_credit": 0.0227,
+   "elasticity": 0.3989
+  },
+  {
+   "M": 11153.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "n_small": 37654,
+   "n_big": 121131,
+   "n_mid": 79392,
+   "T_small": 4839.7,
+   "dT": 1786.3,
+   "dn": 83477,
+   "marginal_credit": 0.0214,
+   "elasticity": 0.351
+  },
+  {
+   "M": 8355.4,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4181.3,
+   "dT": 70.4,
+   "dn": 6436,
+   "marginal_credit": 0.0109,
+   "elasticity": 0.107
+  },
+  {
+   "M": 9754.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4510.5,
+   "dT": 48.2,
+   "dn": 6436,
+   "marginal_credit": 0.0075,
+   "elasticity": 0.0678
+  },
+  {
+   "M": 11153.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4839.7,
+   "dT": 25.9,
+   "dn": 6436,
+   "marginal_credit": 0.004,
+   "elasticity": 0.034
+  },
+  {
+   "M": 8355.4,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "n_small": 37654,
+   "n_big": 40199,
+   "n_mid": 38926,
+   "T_small": 4181.3,
+   "dT": 34.3,
+   "dn": 2545,
+   "marginal_credit": 0.0135,
+   "elasticity": 0.1256
+  },
+  {
+   "M": 9754.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "n_small": 37654,
+   "n_big": 40199,
+   "n_mid": 38926,
+   "T_small": 4510.5,
+   "dT": 25.6,
+   "dn": 2545,
+   "marginal_credit": 0.01,
+   "elasticity": 0.0867
+  },
+  {
+   "M": 11153.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "n_small": 37654,
+   "n_big": 40199,
+   "n_mid": 38926,
+   "T_small": 4839.7,
+   "dT": 16.8,
+   "dn": 2545,
+   "marginal_credit": 0.0066,
+   "elasticity": 0.0531
+  },
+  {
+   "M": 8355.4,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4181.3,
+   "dT": 70.4,
+   "dn": 6436,
+   "marginal_credit": 0.0109,
+   "elasticity": 0.107
+  },
+  {
+   "M": 9754.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4510.5,
+   "dT": 48.2,
+   "dn": 6436,
+   "marginal_credit": 0.0075,
+   "elasticity": 0.0678
+  },
+  {
+   "M": 11153.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> efd28-repro-20261003-1cc7dc534d51",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4839.7,
+   "dT": 25.9,
+   "dn": 6436,
+   "marginal_credit": 0.004,
+   "elasticity": 0.034
+  },
+  {
+   "M": 8355.4,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4181.3,
+   "dT": 70.4,
+   "dn": 6436,
+   "marginal_credit": 0.0109,
+   "elasticity": 0.107
+  },
+  {
+   "M": 9754.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4510.5,
+   "dT": 48.2,
+   "dn": 6436,
+   "marginal_credit": 0.0075,
+   "elasticity": 0.0678
+  },
+  {
+   "M": 11153.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> d28-poisson300m-offcat-44090-\u2026",
+   "n_small": 37654,
+   "n_big": 44090,
+   "n_mid": 40872,
+   "T_small": 4839.7,
+   "dT": 25.9,
+   "dn": 6436,
+   "marginal_credit": 0.004,
+   "elasticity": 0.034
+  },
+  {
+   "M": 8355.4,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-solo-d28-20261004-8acb75e1-nan",
+   "n_small": 37654,
+   "n_big": 40199,
+   "n_mid": 38926,
+   "T_small": 4181.3,
+   "dT": 34.3,
+   "dn": 2545,
+   "marginal_credit": 0.0135,
+   "elasticity": 0.1256
+  },
+  {
+   "M": 9754.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-solo-d28-20261004-8acb75e1-nan",
+   "n_small": 37654,
+   "n_big": 40199,
+   "n_mid": 38926,
+   "T_small": 4510.5,
+   "dT": 25.6,
+   "dn": 2545,
+   "marginal_credit": 0.01,
+   "elasticity": 0.0867
+  },
+  {
+   "M": 11153.3,
+   "pair": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros -> h27-4-solo-d28-20261004-8acb75e1-nan",
+   "n_small": 37654,
+   "n_big": 40199,
+   "n_mid": 38926,
+   "T_small": 4839.7,
+   "dT": 16.8,
+   "dn": 2545,
+   "marginal_credit": 0.0066,
+   "elasticity": 0.0531
+  }
+ ],
+ "rows": [
+  {
+   "repo": "GEMSDOE",
+   "claim": "gems-submission-20260925T001403Z-7f00890a",
+   "score": 0.1563,
+   "file": "GEMSDOE2__docs_gemsdoe2-recall-arm-7f00890a.tif",
+   "sha256": "7f00890a62878d612fb5eef67a9a364a2df819433dde74b6762ce4fc0fc4fe15",
+   "n": 166519
+  },
+  {
+   "repo": "5GEMSDOE",
+   "claim": "gems-submission-20260926T175114Z-7f00890a",
+   "score": 0.1563,
+   "file": "GEMSDOE2__docs_gemsdoe2-recall-arm-7f00890a.tif",
+   "sha256": "7f00890a62878d612fb5eef67a9a364a2df819433dde74b6762ce4fc0fc4fe15",
+   "n": 166519
+  },
+  {
+   "repo": "8GEMSDOE",
+   "claim": "Hedge-v2_submission",
+   "score": 0.1563,
+   "file": "8GEMSDOE__downloads_8GEMSDOE_Hedge-v2_submission.tif",
+   "sha256": "052688eafbc7a55d90caab72252a50304fe5caa8ecf973f8e791b4ae910f0792",
+   "n": 166519
+  },
+  {
+   "repo": "GEMSDOE2",
+   "claim": "gemsdoe2-dual-family-union-\u2026-f68e590f",
+   "score": 0.156,
+   "file": "GEMSDOE2__docs_gemsdoe2-dual-family-union-f68e590f.tif",
+   "sha256": "f68e590f8534d036872f18170819b52366c728e68619f17c648dce9629b0aaf2",
+   "n": 175949
+  },
+  {
+   "repo": "6GEMSDOE",
+   "claim": "gems6_hgb88-topk03_33cec71ff0",
+   "score": 0.0286,
+   "file": "6GEMSDOE__downloads_gems6_hgb88-topk03_33cec71ff0.tif",
+   "sha256": "33cec71ff00b3f32d0d59c81c156f3f1488ffef46baa4b6499094e24ea1875ab",
+   "n": 131416
+  },
+  {
+   "repo": "GEMSDOE3",
+   "claim": "pindrop-v4-nodes-\u2026-f347b70daa",
+   "score": 0.1193,
+   "file": "7GEMSDOE__external_scored_gemsdoe3-pindrop-nodes-f347b70daa.tif",
+   "sha256": "f347b70daa95170bfc967b1c0b6bbf951496c2b74764a7102848ad6178829aca",
+   "n": 155021
+  },
+  {
+   "repo": "GEMSDOE3",
+   "claim": "pindrop-v4-discovery-\u2026-37f9d5b855",
+   "score": 0.083,
+   "file": "7GEMSDOE__external_scored_gemsdoe3-pindrop-discovery-37f9d5b855.tif",
+   "sha256": "37f9d5b855ee1b6c302cb81cdae1414db94db427f5dc9da3538474df37cf1cad",
+   "n": 155021
+  },
+  {
+   "repo": "GEMSDOE3",
+   "claim": "pindrop-v4-ridge-\u2026-4e03fc9705",
+   "score": 0.1152,
+   "file": "7GEMSDOE__external_scored_gemsdoe3-pindrop-ridge-4e03fc9705.tif",
+   "sha256": "4e03fc97052e9bd673e48f1923ad17f15926f8db26d2befc033e1722381dc9b7",
+   "n": 155021
+  },
+  {
+   "repo": "GEMSDOE4",
+   "claim": "gems-submission-20260926T163915Z-237f0063",
+   "score": 0.0343,
+   "file": "7GEMSDOE__external_scored_gemsdoe4-combined-237f0063.tif",
+   "sha256": "237f0063a440b2c6c4b822bcb0f74e5203586313b3b5ed6c5cabe70fa046f63f",
+   "n": 258323
+  },
+  {
+   "repo": "7GEMSDOE",
+   "claim": "lidarscarp-ridge-top2pct-36c3a3f341c8",
+   "score": 0.1461,
+   "file": "7GEMSDOE__downloads_gems7-lidarscarp-ridge-top2pct-36c3a3f341c8.tif",
+   "sha256": "36c3a3f341c8306dfb5610f61acfec635a7cb8a3ef6ef00380ca083d2f9745fe",
+   "n": 76859
+  },
+  {
+   "repo": "GEMSDOE9",
+   "claim": "2314b599",
+   "score": 0.0107,
+   "file": "GEMSDOE9__docs_downloads_gemsdoe9-PLACEHOLDER-2314b599.tif",
+   "sha256": "2314b59920bfeeaf6a592d4868b25eca62212825620f9945723c2f6d0a2e5b22",
+   "n": 145610
+  },
+  {
+   "repo": "11GEMSDOE",
+   "claim": "gems-structural-area06-v1",
+   "score": 0.0202,
+   "file": "11GEMSDOE__docs_downloads_gems-structural-area06-v1.tif",
+   "sha256": "6292a7916c83d371fc650b0f0c6a090702b9890eaa6e6546d50f104eea2fadc3",
+   "n": 282538
+  },
+  {
+   "repo": "12GEMSDOE",
+   "claim": "r7-nms3-dem10-scarp_0c9199f14e62",
+   "score": 0.1294,
+   "file": "12GEMSDOE__docs_downloads_12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62.tif",
+   "sha256": "0c9199f14e625d7b2539a0a045803b74d6494ce568d185abecc193fe7e93c6f2",
+   "n": 103347
+  },
+  {
+   "repo": "15GEMSDOE",
+   "claim": "gems-tso1-20260929T005627Z-conj_alteration_mag",
+   "score": 0.0782,
+   "file": "15GEMSDOE__docs_downloads_gems-tso1-20260929T005627Z-conj_alteration_mag.tif",
+   "sha256": "b437efcec17fb4582a3ff2f5f6ce6a179545c1e21fcd51e0c4b828cfd185d631",
+   "n": 98736
+  },
+  {
+   "repo": "14GEMSDOE",
+   "claim": "GEMS_r5-geom-horse-ensemble_\u2026",
+   "score": 0.002,
+   "file": "14GEMSDOE__docs_downloads_GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f.tif",
+   "sha256": "ccbe1de0cfd70cbe7257c04669195f390ca652fa3a76c51505f461f01a1424c6",
+   "n": 116219
+  },
+  {
+   "repo": "17GEMSDOE",
+   "claim": "17GEMSDOE_F-ensemble-2pct_20260930T050626Z",
+   "score": 0.0187,
+   "file": "17GEMSDOE__docs_downloads_17GEMSDOE_F-ensemble-2pct_20260930T050626Z.tif",
+   "sha256": "0210da4395b209450e52e9efc780ab3ca6aceffd60c26d6f623da2b8fe76b691",
+   "n": 90746
+  },
+  {
+   "repo": "18GEMSDOE",
+   "claim": "H19-C_20260930T212401Z_c11e495e",
+   "score": 0.0297,
+   "file": "18GEMSDOE__docs_downloads_18GEMSDOE_H19-C_20260930T212401Z_c11e495e.tif",
+   "sha256": "c11e495e5817730ad5f0fdc368b810f79050cbb6bd65e98c98123b7921ed336b",
+   "n": 452798
+  },
+  {
+   "repo": "19GEMSDOE",
+   "claim": "h19-4-multiline-corroborated-openness-thermal-pop-\u2026",
+   "score": 0.1894,
+   "file": "19GEMSDOE__docs_downloads_gems19-h19-4-multiline-corroborated-openness-thermal-pop-20260930-691e4dfa-nan.tif",
+   "sha256": "89109a3bd2cd3b12e7a0f388113c519843acfc9c4f46825affefc3e63dd99b22",
+   "n": 123779
+  },
+  {
+   "repo": "19GEMSDOE",
+   "claim": "h19-5-powerlaw-budget-multiline-corroborated-\u2026",
+   "score": 0.1922,
+   "file": "19GEMSDOE__docs_downloads_gems19-h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan.tif",
+   "sha256": "ec1f9b56b83ce33cad781ceb9f104b18fb4f2ff785263a4e89616af4aabdee8d",
+   "n": 121131
+  },
+  {
+   "repo": "GEMSDOE10",
+   "claim": "h16-continuation-20260927T065521\u2026",
+   "score": 0.0461,
+   "file": "GEMSDOE10__docs_downloads_gems10-h16-continuation-20260927T065521077735Z-3431b83c7c.tif",
+   "sha256": "b33684ae033512a1a1c7d2cfccd128955fedfdff2a8fed6c7585a755b1b58b3c",
+   "n": 283532
+  },
+  {
+   "repo": "GEMSDOE10",
+   "claim": "h20-dem10-scarp-thin-20260927T155223\u2026",
+   "score": 0.0921,
+   "file": "GEMSDOE10__docs_downloads_gems10-h20-dem10-scarp-thin-20260927T155223039488Z-ffc91a1686.tif",
+   "sha256": "a26e5e46acc00ddd867f0b2910e638b25e4e81108ebe05c0abcc7c9b04372247",
+   "n": 143657
+  },
+  {
+   "repo": "GEMSDOE10",
+   "claim": "H25-ctx-ridge-20260927T232947\u2026",
+   "score": 0.128,
+   "file": "GEMSDOE10__docs_downloads_gems10-h25-ctx-ridge-20260927T232947704150Z-6452ae1d00.tif",
+   "sha256": "1381e784fb8b8340beffd0e735ac9eea89ad35d1a807f8a9bab5506e3fc8275e",
+   "n": 161366
+  },
+  {
+   "repo": "GEMSDOE10",
+   "claim": "h28-dotted-ridge-20260928T020256\u2026",
+   "score": 0.1839,
+   "file": "GEMSDOE10__docs_downloads_gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+   "sha256": "7637b72d4c6c3e10226bf46bd72a20272d62ccbe29743062632d10b158b49c58",
+   "n": 65236
+  },
+  {
+   "repo": "13GEMSDOE",
+   "claim": "20261001_r13-lattice-s5_v2_nan-outside",
+   "score": 0.0904,
+   "file": "13GEMSDOE__docs_downloads_13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+   "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+   "n": 204504
+  },
+  {
+   "repo": "16GEMSDOE",
+   "claim": "h16-1-topo-geophys-baseline-ridges-\u2026",
+   "score": 0.1855,
+   "file": "16GEMSDOE__docs_downloads_gems16-h16-1-topo-geophys-baseline-ridges-20260930-df20f65e-nan.tif",
+   "sha256": "055309694ed499ca3d87e76b3f5e81c292aef6e39c418d33ff5a817aa1309bea",
+   "n": 123939
+  },
+  {
+   "repo": "16GEMSDOE",
+   "claim": "h18-3a-topo-geophys-x-complexity-prior-\u2026",
+   "score": 0.0976,
+   "file": "16GEMSDOE__docs_downloads_gems16-h18-3a-topo-geophys-x-complexity-prior-20260930-c502dfab-nan.tif",
+   "sha256": "92904a5bfd84c8bd1141683fc5d29817aa4de71574d8caff5b40f7ed0072a5b8",
+   "n": 122120
+  },
+  {
+   "repo": "16GEMSDOE",
+   "claim": "h18-4-usgs-geologic-map-faults-gap-\u2026",
+   "score": 0.036,
+   "file": "16GEMSDOE__docs_downloads_gems16-h18-4-usgs-geologic-map-faults-gap-20260930-aef8f42c-nan.tif",
+   "sha256": "736f62c2da585677ef472cab0f9bc63bd15c50c340beb4a0f4627fafd3d1c853",
+   "n": 57783
+  },
+  {
+   "repo": "GEMSDOE21",
+   "claim": "h19-4-reference-20260930-691e4dfa",
+   "score": 0.1894,
+   "file": "GEMSDOE21__docs_downloads_gems21-h19-4-reference-20260930-691e4dfa.tif",
+   "sha256": "89109a3bd2cd3b12e7a0f388113c519843acfc9c4f46825affefc3e63dd99b22",
+   "n": 123779
+  },
+  {
+   "repo": "20GEMSDOE",
+   "claim": "h20-1-sarnnpu-powerlaw-pi0363-tilt-wingcrack-\u2026",
+   "score": 0.189,
+   "file": "20GEMSDOE__docs_downloads_gems20-h20-1-sarnnpu-powerlaw-pi0363-tilt-wingcrack-20260930-be0e8f6b-nan.tif",
+   "sha256": "defe590b944651552d7260237f79f309e3c089d03361e130db0e2dd7c87eb326",
+   "n": 123829
+  },
+  {
+   "repo": "20GEMSDOE",
+   "claim": "h20-5-continuous-pu-proxy-unverified-\u2026",
+   "score": 0.1859,
+   "file": "20GEMSDOE__docs_downloads_gems20-h20-5-continuous-pu-proxy-unverified-20260930-824ce73a-nan.tif",
+   "sha256": "4e199f0ce1bb7e6f6e5e42fbbe54fcd3714bbf1b4ee864fad262b95ebba464f7",
+   "n": 121258
+  },
+  {
+   "repo": "GEMSDOE22",
+   "claim": "h23-a-dti-optimal-emission-6pct-\u2026",
+   "score": 0.1002,
+   "file": "GEMSDOE22__docs_downloads_gems22-h23-a-dti-optimal-emission-6pct-20261002-e2ec4b49-nan.tif",
+   "sha256": "e5f3684e9b49e8f11019f87e047017c5ab8a46294935bc0c7c80859ca7d2b1ce",
+   "n": 335879
+  },
+  {
+   "repo": "GEMSDOE22",
+   "claim": "h23-b-dti-optimal-emission-10pct-\u2026",
+   "score": 0.0748,
+   "file": "GEMSDOE22__docs_downloads_gems22-h23-b-dti-optimal-emission-10pct-20261002-86176698-nan.tif",
+   "sha256": "d0c5fd6825b544eb08672303c11292eb99d6105e42a41eac0e5a211a3fdc69e5",
+   "n": 516738
+  },
+  {
+   "repo": "GEMSDOE23",
+   "claim": "h30-arrangement-matched-habitat-\u2026",
+   "score": 0.1352,
+   "file": "GEMSDOE23__docs_downloads_gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-nan.tif",
+   "sha256": "38539dc647d5ede0d8fa90123810d18130ee15e524097f55e83b6b8a57976ea9",
+   "n": 91533
+  },
+  {
+   "repo": "GEMSDOE24",
+   "claim": "h25-1-dotted-h19-5-d1-5-\u2026",
+   "score": 0.2477,
+   "file": "GEMSDOE24__docs_downloads_gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+   "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+   "n": 60069
+  },
+  {
+   "repo": "GEMSDOE25",
+   "claim": "dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "score": 0.26,
+   "file": "GEMSDOE25__docs_downloads_gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+   "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8",
+   "n": 44090
+  },
+  {
+   "repo": "GEMSDOE26",
+   "claim": "dilcond-oof-v1-20261003-47629f496133",
+   "score": 0.1223,
+   "file": "GEMSDOE26__docs_downloads_gems26-dilcond-oof-v1-20261003-47629f496133-nan.tif",
+   "sha256": "d54cf7edc6ec57c29b88dec81fe3fb101efa4fe31fc9c1088664a0c2e5190887",
+   "n": 58670
+  },
+  {
+   "repo": "GEMSDOE27",
+   "claim": "topo-gap-closure-t-v2-on-d1-5-\u2026",
+   "score": 0.2449,
+   "file": "GEMSDOE27__docs_downloads_gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+   "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d",
+   "n": 61328
+  },
+  {
+   "repo": "GEMSDOE28",
+   "claim": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+   "score": 0.2708,
+   "file": "GEMSDOE28__docs_downloads_gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+   "sha256": "ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+   "n": 40199
+  },
+  {
+   "repo": "GEMSDOE29",
+   "claim": "efd28-repro-20261003-1cc7dc534d51",
+   "score": 0.26,
+   "file": "GEMSDOE29__docs_downloads_gems29-refd28-repro-20261003-1cc7dc534d51-nan.tif",
+   "sha256": "5f963b8bca5ec226ddc7caaadec239c6be6d28aa567f890033be04d04bfd5e32",
+   "n": 44090
+  },
+  {
+   "repo": "GEMSDOE30",
+   "claim": "d28-poisson300m-offcat-44090-\u2026",
+   "score": 0.26,
+   "file": "GEMSDOE30__docs_downloads_gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+   "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+   "n": 44090
+  },
+  {
+   "repo": "GEMSDOE31",
+   "claim": "h27-4-solo-d28-20261004-8acb75e1-nan",
+   "score": 0.2708,
+   "file": "GEMSDOE31__docs_downloads_gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+   "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+   "n": 40199
+  },
+  {
+   "repo": "GEMSDOE32",
+   "claim": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+   "score": 0.2778,
+   "file": "GEMSDOE32__docs_downloads_gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+   "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+   "n": 37654
+  }
+ ]
+}
