@@ -8,7 +8,7 @@
 3. Paste the **Note** below and submit.
 
 ```
-GEMSDOE34 unique candidate: 98,599 px = known-fault carpet (masked, inert) + 37,611 off-catalogue structural dots from tip extrapolation (no geophysical input). Gate ALLOWED, payload Dice <= 0.183 vs 
+GEMSDOE34: 98,599 px = known-fault carpet (masked, inert) + 37,611 off-catalogue structural dots from tip extrapolation. Gate ALLOWED; payload Dice <= 0.183 vs 30 prior artifacts.
 ```
 
 Independent random spot-check before submitting (from a shell):

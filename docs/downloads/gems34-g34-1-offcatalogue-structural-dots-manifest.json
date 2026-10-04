@@ -16,5 +16,5 @@
     "spacing_hedge": 3,
     "profile": "ledger"
   },
-  "note": "carpet on the masked known-fault catalogue + validated near-field structural payload + bounded far-field geophysical payload"
+  "note": "GEMSDOE34: 98,599 px = known-fault carpet (masked, inert) + 37,611 off-catalogue structural dots from tip extrapolation. Gate ALLOWED; payload Dice <= 0.183 vs 30 prior artifacts."
 }
