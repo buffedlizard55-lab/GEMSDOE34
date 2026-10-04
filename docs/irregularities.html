@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Irregularities</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
+header b{font-size:17px;white-space:nowrap}
+nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
+nav a:hover{color:var(--acc)}
+main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
+h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
+h3{font-size:16.5px;margin-top:24px}
+a{color:var(--acc)}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
+.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
+.dl a.z{background:#2a3140;color:var(--fg)}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
+.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
+.kpi b{display:block;font-size:23px;color:var(--acc)}
+ul,ol{padding-left:21px}li{margin:5px 0}
+footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
+details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html">Method</a><a href="validation.html">Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html" style=color:#e8eaf0>Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Irregularities</h1><pre># Irregularities flagged for review
+
+Each item is a measured contradiction between what a source states and what the bytes show.
+None is corrected in place; each is reported.
+
+## IR-34-01 — the official sample submission is not &quot;total fault absence&quot;
+
+The problem description says: *&quot;A sample submission that predicts total fault absence is provided
+for your reference on the data download page.&quot;*
+
+**Measured** (`tests/test_raster.py::test_sample_submission_is_the_catalogue_not_an_empty_raster`
+fails if this ever changes): `sample_submission.tif` is float32, nodata = nan, and contains
+**60,988 cells with value 1.0** — at exactly the positive cells of `labels.tif`. The two files&#x27;
+value patterns are equal on the common footprint and the support-mask hash is identical
+(`d8b86f12ef449735…`). The provided &quot;sample&quot; is therefore the rasterised existing-fault catalogue,
+not an empty raster.
+
+**Why it matters.** The file doubles as the format template *and* as a ready-made prediction of
+the known faults. A participant who trusts the prose and assumes a zeros template will
+misunderstand the format; a participant who submits the template unchanged submits the catalogue.
+Note that this is also the file that defines the expected nodata convention (NaN outside the valid
+footprint), which every accepted artifact in this group&#x27;s history follows.
+
+## IR-34-02 — the portal error `&quot;Predicted values must be in range [0, 1]&quot;`
+
+Two distinct mechanisms can produce it:
+
+1. The float32 sentinel `-3.4028234663852886e+38` used as nodata in `training_features.tif`
+   (7,113,308 cells). Writing those through unchanged puts values far outside [0, 1].
+2. A validator that runs a naive range check over the whole array: `NaN &gt;= 0` is False, so a
+   raster whose nodata cells are NaN fails *if* the check is written as
+   `(a &gt;= 0).all() and (a &lt;= 1).all()` rather than masked.
+
+The shipped file cannot trip (1) — every finite value is in [0, 1]. It uses the NaN convention
+because that is what the organizers&#x27; own sample uses and what every previously accepted artifact
+in this group&#x27;s history carries (`gemsdoe1-ens12-7f00890a.tif`,
+`gemsdoe2-dual-family-union-f68e590f.tif`, `gemsdoe31-h27-4-solo-d28-…-nan.tif`: all `nodata=nan`,
+all exactly 7,111,787 NaN cells). If (2) is nevertheless the real cause, rebuild with
+`scripts/build_submission.py --outside zero`-equivalent behaviour (`raster.write_submission(...,
+outside=&quot;zero&quot;)`), which produces an all-finite raster with the same positives.
+
+## IR-34-03 — the three-way 0.1563 tie is not three hypotheses
+
+Reported as three independent submissions. Measured: two are the same file
+(`sha256 7f00890a…`, Dice 1.0), and the third is that file plus 54,533 pixels of which
+**100.00 %** lie on the known-fault mask. Because free-mask mass is metrically inert, the two
+files are the same submission under evaluation. The control: another artifact of the same family
+added 10,668 pixels of which only 11.6 % were on the mask, and its claimed score did move
+(0.1563 → 0.1560). See `docs/data/collapse-diagnosis.json`.
+
+## IR-34-04 — the claimed 0.2778 artifact&#x27;s own `.zip` is 0 bytes
+
+`docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.zip` in the sibling
+repository is an empty archive (0 bytes; its single entry is itself, 0 bytes long). The only copy
+of the file behind the group&#x27;s best claimed score is the bare `.tif`. There is no submission
+receipt, submission id, or hash-to-score crosswalk for any artifact this group has submitted, so
+every score in this repository is labelled **claim** or **dated snapshot**, never *verified*.
+
+## IR-34-05 — attributions in the sibling ledgers conflict
+
+The same artifact is described as 0.2778 in the group&#x27;s brief and as *&quot;unscored / not
+slot-approved&quot;* on its owner page; the 0.2708 row is attributed to `gemsdoe31-h27-4-solo-d28`
+without a receipt. Where two sources disagree, this repository reports the disagreement instead
+of picking one.
+
+## IR-34-06 — the target moved during the competition
+
+The brief quotes 0.3195 as the score to beat. The leaderboard read on 2026-10-04 shows
+0.3262 / 0.3222 / 0.3195 for the top three. Any target derived from a dynamic board is a dated
+snapshot; this repository stamps every value with its read time.
+
+## IR-34-07 — a sibling knowledge file cites an unverified URL
+
+`sibling knowledge/06_slot_strategy_2026-09-26.md` names NBMG Quaternary-fault mapping as the next
+proxy source and gives a URL its own author did not check. It is recorded here as
+*named-but-unverified*, and no claim in this repository depends on it.
+</pre><footer>Generated 2026-10-04 17:56 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>

@@ -1,0 +1,17 @@
+{
+  "name": "gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f",
+  "tif": "gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f.tif",
+  "audit": "gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f-audit.json",
+  "gate": "gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f-gate.json",
+  "sha256": "f244f32731a599d4173a8a5b7a8d54636aec0efcdda83ae7649ec0405ded3ef1",
+  "n_positive": 98603,
+  "params": {
+    "bar_struct": 0.35,
+    "bar_geophys": 0.35,
+    "spacing_struct": 6,
+    "spacing_geophys": 6,
+    "near_field_limit_px": 3,
+    "farfield_cap": 20000
+  },
+  "note": "carpet on the masked known-fault catalogue + validated near-field structural payload + bounded far-field geophysical payload"
+}
