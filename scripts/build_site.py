@@ -369,10 +369,14 @@ The consequence is recorded in <a href="limitations.html">Limitations</a> rather
 
 <h2>3 · Format and uniqueness</h2>
 <p>The shipped raster is re-opened from its own bytes: one band, float32, EPSG:32611, 100 m,
-identical bounds, every finite value in [0,1], and the nodata pattern equal to the organizers'
-own <code>sample_submission.tif</code> (NaN outside the valid footprint). The pre-submission gate
-compares it against {gate.get('corpus_size', '—')} prior artifacts on three axes: exact values,
-exact support, and — the one that matters — the non-free payload.</p>"""
+identical bounds, values in [0,1] in every cell, and the valid footprint (the 5,167,373 cells the
+organizers' own <code>sample_submission.tif</code> carries) fully covered. Outside that footprint
+this file writes <code>0.0</code> rather than the sample's NaN — a deliberate choice: <code>0</code>
+satisfies the stated range rule, there is no truth and no catalogue outside the footprint, and the
+group's own scored 0.2778 artifact was its <code>-zeros</code> variant, evidence that zeros are
+accepted where NaN was the thing the portal complained about. The pre-submission gate compares the
+candidate against {gate.get('corpus_size', '—')} prior artifacts on three axes: exact values, exact
+support, and — the one that matters — the non-free payload.</p>"""
 
     hyp = f"""<h1>Hypotheses</h1>
 <p>Five candidate geological hypotheses, each naming the layer it uses, the physical signature it
