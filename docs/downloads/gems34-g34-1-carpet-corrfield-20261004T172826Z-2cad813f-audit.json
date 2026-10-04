@@ -1,0 +1,31 @@
+{
+  "all_in_unit_interval": true,
+  "bands": 1,
+  "bounds": [
+    243350.0,
+    4135550.0,
+    572550.0,
+    4508550.0
+  ],
+  "bytes": 528950,
+  "crs": "EPSG:32611",
+  "dtype": "float32",
+  "file": "/tmp/work/build3/gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f.tif",
+  "format_ok": true,
+  "height": 3730,
+  "max": 1.0,
+  "min": 0.0,
+  "n_nonfinite": 0,
+  "n_positive": 98603,
+  "n_positive_in_footprint": 98603,
+  "nodata": null,
+  "nodata_is_none": true,
+  "res": [
+    100.0,
+    100.0
+  ],
+  "sha256": "f244f32731a599d4173a8a5b7a8d54636aec0efcdda83ae7649ec0405ded3ef1",
+  "sha256_canonical": "e0f76784fbd6979926a88c2c5af965a0efe792a4690d43a860c15b73a01cb9f9",
+  "sha256_mask": "a18f10c1d18c3efdcd89548164e4ab9ef6428618990d7499c66153c4a44eb51b",
+  "width": 3292
+}

@@ -1,0 +1,20 @@
+{
+  "name": "gems34-g34-1-offcatalogue-structural-dots",
+  "tif": "gems34-g34-1-offcatalogue-structural-dots.tif",
+  "audit": "gems34-g34-1-offcatalogue-structural-dots-audit.json",
+  "gate": "gems34-g34-1-offcatalogue-structural-dots-gate.json",
+  "sha256": "2fc667dfed8b780e4f89b867fb852a2937ce9018a391e1ee98ddaab7fe245cbf",
+  "n_positive": 98599,
+  "params": {
+    "bar_struct": 0.35,
+    "bar_geophys": 0.35,
+    "spacing_struct": 6,
+    "spacing_geophys": 6,
+    "near_field_limit_px": -1,
+    "farfield_cap": 40000,
+    "bar_hedge": 0.02,
+    "spacing_hedge": 3,
+    "profile": "ledger"
+  },
+  "note": "carpet on the masked known-fault catalogue + validated near-field structural payload + bounded far-field geophysical payload"
+}

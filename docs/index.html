@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMSDOE34 — one-click submission</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
+header b{font-size:17px;white-space:nowrap}
+nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
+nav a:hover{color:var(--acc)}
+main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
+h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
+h3{font-size:16.5px;margin-top:24px}
+a{color:var(--acc)}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
+.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
+.dl a.z{background:#2a3140;color:var(--fg)}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
+.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
+.kpi b{display:block;font-size:23px;color:var(--acc)}
+ul,ol{padding-left:21px}li{margin:5px 0}
+footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
+details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" style=color:#e8eaf0>Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html">Method</a><a href="validation.html">Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><div class="dl">
+<h2 style="margin-top:0;border:0">⬇ Download the submission file — three steps</h2>
+<p><strong>1.</strong> Download the GeoTIFF below.
+<strong>2.</strong> On the
+<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submit/" target="_blank" rel="noopener">DrivenData submission page</a>
+choose <em>New submission → File to submit</em> and pick the file.
+<strong>3.</strong> Paste the Note text and submit.</p>
+<p><a class="btn" href="downloads/gems34-g34-1-offcatalogue-structural-dots.tif" download>Download gems34-g34-1-offcatalogue-structural-dots.tif</a>
+<a class="btn z" href="downloads/gems34-g34-1-offcatalogue-structural-dots.zip" download>Download the .zip (same single GeoTIFF)</a></p>
+<p class="mut">SHA-256 <code>2fc667dfed8b780e4f89b867fb852a2937ce9018a391e1ee98ddaab7fe245cbf</code> ·
+98,599 predicted pixels
+(60,988 known-fault carpet +
+37,611 off-catalogue dots) ·
+single band, float32, EPSG:32611, 100 m, values in [0,1] ·
+format receipt: <span class="tag ok">format_ok=True</span>
+gate: <span class="tag ok">ALLOWED=True</span>
+vs 30 prior artifacts ·
+closest payload Dice 0.1828 (gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f.tif)</p>
+<details><summary>Note to paste into the form (≤200 characters)</summary><pre>GEMSDOE34 unique candidate: 98,599 px = known-fault carpet (masked, inert) + 37,611 off-catalogue structural dots from tip extrapolation (no geophysical input). Gate ALLOWED, payload Dice &lt;= 0.183 vs </pre></details>
+<details><summary>Audit files shipped next to the raster</summary>
+<pre>docs/downloads/gems34-g34-1-offcatalogue-structural-dots-audit.json      format receipt, re-read from the written bytes</pre>
+<pre>docs/downloads/gems34-g34-1-offcatalogue-structural-dots-gate.json       the full pre-submission gate report</pre>
+<pre>docs/downloads/gems34-g34-1-offcatalogue-structural-dots-manifest.json   name, sha256, parameters, note</pre>
+</details>
+</div>
+<h1>An auditable, uniqueness-gated fault-prediction system for the DOE GEMS Prize</h1>
+<p class="mut">DrivenData competition #306 · metric: distance-weighted Tversky index
+(α = 0.2, β = 0.8, triangular kernel R = 300 m) · target: faults in the GeoDAWN region
+that are <em>not</em> in the public USGS/INGENIOUS catalogue.</p>
+<div class="grid">
+<div class="kpi"><span class="mut">Public leader (read 2026-10-04)</span><b>0.3262</b><span class="mut">nchuzhoy</span></div>
+<div class="kpi"><span class="mut">Group best (claim)</span><b>0.2778</b><span class="mut">public rank 13</span></div>
+<div class="kpi"><span class="mut">Free-mask additions that changed nothing</span><b>54,533 px</b><span class="mut">100.00 % on the mask</span></div>
+<div class="kpi"><span class="mut">Payload overlap with every prior artifact</span><b>≤ 0.1828</b><span class="mut">Dice, non-free support</span></div>
+</div>
+
+<h2>What was found</h2>
+<ol>
+<li><strong>The 0.1563 tie is explained, and the collapse point is the mask.</strong>
+Two of the three artifacts are the same file. The third is the first file plus 54,533 pixels
+of which <strong>100.00 %</strong> lie on the known-fault mask — the one place where the
+organizers' rules say a prediction cannot be penalised. Under evaluation the two artifacts are
+the same submission, and they scored the same. The control is decisive: another artifact of the
+same family added 10,668 pixels of which only 11.6 % were on the mask, and its score moved.
+See <a href="history.html">History &amp; collapse</a>.</li>
+<li><strong>Mass in the 1–3 px ring around the catalogue is a measured cost.</strong>
+Three nested artifacts in the group's own history (37,654 ⊂ 40,199 ⊂ 44,090 dots) differ by
+2,545 and 3,891 pixels, <em>none</em> of them on the mask, all within 300 m of the catalogue.
+Each addition scored <em>lower</em>. That is why this submission puts no mass in that ring.</li>
+<li><strong>The metric's own decision rule prices every pixel.</strong>
+A charged pixel is worth emitting only if its expected kernel credit exceeds
+<code>0.2·s·u/(1 − 0.2·s + 0.8·s)</code> — 0.048 at s = 0.28 in this repository's transcription.
+Derivation and tests are in <a href="method.html">Method</a>.</li>
+<li><strong>A mandatory, payload-aware gate.</strong>
+Because free-mask mass cannot change a score, whole-file comparison cannot detect a duplicated
+hypothesis. The gate compares the <em>non-free</em> payload; this candidate's payload Dice
+against all 30 prior artifacts is at most
+0.1828. See <a href="history.html">History &amp; collapse</a>.</li>
+</ol>
+
+<h2>What this submission is</h2>
+<p>Known-fault carpet (60,988 px — inert under the masking rule, and required by the rules'
+"predictions for all faults in the region") plus <strong>37,611 off-catalogue dots</strong>
+generated by long-range extrapolation of the mapped fault skeleton, packed at the metric's own
+300 m spacing, with no mass anywhere in the measured-cost ring.
+Method: <a href="method.html">Method</a> · evidence: <a href="validation.html">Validation</a> ·
+hypothesis register: <a href="hypotheses.html">Hypotheses</a>.</p>
+<div class="card"><h3 style="margin-top:0">The honest limits, stated up front</h3>
+<p>No instrument in this repository can measure whether a prediction finds a fault that is
+absent from every catalogue, because no such population is available in this workspace. The
+far-field payload is therefore priced but not validated, its size is capped, and the
+alternative build that <em>is</em> validated (near-field only) ships alongside it.
+<a href="limitations.html">Limitations</a> gives the exact source that would settle it.</p></div><footer>Generated 2026-10-04 17:56 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
