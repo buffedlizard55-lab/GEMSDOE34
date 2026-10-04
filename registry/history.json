@@ -1,6 +1,6 @@
 {
   "generated_utc": "2026-10-04T17:51:21.966696Z",
-  "n_entries": 31,
+  "n_entries": 32,
   "entries": [
     {
       "name": "8GEMSDOE-Apex-Geothermal-V1.tif",
@@ -404,6 +404,29 @@
       "pct_on_catalogue": 61.852,
       "pct_within_300m": 80.91,
       "payload_pixels": 37615
+    },
+    {
+      "name": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.tif",
+      "label": "unscored",
+      "score": null,
+      "evidence_class": "unscored",
+      "sha256_canonical": "49b0a5ef01abfada9efed05b4d4f44082e2d0d7918d011bb2c3fd96bf0380bde",
+      "sha256_support": "cad0c5310e911f7854f6b65590873d5c38c560afd395d4f5096a43a71f44c3ff",
+      "n_positive": 88988,
+      "is_binary": true,
+      "pct_on_catalogue": 68.535,
+      "pct_within_300m": 68.535,
+      "payload_pixels": 28000,
+      "gate": true,
+      "projection": {
+        "value": 0.2937,
+        "range": [
+          0.28,
+          0.31
+        ],
+        "source": "docs/data/score-diagnostics.json"
+      },
+      "note": "screened detrended-elevation curvature ridge + tip extension; 28,000 dots at 3 px NMS"
     }
   ]
 }

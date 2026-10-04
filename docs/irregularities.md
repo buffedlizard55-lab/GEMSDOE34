@@ -74,3 +74,32 @@ snapshot; this repository stamps every value with its read time.
 `sibling knowledge/06_slot_strategy_2026-09-26.md` names NBMG Quaternary-fault mapping as the next
 proxy source and gives a URL its own author did not check. It is recorded here as
 *named-but-unverified*, and no claim in this repository depends on it.
+
+## IR-34-08 — no organizer receipt exists for any score in this group's history
+
+Every score on this site is a **user-reported claim**. GEMSDOE32's own README says
+*"no organizer receipt exists"* for the 0.2778 artifact; GEMSDOE31's docs/data/feed.json carries no
+submission id; the artifact's own `.zip` is 0 bytes (IR-34-04). The consequence is measured rather
+than rhetorical: the calibration in `docs/data/score-diagnostics.json` is fitted against five
+*claims*, and its RMSE of 0.0045 is a fit to those claims, not to an independent record. If one
+claim is wrong the calibration degrades gracefully (the residuals are published individually), but
+it cannot be *verified* from inside this workspace. Nothing here should be quoted as an organizer
+result.
+
+## IR-34-09 — the calibrated instrument is licensed only inside 37,654–61,328 dots
+
+The identity `score = T/(0.2n + 0.8K)` with one fitted constant reproduces the group's five nested
+dotted artifacts to RMSE 0.0045, but adding the 91,533-dot artifact forces `K = 24,707` and pushes
+RMSE to **0.1125**, mis-ranking it (0.3661 predicted, 0.1352 live). The fitted instrument is
+therefore one-sided: it systematically **over-credits mass** beyond ~62,000 dots and must not be
+used to justify a larger emission. Recorded here because the temptation to extrapolate it upward is
+exactly the error that produced the 0.1563 collapse.
+
+## IR-34-10 — the two calibrated instruments disagree about the direction of the dot count
+
+The credit curve of the shipped field says *more* dots help (elasticity of total credit with
+respect to n is +0.970, far above the +0.449 break-even); the ledger's mass slope says *fewer* dots
+help (`.` `Spearman(score, n) = −1.000` across the ten pure isolated-dot artifacts, and removing
+6,436 dots from the group's own family bought +0.0178). This repository reports the disagreement,
+ships the interior point (28,000, inside the intersection of the two rules), and states on
+`answer-0.2778.md` §7 that the question is settled only by a scored submission.

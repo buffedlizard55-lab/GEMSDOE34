@@ -43,6 +43,23 @@ entirely*. Both readings make the free carpet non-harmful, and both make the col
 above valid; they differ on whether that mass can ever earn credit. Every decision here is safe
 under both.
 
+## What pass 3 changed, and what is still blocked
+
+* **Closed:** the count question. `score = T/(0.2n + 0.8K)` is exact, calibrated on five live
+  claims to RMSE 0.0045 inside 37,654–61,328 dots, and the shipped count (28,000) sits at the
+  intersection of that instrument and the ledger's measured mass slope. The field question is also
+  closed as far as this workspace can close it: eight mechanisms were screened on eleven blocked
+  folds with the emission shape held fixed, and the winner was not the hypothesis this repository
+  was built around.
+* **Still blocked, unchanged:** there is no *novelty-sensitive* truth here. SGMC is an independent
+  official compilation, but it is still a catalogue; every arm is validated as a necessary
+  condition only. The 1 m DEM, the 1:24,000 geologic maps and the geothermal well records remain
+  unreachable from the sandbox and are named with links in `docs/data/hypotheses.json`.
+* **Measured negative results, not to be re-tried:** the power-law credit fit (underdetermined,
+  c1 at its bound); the leaderboard inversion (LOO correlation −0.381); catalogue distance as a
+  ranking feature (identical histograms across top/middle/bottom groups); and H6, the
+  basin-margin-step field, which lost to the curvature ridge by 37 % on the pre-registered screen.
+
 ## Open questions, and the experiment that settles each
 
 | # | Question | Experiment |

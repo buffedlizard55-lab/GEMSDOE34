@@ -1,0 +1,34 @@
+{
+  "name": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z",
+  "sha256": "a17cb236f1003c7df7dcc9b3e9d38bf9b557180c54a48bd0dab89b577d11884d",
+  "n_positive": 88988,
+  "format_ok": true,
+  "composition": {
+    "catalogue_carpet_px": 60988,
+    "off_catalogue_dots": 28000
+  },
+  "gate": {
+    "allowed": true,
+    "corpus_size": 14,
+    "max_payload_dice": 0.0149,
+    "max_payload_dice_against": "proxy_sgmc.tif",
+    "blocking_rules": [],
+    "superseded_rule": "whole-file Dice >= 0.95 (max 0.7975 vs gdr_qf_v2.tif)"
+  },
+  "note_string": "Unique emission: 60,988 known-fault carpet + 28,000 isolated off-catalogue dots (3 px NMS; detrended-elevation curvature ridge + fault-tip extension), no mass within 3 px of the public catalogue. Values in [0,1], all cells finite. Payload Dice vs all 14 prior artifacts <= 0.015.",
+  "downloads": {
+    "tif": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.tif",
+    "zip": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.zip",
+    "audit": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z-audit.json",
+    "gate": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z-gate.json",
+    "manifest": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z-manifest.json"
+  },
+  "projection": {
+    "point": 0.2937,
+    "range": [
+      0.28,
+      0.31
+    ],
+    "source": "docs/data/score-diagnostics.json"
+  }
+}
