@@ -29,7 +29,7 @@ th{color:var(--mut);font-weight:600}
 ul,ol{padding-left:21px}li{margin:5px 0}
 footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
 details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
-</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html">Method</a><a href="validation.html" style=color:#e8eaf0>Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Validation</h1>
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="answer.html">Why 0.2778</a><a href="method.html">Method</a><a href="validation.html" style=color:#e8eaf0>Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Validation</h1>
 <p>Two instruments, both built only from the two hash-pinned official rasters
 (<code>training_features.tif</code> and <code>labels.tif</code>), so no result here depends on
 an external source.</p>
@@ -40,24 +40,24 @@ the removed run, and it never sees it. This models "newly mapped geometry of an 
 system", which the organizers include in the definition of a new fault.</p>
 <table><tbody>
 <tr><th>empty</th><td>0.0</td></tr>
-<tr><th>free carpet on the visible catalogue only</th><td>0.1307</td></tr>
+<tr><th>free carpet on the visible catalogue only</th><td>—</td></tr>
 <tr><th>best rule found: carpet + tip-extrapolation payload inside 3 px, bar 0.35, 300 m packing</th>
 <td><strong>0.19411</strong></td></tr>
 <tr><th>whole hedged build (carpet + near-field + far-field)</th>
-<td>0.1274 — <span class="tag warn">the far-field term costs more than it earns here, by construction</span></td></tr>
+<td>— — <span class="tag warn">the far-field term costs more than it earns here, by construction</span></td></tr>
 </tbody></table>
 <p class="mut">The instrument's truth is catalogue geometry, so any emission more than 300 m from
 the catalogue scores exactly zero on it. That is a property of the instrument, not evidence about
 the far field, and it is why the far-field term is capped rather than scaled up on this
 instrument's verdict.</p>
-<table><thead><tr><th>emission</th><th>bar</th><th>packing spacing</th><th>mean DTI</th></tr></thead><tbody><tr><td>F5_carpet+H2_near3</td><td>0.35</td><td>6</td><td>0.19411</td></tr><tr><td>F1_carpet+H2_near6</td><td>0.35</td><td>6</td><td>0.17417</td></tr><tr><td>F7_carpet+H2_bar.2</td><td>0.2</td><td>6</td><td>0.1738</td></tr><tr><td>F6_carpet+H2_sp8</td><td>0.35</td><td>8</td><td>0.16646</td></tr><tr><td>F2_carpet+H234_near6</td><td>0.35</td><td>6</td><td>0.16375</td></tr><tr><td>F3_carpet+H2_open</td><td>0.35</td><td>6</td><td>0.15488</td></tr><tr><td>F4_carpet+H234_open</td><td>0.35</td><td>6</td><td>0.13922</td></tr><tr><td>F0_carpet_only</td><td>0.35</td><td>0</td><td>0.13104</td></tr></tbody></table>
+<table><thead><tr><th>emission</th><th>bar</th><th>packing spacing</th><th>mean DTI</th></tr></thead><tbody></tbody></table>
 
 <h2>2 · Geographic blocked holdout — the far field</h2>
 <p>Eleven folds of a 4×4 split of the catalogue: the held-out block is the truth, the rest of the
 catalogue is visible and free. This is the instrument that can see far-field mass.</p>
-<table><thead><tr><th>field</th><th>bar</th><th>packing</th><th>mean DTI</th><th>folds</th></tr></thead><tbody><tr><td>H1_near_catalogue</td><td>0.02</td><td>3</td><td>0.00288763628314537</td><td>11</td></tr><tr><td>H1+H2+H3+H4</td><td>0.02</td><td>3</td><td>0.002874008332280653</td><td>11</td></tr><tr><td>H1+H2+H3+H4</td><td>0.05</td><td>3</td><td>0.002780446053087542</td><td>11</td></tr><tr><td>H2_tip_extrapolation</td><td>0.02</td><td>3</td><td>0.0027520997003307197</td><td>11</td></tr><tr><td>H1_near_catalogue</td><td>0.05</td><td>3</td><td>0.0027490132516828896</td><td>11</td></tr><tr><td>H1+H2+H3+H4</td><td>0.08</td><td>3</td><td>0.0027357095733872576</td><td>11</td></tr><tr><td>H1_near_catalogue</td><td>0.08</td><td>3</td><td>0.0027170900156246705</td><td>11</td></tr><tr><td>H1+H2+H3+H4</td><td>0.12</td><td>3</td><td>0.002683644136255733</td><td>11</td></tr><tr><td>H1_near_catalogue</td><td>0.12</td><td>3</td><td>0.0026808784489686013</td><td>11</td></tr><tr><td>H2_tip_extrapolation</td><td>0.08</td><td>3</td><td>0.002666316661869053</td><td>11</td></tr></tbody></table>
-<p class="mut">Reference rows: empty 0.0,
-free carpet only 0.0027783252143758737.
+<table><thead><tr><th>field</th><th>bar</th><th>packing</th><th>mean DTI</th><th>folds</th></tr></thead><tbody></tbody></table>
+<p class="mut">Reference rows: empty —,
+free carpet only —.
 <strong>Every rule in this repository lands within noise of the free carpet.</strong>
 That is the honest state of the far-field question here: with the nineteen published bands and
 no elevation model in this sandbox, no field tested beats the carpet on unseen catalogue blocks.
@@ -67,5 +67,5 @@ The consequence is recorded in <a href="limitations.html">Limitations</a> rather
 <p>The shipped raster is re-opened from its own bytes: one band, float32, EPSG:32611, 100 m,
 identical bounds, every finite value in [0,1], and the nodata pattern equal to the organizers'
 own <code>sample_submission.tif</code> (NaN outside the valid footprint). The pre-submission gate
-compares it against 30 prior artifacts on three axes: exact values,
-exact support, and — the one that matters — the non-free payload.</p><footer>Generated 2026-10-04 17:58 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
+compares it against 31 prior artifacts on three axes: exact values,
+exact support, and — the one that matters — the non-free payload.</p><footer>Generated 2026-10-04 19:39 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>

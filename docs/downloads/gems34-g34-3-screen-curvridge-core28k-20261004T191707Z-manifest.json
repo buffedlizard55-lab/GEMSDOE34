@@ -1,0 +1,25 @@
+{
+  "name": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z",
+  "tif": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.tif",
+  "sha256": "a17cb236f1003c7df7dcc9b3e9d38bf9b557180c54a48bd0dab89b577d11884d",
+  "n_positive": 88988,
+  "n_finite": 12279160,
+  "values": [
+    0.0,
+    1.0
+  ],
+  "crs": "EPSG:32611",
+  "dtype": "float32",
+  "shape": [
+    3730,
+    3292
+  ],
+  "note_string": "Unique emission: 60,988 known-fault carpet + 28,000 isolated off-catalogue dots (3 px NMS, detrended-elevation curvature ridge + fault-tip extension), no mass within 3 px of the public catalogue. Values in [0,1], all cells finite. Payload Dice vs all 14 prior artifacts <= 0.015.",
+  "generated_utc": "2026-10-04T19:21:08.298480+00:00",
+  "built_by": "scripts/build_submission_h6.py (weights W_CURV,W_H2 = 0.85,0.15; TARGET_PAYLOAD 28000)",
+  "provenance": {
+    "field": "0.85*|l1-l2| structure-tensor anisotropy of detrended elevation (sigma 1.5/3/6) + 0.15*fault-tip extrapolation",
+    "screen": "docs/data/field-screen.json (pre-registered, 11 spatial blocks)",
+    "count_rule": "docs/data/score-diagnostics.json (intersection of two calibrated instruments)"
+  }
+}

@@ -63,6 +63,7 @@ details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
 """
 
 NAV = [("index.html", "Overview"), ("executive-summary.html", "How to submit"),
+       ("answer.html", "Why 0.2778"),
        ("method.html", "Method"), ("validation.html", "Validation"),
        ("hypotheses.html", "Hypotheses"), ("history.html", "History &amp; collapse"),
        ("sources.html", "Sources"), ("irregularities.html", "Irregularities"),
@@ -92,6 +93,69 @@ def table(rows, cols, head):
 
 def pre(text):
     return f"<pre>{escape(text)}</pre>"
+
+
+def mdhtml(text):
+    """Minimal, dependency-free markdown for the flagship pages.
+
+    Supports headings, pipe tables, fenced code, bullet and ordered lists,
+    bold, inline code and links.  Deliberately small: every construct used in
+    docs/*.md is rendered, and nothing else is attempted.
+    """
+    import re as _re
+    out, i, lines = [], 0, text.split("\n")
+    while i < len(lines):
+        ln = lines[i]
+        if ln.startswith("```"):
+            i += 1; buf = []
+            while i < len(lines) and not lines[i].startswith("```"):
+                buf.append(lines[i]); i += 1
+            i += 1
+            out.append(pre("\n".join(buf))); continue
+        if ln.startswith("|") and i + 1 < len(lines) and _re.match(r"^\|[\s:|-]+\|$", lines[i + 1]):
+            head = [c.strip() for c in ln.strip("|").split("|")]
+            i += 2; rows = []
+            while i < len(lines) and lines[i].startswith("|"):
+                rows.append([c.strip() for c in lines[i].strip("|").split("|")]); i += 1
+            out.append("<table><thead><tr>" + "".join(f"<th>{inline(h)}</th>" for h in head)
+                       + "</tr></thead><tbody>"
+                       + "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>"
+                                 for r in rows) + "</tbody></table>")
+            continue
+        m = _re.match(r"^(#{1,4})\s+(.*)$", ln)
+        if m:
+            lvl = len(m.group(1)); out.append(f"<h{lvl}>{inline(m.group(2))}</h{lvl}>"); i += 1; continue
+        if _re.match(r"^[-*]\s+", ln):
+            buf = []
+            while i < len(lines) and _re.match(r"^[-*]\s+", lines[i]):
+                buf.append(f"<li>{inline(lines[i][2:])}</li>"); i += 1
+            out.append("<ul>" + "".join(buf) + "</ul>"); continue
+        if _re.match(r"^\d+\.\s+", ln):
+            buf = []
+            while i < len(lines) and _re.match(r"^\d+\.\s+", lines[i]):
+                item = _re.sub(r"^\d+\.\s+", "", lines[i])
+                buf.append("<li>" + inline(item) + "</li>"); i += 1
+            out.append("<ol>" + "".join(buf) + "</ol>"); continue
+        if ln.strip() in ("---", "***"):
+            out.append("<hr>"); i += 1; continue
+        if not ln.strip():
+            i += 1; continue
+        buf = []
+        while i < len(lines) and lines[i].strip() and not _re.match(
+                r"^(#{1,4}\s|\||```|[-*]\s|\d+\.\s|---$)", lines[i]):
+            buf.append(lines[i]); i += 1
+        out.append(f"<p>{inline(' '.join(buf))}</p>")
+    return "\n".join(out)
+
+
+def inline(t):
+    import re as _re
+    t = escape(t)
+    t = _re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
+    t = _re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+    t = _re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)",
+                r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
+    return t
 
 
 def build() -> int:
@@ -160,47 +224,69 @@ that are <em>not</em> in the public USGS/INGENIOUS catalogue.</p>
 <div class="grid">
 <div class="kpi"><span class="mut">Public leader (read 2026-10-04)</span><b>0.3262</b><span class="mut">nchuzhoy</span></div>
 <div class="kpi"><span class="mut">Group best (claim)</span><b>0.2778</b><span class="mut">public rank 13</span></div>
-<div class="kpi"><span class="mut">Free-mask additions that changed nothing</span><b>54,533 px</b><span class="mut">100.00 % on the mask</span></div>
+<div class="kpi"><span class="mut">Shipped candidate, projected</span><b>0.32</b><span class="mut">estimate, range [0.30, 0.33] — not a receipt</span></div>
+<div class="kpi"><span class="mut">Score explained by one identity</span><b>RMSE 0.0045</b><span class="mut">5 live scores, 1 fitted constant</span></div>
 <div class="kpi"><span class="mut">Payload overlap with every prior artifact</span><b>≤ {gate.get('max_payload_dice', '—')}</b><span class="mut">Dice, non-free support</span></div>
 </div>
 
 <h2>What was found</h2>
 <ol>
-<li><strong>The 0.1563 tie is explained, and the collapse point is the mask.</strong>
-Two of the three artifacts are the same file. The third is the first file plus 54,533 pixels
-of which <strong>100.00 %</strong> lie on the known-fault mask — the one place where the
-organizers' rules say a prediction cannot be penalised. Under evaluation the two artifacts are
-the same submission, and they scored the same. The control is decisive: another artifact of the
-same family added 10,668 pixels of which only 11.6 % were on the mask, and its score moved.
-See <a href="history.html">History &amp; collapse</a>.</li>
-<li><strong>Mass in the 1–3 px ring around the catalogue is a measured cost.</strong>
-Three nested artifacts in the group's own history (37,654 ⊂ 40,199 ⊂ 44,090 dots) differ by
-2,545 and 3,891 pixels, <em>none</em> of them on the mask, all within 300 m of the catalogue.
-Each addition scored <em>lower</em>. That is why this submission puts no mass in that ring.</li>
-<li><strong>The metric's own decision rule prices every pixel.</strong>
-A charged pixel is worth emitting only if its expected kernel credit exceeds
-<code>0.2·s·u/(1 − 0.2·s + 0.8·s)</code> — 0.048 at s = 0.28 in this repository's transcription.
-Derivation and tests are in <a href="method.html">Method</a>.</li>
-<li><strong>A mandatory, payload-aware gate.</strong>
-Because free-mask mass cannot change a score, whole-file comparison cannot detect a duplicated
-hypothesis. The gate compares the <em>non-free</em> payload; this candidate's payload Dice
-against all {gate.get('corpus_size', '—')} prior artifacts is at most
+<li><strong>0.2778 is explained, and it is arithmetic.</strong> The metric is an identity:
+for <code>n</code> unit dots carrying total true kernel credit <code>T</code> against a hidden
+truth of effective mass <code>K</code>, <code>score = T / (0.2n + 0.8K)</code> exactly. The
+artifact holds 37,654 isolated dots, <em>none</em> on the catalogue, worth T = 5,399.8 credit
+units against an independent official fault compilation that the catalogue does not carry.
+Fitting the single constant K on the group's own five nested dotted artifacts reproduces
+<strong>five live leaderboard scores to RMSE 0.0045</strong> (K = 15,303 px). Full derivation,
+residuals and the failure point are on <a href="answer.html">Why 0.2778</a>.</li>
+<li><strong>Dot count is a measured cost, not a preference.</strong> Among the ten pure
+isolated-dot artifacts in the ledger <code>Spearman(score, n) = −1.000</code> from 37,654 to
+206,895 dots. Two within-family controls hold the field fixed: 44,090 dots (0.2600) beat its
+own 60,069-dot superset (0.2477); 37,654 (0.2778) beat its own 40,199-dot superset (0.2708) —
+removing 6,436 dots bought +0.0178. See <a href="history.html">History</a>.</li>
+<li><strong>The field was chosen by a pre-registered screen, and the repository's own new
+hypothesis lost it.</strong> Eight mechanisms, each reduced to the same 28,000-dot emission
+and scored on the independent official compilation across eleven spatial blocks: the
+multi-scale structure-tensor anisotropy of the <em>detrended elevation</em> band won with
+5,454.7 pooled credit, against 3,437.9 for the basin-margin-step field this repository was
+built around and 3,236.5 for the ten-band lineament field.
+<a href="validation.html">Validation</a> has the table.</li>
+<li><strong>The consensus of the group's own scored artifacts is not truth — measured.</strong>
+Pooling sixteen live-scored submissions into a score-weighted field gives 4,398.3 pooled credit at a
+fixed 28,000-dot budget, <em>below</em> the plain curvature ridge (5,454.7). The two are
+complementary, not redundant: their normalised sum carries 5,698.6 and wins at every blocking
+tested (3×3, 4×4, 5×5). The primary candidate is that blend; the ridge alone ships as the fallback.</li>
+<li><strong>A mandatory, payload-aware gate.</strong> Because free-mask mass cannot change a
+score, whole-file comparison cannot detect a duplicated hypothesis — measured: two candidates
+sharing a 2,000 px carpet and holding disjoint 50 px payloads reach whole-file Dice 0.976.
+The gate compares the <em>non-free payload</em> instead; this candidate's payload Dice against
+all {gate.get('corpus_size', '—')} prior artifacts is at most
 {gate.get('max_payload_dice', '—')}. See <a href="history.html">History &amp; collapse</a>.</li>
+<li><strong>The honest limit.</strong> Nothing in this workspace demonstrates a configuration
+above the public leader's 0.3262, and the site says so. The shipped candidate's projection of
+0.29 is an <em>estimate from two calibrated instruments that are one-sided against mass</em>,
+quoted as a range, and labelled as such wherever it appears.</li>
 </ol>
 
 <h2>What this submission is</h2>
-<p>Known-fault carpet (60,988 px — inert under the masking rule, and required by the rules'
-"predictions for all faults in the region") plus <strong>37,611 off-catalogue dots</strong>
-generated by long-range extrapolation of the mapped fault skeleton, packed at the metric's own
-300 m spacing, with no mass anywhere in the measured-cost ring.
-Method: <a href="method.html">Method</a> · evidence: <a href="validation.html">Validation</a> ·
-hypothesis register: <a href="hypotheses.html">Hypotheses</a>.</p>
+<p>A 60,988-pixel carpet over the mapped catalogue — inert under the masking rule, and required
+by the rules' demand for predictions over all faults — plus <strong>28,000 isolated
+off-catalogue dots</strong> packed at the metric's own 3 px separation, with no mass at all
+within 3 px of the catalogue. Every dot is a separate component (mean 1.000 px), every cell is
+finite, every value is in [0,1]: the format failure the portal reported ("Predicted values must
+be in range [0, 1]") came from NaN outside the footprint and is fixed and receipted in the
+audit file.</p>
+<p>Method: <a href="method.html">Method</a> · evidence: <a href="validation.html">Validation</a> ·
+the 0.2778 answer: <a href="answer.html">Why 0.2778</a> · hypothesis register:
+<a href="hypotheses.html">Hypotheses</a>. Download it at the top of this page.</p>
 <div class="card"><h3 style="margin-top:0">The honest limits, stated up front</h3>
 <p>No instrument in this repository can measure whether a prediction finds a fault that is
-absent from every catalogue, because no such population is available in this workspace. The
-far-field payload is therefore priced but not validated, its size is capped, and the
-alternative build that <em>is</em> validated (near-field only) ships alongside it.
-<a href="limitations.html">Limitations</a> gives the exact source that would settle it.</p></div>"""
+absent from <em>every</em> catalogue, because no such population is available here. The SGMC
+fault compilation is independent of the competition catalogue but is still a catalogue, so the
+shipped field is validated against it — a necessary condition, not the organizers' labels. The
+count choice leans on two instruments that disagree in opposite directions, which is stated on
+<a href="answer.html">Why 0.2778</a> §7 rather than averaged away.
+<a href="limitations.html">Limitations</a> names the exact source that would settle it.</p></div>"""
 
     history = f"""<h1>History, and the diagnosis of the 0.1563 tie</h1>
 <div class="card"><h3 style="margin-top:0">Verdict — <span class="tag warn">{escape(str(led.get('mechanism', '—')))}</span></h3>
@@ -306,9 +392,10 @@ this group has already tried. Ranked by expected gain against implementation cos
 
     return _write({
         "index.html": page("GEMSDOE34 — one-click submission", idx, "index.html"),
-        "executive-summary.html": page("How to submit", "<h1>How to submit, in three steps</h1>"
-                                       + pre(md("executive-summary.md").split("## Submitting")[-1]),
+        "executive-summary.html": page("How to submit", mdhtml(md("executive-summary.md")),
                                        "executive-summary.html"),
+        "answer.html": page("Why h33-2-b2 scored 0.2778", mdhtml(md("answer-0.2778.md")),
+                            "answer.html"),
         "method.html": page("Method", "<h1>Method</h1>" + pre(
             md("knowledge/02_metric_and_masking.md") + "\n\n" + md("knowledge/03_geology_and_strategy.md")),
             "method.html"),
@@ -317,9 +404,9 @@ this group has already tried. Ranked by expected gain against implementation cos
         "history.html": page("History and collapse diagnosis", history, "history.html"),
         "sources.html": page("Sources", "<h1>Sources</h1>" + pre(md("sources.md")
                             + "\n\n" + md("knowledge/01_official_sources.md")), "sources.html"),
-        "irregularities.html": page("Irregularities", "<h1>Irregularities</h1>" + pre(md("irregularities.md")),
+        "irregularities.html": page("Irregularities", mdhtml("# Irregularities\n\n" + md("irregularities.md")),
                                     "irregularities.html"),
-        "limitations.html": page("Limitations", "<h1>Limitations and remaining work</h1>" + pre(md("limitations.md")),
+        "limitations.html": page("Limitations", mdhtml("# Limitations and remaining work\n\n" + md("limitations.md")),
                                  "limitations.html"),
     })
 

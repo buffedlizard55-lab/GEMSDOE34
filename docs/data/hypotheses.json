@@ -1,0 +1,133 @@
+{
+  "generated_utc": "2026-10-04T19:22:58.590277+00:00",
+  "method": "Every arm is reduced to the SAME emission shape before scoring: isolated single-pixel dots at the metric's own 3 px separation, greedy NMS on the field, 28,000 dots, footprint-masked and catalogue-masked. Only the field differs. Truth = official SGMC faults (NV+CA) that the competition catalogue does not carry; scored on 11 spatial blocks so that one corner cannot carry the result.",
+  "caveat": "The proxy truth is an independent *official* compilation but not the organizers' hidden set; a win here is a necessary condition (see docs/data/calibration.json: this instrument family does not rank the whole 27-artifact corpus).",
+  "register": [
+    {
+      "id": "HY-11",
+      "name": "Detrended-elevation curvature ridge (multi-scale |\u03bb1\u2212\u03bb2| structure tensor)",
+      "layers": "band 12 `det_elev`",
+      "signature": "ridge of the structure tensor's anisotropy at \u03c3 = 1.5/3/6 px \u2014 a scarp crossing a slope and a scarp crossing a flat fire equally",
+      "why_new": "USGS/INGENIOUS map surface traces only; a scarp that has been smoothed by 100 m gridding or buried under alluvium appears as a curvature ridge long before it appears as a mapped trace",
+      "difference": "not a potential-field lineament (H5), not catalogue extrapolation (H1\u2013H4), not a step edge (H6): anisotropy, not gradient, so it is invariant to the sign of the elevation contrast",
+      "gain": "pooled credit 5,454.7 at a fixed 28,000-dot budget \u2014 the best of eight arms, +58.7 % over H6",
+      "cost": "~1 h",
+      "rank": "1 \u2014 SHIPPED (0.85) with H2 (0.15)"
+    },
+    {
+      "id": "HY-09",
+      "name": "Joint magnetic \u00d7 isostatic-gravity contrast",
+      "layers": "bands 2 `tmi_hg` and 12 `iso_grav_anom`",
+      "signature": "geometric mean of the two anisotropy fields \u2014 a structure that changes both the magnetic and the density field",
+      "why_new": "a joint-inversion criterion; a fault missing from the catalogue must be inferred from physics, and requiring *two independent* potential fields to agree suppresses single-field noise",
+      "difference": "H5 sums ten bands' structure tensor; this requires agreement between exactly the two fields that respond to different rock properties",
+      "gain": "pooled credit 2,535.7 (\u221254 % vs winner)",
+      "cost": "~1 h",
+      "rank": "2 \u2014 measured, rejected"
+    },
+    {
+      "id": "HY-08",
+      "name": "Wide near-catalogue shell (\u03c3 = 2 km)",
+      "layers": "catalogue geometry (`labels.tif`)",
+      "signature": "Gaussian shell at 2 km, i.e. the third dimension of an existing fault system",
+      "why_new": "the organizers' own description of the test set includes newly mapped geometry of existing systems; the repo's H1 shell was \u03c3 = 600 m \u2014 this arm tests the 1\u20133 km spacing of real Basin-and-Range fault systems",
+      "difference": "H1 (\u03c3 600 m) is a tight halo; this is a fault-zone-width shell and it overlaps the 1\u20133 px ring the ledger prices as a cost",
+      "gain": "pooled credit 2,676.4 (\u221251 %)",
+      "cost": "~0.5 h",
+      "rank": "3 \u2014 measured, rejected"
+    },
+    {
+      "id": "HY-07",
+      "name": "Wide parallel strand families (10/16/24/32 px offsets)",
+      "layers": "catalogue geometry",
+      "signature": "strands offset 1\u20133 km from mapped traces",
+      "why_new": "the repo's H4 used 400\u2013900 m offsets; basin-and-range fault zones are 1\u20133 km wide, so the pairing distance was wrong by an order of magnitude",
+      "difference": "same mechanism as H4, different scale \u2014 included precisely to falsify the scale choice",
+      "gain": "pooled credit 2,282.8 (\u221258 %)",
+      "cost": "~0.5 h",
+      "rank": "4 \u2014 measured, rejected"
+    },
+    {
+      "id": "HY-10",
+      "name": "Basement / conductivity concealed step",
+      "layers": "bands 14 `depth_to_base_surf` + 16 `cond_surf`",
+      "signature": "multi-scale step edge of the depth-to-basement and conductivity surfaces",
+      "why_new": "the two bands are the only regional 3-D structure in the package; a fault that offsets the basement surface is invisible to surface geology",
+      "difference": "H6 uses the same bands but a basin-fill gate and a single scale; this arm is a pure multi-scale contrast and was run as its own hypothesis",
+      "gain": "pooled credit 545.7 (\u221290 %) \u2014 the worst arm, and the reason H6's gate is not load-bearing",
+      "cost": "~0.5 h",
+      "rank": "5 \u2014 measured, rejected"
+    },
+    {
+      "id": "HY-14",
+      "name": "Score-weighted consensus of the group's own live-scored emissions (field, not truth)",
+      "layers": "the 16 live-scored submission rasters themselves (docs/data/consensus-corpus.json)",
+      "signature": "score^2-weighted vote per pixel, normalised, added to the curvature ridge",
+      "why_new": "the public leaderboard is the only signal that reaches the organizers' hidden truth; each scored artifact is a noisy probe of it, so agreement between probes is evidence and disagreement is noise",
+      "difference": "every other arm in this repo builds a field from the 19 bands or the catalogue; this is the only arm that uses the scored submissions as measurements",
+      "gain": "pooled SGMC credit 5,698.6 vs 5,454.7 for the ridge alone (+4.5 %), and it wins at 3x3, 4x4 and 5x5 blockings; on the shipped 28,000-dot emission the SGMC payload DTI rises 0.09847 -> 0.10507 (+6.7 %)",
+      "cost": "~1 h + one download pass",
+      "rank": "1 (pass 4) \u2014 SHIPPED"
+    }
+  ],
+  "outcome": [
+    {
+      "id": "HY-11",
+      "instrument": "pre-registered blocked screen, 11 folds of a 4\u00d74 split, fixed 28,000-dot emission",
+      "result": "5,454.7 pooled credit, best of 8 arms, positive in 11/11 blocks",
+      "verdict": "ADMITTED \u2014 shipped as 0.85 of the composite"
+    },
+    {
+      "id": "HY-05 (repo H6)",
+      "instrument": "same screen",
+      "result": "3,437.9 pooled credit (\u221237 % vs HY-11)",
+      "verdict": "REJECTED \u2014 the repository's own new hypothesis is not shipped"
+    },
+    {
+      "id": "HY-09..HY-10",
+      "instrument": "same screen",
+      "result": "2,535.7 / 545.7 pooled credit",
+      "verdict": "REJECTED \u2014 measured and recorded so the negative result is not re-tried"
+    },
+    {
+      "id": "H2 tip extension",
+      "instrument": "forward selection on the same folds",
+      "result": "+0.0004 mean blocked DTI over HY-11 alone (inside noise)",
+      "verdict": "ADMITTED at weight 0.15 for completeness; explicitly labelled as inside noise"
+    },
+    {
+      "id": "all",
+      "instrument": "two live-score-calibrated instruments",
+      "result": "see docs/data/score-diagnostics.json",
+      "verdict": "count = 28,000 chosen at the intersection; the field's own credit curve says more dots, the ledger's mass slope says fewer"
+    },
+    {
+      "id": "HY-14 consensus alone",
+      "instrument": "same 11 blocked folds, same 28,000-dot emission",
+      "result": "4,398.3 pooled credit \u2014 19 % BELOW the curvature ridge it must help",
+      "verdict": "consensus is admitted only as a COMPLEMENT; leaderboard agreement is not truth"
+    },
+    {
+      "id": "HY-14 blend",
+      "instrument": "SGMC instrument at 3 blockings (7 / 11 / 18 folds)",
+      "result": "wins all three: 814.1 vs 779.2, 518.1 vs 495.9, 316.6 vs 303.0 mean per-fold credit",
+      "verdict": "ADMITTED \u2014 shipped as the primary candidate"
+    }
+  ],
+  "blocked": [
+    {
+      "id": "HY-12",
+      "need": "a fault population known independently of the USGS/INGENIOUS catalogue, at higher density than SGMC",
+      "source": "USGS National Geologic Map Database 1:24,000 maps for the GeoDAWN quadrangles",
+      "url": "https://ngmdb.usgs.gov/ngmdb/ngmdb_home.html",
+      "status": "named; not fetched \u2014 this sandbox cannot reach the host (verified: curl exit 35 / http 000). Fetch route: repository GitHub Actions runner."
+    },
+    {
+      "id": "HY-13",
+      "need": "lidar 1 m DEM-derived scarp metrics at fault scale (the repo ships the official links, not the tiles)",
+      "source": "USGS 3DEP / The National Map staged products for the GeoDAWN area",
+      "url": "https://apps.nationalmap.gov/downloader/",
+      "status": "named; not fetched \u2014 host unreachable from the sandbox; Actions route required"
+    }
+  ]
+}

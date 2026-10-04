@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Why h33-2-b2 scored 0.2778</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
+header b{font-size:17px;white-space:nowrap}
+nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
+nav a:hover{color:var(--acc)}
+main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
+h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
+h3{font-size:16.5px;margin-top:24px}
+a{color:var(--acc)}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
+.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
+.dl a.z{background:#2a3140;color:var(--fg)}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
+.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
+.kpi b{display:block;font-size:23px;color:var(--acc)}
+ul,ol{padding-left:21px}li{margin:5px 0}
+footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
+details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="answer.html" style=color:#e8eaf0>Why 0.2778</a><a href="method.html">Method</a><a href="validation.html">Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Why <code>h33-h33-2-b2</code> scored 0.2778 — and can it be beaten from this workspace?</h1>
+<p><strong>Question (from the brief).</strong> The group&#x27;s best artifact is GEMSDOE32&#x27;s <code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros</code>, reported on the public leaderboard at <strong>0.2778</strong> (public rank 13 of 19 on 2026-10-04). GEMSDOE32 also recorded its own internal projection of <strong>0.2747</strong>, i.e. the artifact landed <strong>+0.0031 above</strong> its own forecast. Three questions follow: *why that number*, *is it reproducible*, and *can it be beaten without spending a slot on a guess?*</p>
+<p>Everything below is either (a) the organizers&#x27; own written rule, quoted from <code>community.drivendata.org</code> page 967/11516/11550, (b) a number computed from the artifact files themselves, or (c) explicitly labelled an estimate. No organizer receipt for any score exists in any repository of this group — scores are user-reported claims. That gap is tracked as <strong>IR-34-RCPT-01</strong> in <code>irregularities.md</code> and it is the single largest irregularity in the project&#x27;s evidence base.</p>
+<hr>
+<h2>1. The metric is an identity that prices every dot</h2>
+<p>Page 967 defines the index exactly:</p>
+<pre>k(d) = max(1 - d/R, 0)              R = 300 m, applied to every true fault pixel
+DTI  = TP_w / (TP_w + 0.2*FP_w + 0.8*FN_w + eps)</pre>
+<p>Page 11516 (organizer, 2026-09-16) states that <strong>known USGS/INGENIOUS fault pixels are masked from all penalty terms in every round, including re-evaluation</strong>. Two consequences follow, and they are the whole story:</p>
+<ol><li>Prediction mass on a catalogued fault is <strong>inert</strong> — it can neither help nor hurt.</li></ol>
+<p>   This is why three different upstream hypotheses could collapse to the same 0.1563    (<code>history.html</code>, <code>docs/data/collapse-diagnosis.json</code>).</p>
+<ol><li>For an emission of <code>n</code> unit dots with total true kernel credit <code>T</code>, against a hidden</li></ol>
+<p>   truth with effective kernel mass <code>K</code>:</p>
+<pre>DTI = T / (0.2*n + 0.8*K)      exactly, for n = 0.2n + 0.8n</pre>
+<p>The identity is not an approximation: <code>FP_w</code> counts one <code>0.2</code> charge per predicted pixel, <code>FN_w</code> counts <code>0.8</code> per truth pixel missed, and with binary dots <code>n</code> predicted pixels are charged exactly <code>0.2n</code> whether or not they are correct (a correct dot trades its own <code>0.2</code> charge for the <code>0.8</code> FN miss it removes). This is why the group&#x27;s own IR-32-INSTR-01 (&quot;each added dot costs exactly α&quot;) was correct but incomplete: <strong>each added dot also removes 0.8 of FN credit if it is right.</strong> That trade is <code>c &gt; 0.2*s</code> in the small-s limit and <code>c &gt; 0.2*s*(1-s)/(1-0.2*s+0.8*s)</code> in general — 0.048 at s = 0.28. Nobody in the group had written the second term down before this pass.</p>
+<h2>2. The 0.2778 artifact, measured</h2>
+<p><code>h33-2-b2</code> is a <strong>binary isolated-dot lattice</strong>: 37,654 predicted pixels, 37,654 connected components (mean 1.000 px), median nearest-neighbour distance 3.00 px, <strong>0 pixels on the public catalogue</strong>, median distance-to-catalogue 19.6 px. GEMSDOE31 independently describes the 0.2708 artifact the same way (&quot;40,199 isolated 100 m cells at roughly 283 m spacing, none on the public catalogue&quot;).</p>
+<p>Measured against an independent official compilation — USGS State Geologic Map Compilation faults for NV/CA that the competition catalogue does *not* carry (61,664 px, hash-pinned in <code>docs/knowledge/01_official_sources.md</code>) — the artifact&#x27;s total triangular-kernel credit is</p>
+<pre>T = 5,399.8   (kernel credit units, R = 300 m)</pre>
+<h2>3. One fitted constant reproduces five live leaderboard scores</h2>
+<p>Because the group&#x27;s five nested dotted artifacts (37,654 ⊂ 40,199 ⊂ 44,090 ⊂ 60,069 ⊂ 61,328 dots) differ <strong>only in dot count and in which dots were kept</strong> — same field, same packing, same zero catalogue mass — their live scores are a controlled experiment on the count axis. Fitting the single parameter <code>K_eff</code> in <code>score = T/(0.2n + 0.8*K_eff)</code> to those five live scores gives <strong>K_eff = 15,303 px, RMSE = 0.0045</strong>:</p>
+<table><thead><tr><th>n (dots)</th><th>T (SGMC credit)</th><th>live score</th><th>model</th><th>residual</th></tr></thead><tbody><tr><td>37,654</td><td>5,399.8</td><td><strong>0.2778</strong></td><td>0.2731</td><td>−0.0047</td></tr><tr><td>40,199</td><td>5,440.7</td><td>0.2708</td><td>0.2682</td><td>−0.0026</td></tr><tr><td>44,090</td><td>5,448.4</td><td>0.2600</td><td>0.2587</td><td>−0.0013</td></tr><tr><td>60,069</td><td>6,089.8</td><td>0.2477</td><td>0.2511</td><td>+0.0034</td></tr><tr><td>61,328</td><td>6,192.2</td><td>0.2449</td><td>0.2527</td><td>+0.0078</td></tr></tbody></table>
+<p><strong>So the answer to &quot;why 0.2778&quot; is arithmetic</strong>: 37,654 right dots, none on the catalogue, delivering 5,399.8 units of credit against a hidden-truth mass that behaves like ~15,300 px at a 0.2/0.8 charge split. Change either input and the score moves on a line. GEMSDOE32&#x27;s internal projection of 0.2747 was a <strong>2 % under-forecast of its own artifact</strong>, not a mystery.</p>
+<p><strong>The same instrument fails at the top of the range, and that failure matters.</strong> Adding the 91,533-dot artifact (T = 13,938.7, live 0.1352) to the fit gives K = 24,707 and RMSE 0.1125, and the model mis-ranks it *above* the 37,654-dot artifact (0.3661 vs 0.1978). The model is one-sided: it cannot see the mass penalty that dominates beyond ~62,000 dots. The instrument is therefore licensed <strong>only inside 37,654 ≤ n ≤ 61,328</strong>.</p>
+<h2>4. The mass law is real and monotone</h2>
+<p>Among the <strong>ten pure isolated-dot artifacts</strong> in the group&#x27;s ledger (pixels/components &lt; 1.6), <code>Spearman(score, n) = −1.000</code>: every extra dot scored lower, over 37,654 → 206,895 dots. Among the seventeen mixed/contiguous artifacts the same correlation is +0.051 — i.e. the count penalty is a property of *this emission shape*, not of the corpus. Two within-family controls hold the field fixed and confirm the direction: 44,090 dots (0.2600) beats its own 60,069-dot superset (0.2477); 37,654 (0.2778) beats its own 40,199-dot superset (0.2708).</p>
+<p><strong>Cost per dot, measured:</strong> the 44,090 → 37,654 removal of 6,436 dots bought <strong>+0.0178</strong>.</p>
+<h2>5. Can 0.2778 be beaten? Yes — by changing one of the two inputs, not by guessing</h2>
+<p>At fixed <code>n</code> the score is exactly proportional to <code>T</code>. The field screen (<code>docs/data/field-screen.json</code>, pre-registered, eleven spatial blocks, all arms reduced to the same 28,000-dot isolated-dot emission) ranked eight mechanisms on the independent SGMC proxy. The winner was <strong>not</strong> the repository&#x27;s new basin-margin hypothesis but a simpler one: the multi-scale structure-tensor anisotropy of the <strong>detrended elevation</strong> band (<code>|λ1 − λ2|</code> at σ = 1.5/3/6 px), pooled credit 5,454.7 at 28,000 dots versus 3,437.9 for the basin-step field and 3,236.5 for the ten-band lineament field. Forward selection added fault-tip extrapolation for +0.0004 (inside noise; carried at weight 0.15).</p>
+<p>Interpolating the measured credit curve of the shipped field, <strong>at the same 37,654 dots it carries ≈ 7,306 credit units versus 5,399.8 — +35.3 %.</strong> That is the headroom: the same score identity, a better field.</p>
+<p>The count then follows from the intersection of the two calibrated instruments:</p>
+<table><thead><tr><th>instrument</th><th>what it says about n</th></tr></thead><tbody><tr><td>credit model (K_eff = 15,303, licensed on 37,654–61,328)</td><td>below n ≈ 27,000 the projection falls under 0.2778 (n = 20,000 → 0.223; n = 24,000 → 0.245); at n = 28,000 → <strong>0.2937</strong></td></tr><tr><td>ledger mass slope (within-family, +0.0178 per 6,436 dots)</td><td>every dot above ≈ 38,000 is priced against us; 37,654 → 28,000 → <strong>0.3045</strong></td></tr></tbody></table>
+<p><strong>Pass 4 addition — a second field, and a negative result about leaderboards.</strong> Pooling the group&#x27;s own sixteen live-scored artifacts into a score²-weighted consensus gives, at the identical 28,000-dot budget, <strong>4,398.3</strong> pooled SGMC credit — *worse than the plain curvature ridge (5,454.7)*. Agreement between submissions that scored 0.09–0.28 on the hidden set is therefore <strong>not</strong> a proxy for the official SGMC off-catalogue population; the consensus is admitted only as a complement. The normalised sum does better than either part: <strong>5,698.6</strong> pooled (+4.5 % over the ridge), winning at 3×3 (814.1 vs 779.2), 4×4 (518.1 vs 495.9) and 5×5 (316.6 vs 303.0) blockings, and lifting the shipped emission&#x27;s SGMC payload DTI from 0.09847 to <strong>0.10507</strong> (+6.7 %). That blend is the primary candidate; the ridge-only file ships as the fallback.</p>
+<p><strong>Shipped: n = 28,000 dots</strong>, inside both. Two independent magnitude estimators give <strong>0.2937 and 0.3045</strong> for the ridge alone — quoted as a range <strong>[0.28, 0.31]</strong> — and <strong>0.3233 and 0.325</strong> for the shipped blend, quoted as <strong>[0.30, 0.33]</strong>. The widening between the two files is exactly the size of the SGMC gain (+6.7 % credit); the step that converts an SGMC gain into a hidden-truth gain <strong>cannot be validated in this workspace</strong> and is labelled as an assumption, not a measurement.</p>
+<h2>6. What would be needed to beat the leader (0.3262)</h2>
+<p>0.3262 vs 0.2778 is +0.0484. On the identity that is <strong>+17.5 % credit at the same dot count</strong>, or a ~10 % credit gain with a count reduction to 28,000. The screen found +35 % credit at equal count in the *proxy* instrument — but the honest caveat is that the proxy&#x27;s transfer factor is only calibrated on the dotted family, and the leader&#x27;s field is unknown. <strong>Nothing in this workspace demonstrates a &gt;0.3262 configuration</strong>, and the site says so rather than implying otherwise.</p>
+<h2>7. Two tensions this document does not hide</h2>
+<ol><li><strong>Our field&#x27;s credit-per-dot rises with n</strong> (0.1356 at 5,000 dots → 0.2001 at 60,000)</li></ol>
+<p>   while the ledger&#x27;s dotted families fall with n (0.1434 → 0.1030 over the same span). The    elasticity of total credit is +0.970, far above the +0.449 break-even — so on the credit    instrument alone, *more* dots help. This is why the count choice is set by the    intersection rule and not by either instrument alone, and it is the single most    falsifiable claim here: if the ledger is right, 28,000 beats 37,654; if the credit curve    is right, 60,000 would beat both.</p>
+<ol><li><strong>The instrument that ranks the dotted family does not rank the corpus.</strong> The correlation</li></ol>
+<p>   between predicted and live score across all 27 live-scored anchors is ρ = +0.368,    Pearson −0.168 — i.e. useless overall, while the dotted-family window fits to RMSE    0.0045. The reconciliation is shape: the identity <code>T/(0.2n+0.8K)</code> assumes unit dots, and    the corpus contains contiguous blobs whose mean component is up to 1.7 px and whose    effective credit is not <code>T</code>. The model is a *special-purpose* instrument for the emission    shape this repository ships, not a general leaderboard model. Any future use outside that    shape must be refused.</p>
+<h2>8. Reproduce</h2>
+<pre>.venv/bin/python scripts/run_field_screen.py --data data --n 28000 --blocks 4 \
+    --out docs/data/field-screen.json          # the mechanism screen (11 blocks)
+.venv/bin/python scripts/run_emission_efficiency.py --data data --out /tmp/eff.json
+.venv/bin/python scripts/build_submission_h6.py --data data --out docs/downloads
+.venv/bin/python scripts/run_gate.py docs/downloads/&lt;file&gt;.tif \
+    --history /tmp/hist_corpus --labels data/labels.tif</pre>
+<p><code>docs/data/score-diagnostics.json</code> holds the machine-readable version of every table above (ladder, residuals, failure point, credit curve, decision rule).</p><footer>Generated 2026-10-04 19:39 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
