@@ -1,0 +1,26 @@
+{
+  "name": "gems34-g34-5-habitat-ridge-hybrid-40k-20261004T200038Z",
+  "tif": "gems34-g34-5-habitat-ridge-hybrid-40k-20261004T200038Z.tif",
+  "sha256": "bdbcb62e8af6aaaa02b0baad19c80f15be5610aa8d7abddf20841408a58e5a66",
+  "n_positive": 100988,
+  "n_finite": 12279160,
+  "values": [
+    0.0,
+    1.0
+  ],
+  "crs": "EPSG:32611",
+  "dtype": "float32",
+  "shape": [
+    3730,
+    3292
+  ],
+  "note_string": "GEMSDOE34: 60,988 known-fault carpet (masked, inert) + 40,000 isolated off-catalogue dots (3 px NMS) = the only live-validated emission recipe, re-placed on a hybrid field (validated habitat + detrended-elevation curvature ridge). Values in [0,1] in every cell, zero-outside. Payload Dice vs 31 prior artifacts <= 0.115.",
+  "generated_utc": "2026-10-04T20:01:35.912010+00:00",
+  "built_by": "scripts/build_submission_h6.py --habitat <prior emission> --habitat-weight 0.5 --target 40000",
+  "provenance": {
+    "field": "0.5*norm(KDE(prior validated emission, sigma 2 px)) + 0.5*norm(multi-scale detrended-elevation curvature ridge)",
+    "why": "the prior emission is the only lineage whose catalogue credit is measured to transfer to live scores 1:1 (docs/data/unit-dot-study.json: transfer ratio 0.97-1.02 for the family, 0.21-0.45 elsewhere); the curvature ridge is the pre-registered winner of docs/data/field-screen.json",
+    "count": "40,000 dots at 3 px NMS sits inside the directly measured live range 37,654-61,328, so the dose-response is interpolated, not extrapolated"
+  },
+  "disclosure": "this file uses a prior submission as one field input; every dot is re-placed by this repository's own packing and the gate measures the overlap: payload Dice 0.114 vs the largest prior artifact, 0.227 vs this repository's own sibling"
+}

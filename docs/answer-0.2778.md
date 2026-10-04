@@ -151,6 +151,28 @@ transfer factor is only calibrated on the dotted family, and the leader's field 
 **Nothing in this workspace demonstrates a >0.3262 configuration**, and the site says so
 rather than implying otherwise.
 
+## 6b. The one calibrated quantity: the field lineage, not the count
+
+Ten artifacts in the corpus are pure unit-dot emissions (one pixel per component), spanning 37,654 to
+206,895 dots, all with the same spatial spread (34 of 64 five-hundred-pixel blocks, HHI 0.039–0.049).
+Splitting them by field lineage and measuring the **transfer ratio** — live credit implied by the
+identity, divided by catalogue credit measured on the independent official compilation — separates them
+cleanly:
+
+| lineage | live | transfer ratio |
+|---|---|---|
+| the leading family (five nested thinnings of one habitat field) | 0.2778 → 0.2449 | **1.017 / 1.010 / 1.005 / 0.987 / 0.969** |
+| h28-dotted-ridge | 0.1839 | 0.854 |
+| dilcond-oof / r7-nms3-dem10-scarp | 0.1223 / 0.1294 | 0.449 / 0.412 |
+| h30-arrangement / r13-lattice | 0.1352 / 0.0904 | 0.296 / 0.209 |
+
+So catalogue credit is **not** a general currency: four unit-dot fields with the same shape and count
+spend 20–45 % of what the family converts, and the instrument that fits the family to RMSE 0.0045
+misses them by +0.15 to +0.34. The shipped file therefore inherits the calibrated lineage: a prior
+emission is used as a habitat input (σ = 2 px), blended 50/50 with the pre-registered curvature ridge,
+and re-placed at 40,000 dots — inside the measured range, on the measured recipe. The overlap is
+disclosed and measured (payload Dice 0.114).
+
 ## 7. Two tensions this document does not hide
 
 1. **Our field's credit-per-dot rises with n** (0.1356 at 5,000 dots → 0.2001 at 60,000)
@@ -169,7 +191,15 @@ rather than implying otherwise.
    shape this repository ships, not a general leaderboard model. Any future use outside that
    shape must be refused.
 
-## 8. Reproduce
+## 8. What would falsify all of this
+
+A single weekly slot on the shipped file settles the two open questions at once: whether the family's
+1:1 transfer extends to a hybrid field (if it does, the file should land near 0.28; if the transfer
+collapses to the 0.2–0.45 range seen in four other fields, it will land near 0.12–0.20), and whether
+the count axis keeps paying below 37,654. Both outcomes are informative, which is the most a slot can
+do from inside this workspace.
+
+## 9. Reproduce
 
 ```
 .venv/bin/python scripts/run_field_screen.py --data data --n 28000 --blocks 4 \
