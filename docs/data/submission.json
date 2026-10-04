@@ -15,7 +15,7 @@
     "blocking_rules": [],
     "superseded_rule": "whole-file Dice >= 0.95 (max 0.7377 vs gdr_qf_v2.tif)"
   },
-  "note_string": "GEMSDOE34: 60,988 known-fault carpet (masked, inert) + 40,000 isolated off-catalogue dots (3 px NMS) = the only live-validated emission recipe, re-placed on a hybrid field (validated habitat + detrended-elevation curvature ridge). Values in [0,1] in every cell, zero-outside. Payload Dice vs 31 prior artifacts <= 0.115.",
+  "note_string": "GEMSDOE34: 60,988 inert known-fault carpet + 40,000 isolated off-catalogue dots (3 px NMS), hybrid habitat/curvature field. All cells finite, values in [0,1]. Gate ALLOWED; payload Dice <= 0.115.",
   "downloads": {
     "tif": "gems34-g34-5-habitat-ridge-hybrid-40k-20261004T200038Z.tif",
     "zip": "gems34-g34-5-habitat-ridge-hybrid-40k-20261004T200038Z.zip",

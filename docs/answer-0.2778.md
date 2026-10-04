@@ -135,7 +135,12 @@ normalised sum does better than either part: **5,698.6** pooled (+4.5 % over the
 shipped emission's SGMC payload DTI from 0.09847 to **0.10507** (+6.7 %). That blend is the primary
 candidate; the ridge-only file ships as the fallback.
 
-**Shipped: n = 28,000 dots**, inside both. Two independent magnitude estimators give
+**Then the transfer-ratio audit (§6b) changed what ships.** The count rule above stands as the
+intermediate result - 28,000 was chosen at the intersection of the two count instruments - but the
+final file moves back *inside* the directly measured range (40,000 dots), because the only quantity
+in this corpus that is calibrated at all is the field lineage, and that calibration was established
+on files of 37,654-61,328 dots. The 28,000-dot build ships alongside as an alternative. Taking the
+count rule at face value, two independent magnitude estimators give
 **0.2937 and 0.3045** for the ridge alone — quoted as a range **[0.28, 0.31]** — and
 **0.3233 and 0.325** for the shipped blend, quoted as **[0.30, 0.33]**. The widening between the two
 files is exactly the size of the SGMC gain (+6.7 % credit); the step that converts an SGMC gain into a

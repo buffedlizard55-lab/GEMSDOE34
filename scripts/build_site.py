@@ -270,13 +270,14 @@ all {gate.get('corpus_size', '—')} prior artifacts is at most
 {gate.get('max_payload_dice', '—')}. See <a href="history.html">History &amp; collapse</a>.</li>
 <li><strong>The honest limit.</strong> Nothing in this workspace demonstrates a configuration
 above the public leader's 0.3262, and the site says so. The shipped candidate's projection of
-0.29 is an <em>estimate from two calibrated instruments that are one-sided against mass</em>,
-quoted as a range, and labelled as such wherever it appears.</li>
+0.28 (range 0.24-0.33) is bounded on purpose: the count sits inside the measured range and half the
+field is the calibrated lineage, but the new-mass half is unvalidated, so the range spans the
+measured spread of conversion factors (0.21-1.02) instead of pretending to a point estimate.</li>
 </ol>
 
 <h2>What this submission is</h2>
 <p>A 60,988-pixel carpet over the mapped catalogue — inert under the masking rule, and required
-by the rules' demand for predictions over all faults — plus <strong>28,000 isolated
+by the rules' demand for predictions over all faults — plus <strong>40,000 isolated
 off-catalogue dots</strong> packed at the metric's own 3 px separation, with no mass at all
 within 3 px of the catalogue. Every dot is a separate component (mean 1.000 px), every cell is
 finite, every value is in [0,1]: the format failure the portal reported ("Predicted values must

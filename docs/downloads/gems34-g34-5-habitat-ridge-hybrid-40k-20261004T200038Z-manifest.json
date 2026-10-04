@@ -14,7 +14,7 @@
     3730,
     3292
   ],
-  "note_string": "GEMSDOE34: 60,988 known-fault carpet (masked, inert) + 40,000 isolated off-catalogue dots (3 px NMS) = the only live-validated emission recipe, re-placed on a hybrid field (validated habitat + detrended-elevation curvature ridge). Values in [0,1] in every cell, zero-outside. Payload Dice vs 31 prior artifacts <= 0.115.",
+  "note_string": "GEMSDOE34: 60,988 inert known-fault carpet + 40,000 isolated off-catalogue dots (3 px NMS), hybrid habitat/curvature field. All cells finite, values in [0,1]. Gate ALLOWED; payload Dice <= 0.115.",
   "generated_utc": "2026-10-04T20:01:35.912010+00:00",
   "built_by": "scripts/build_submission_h6.py --habitat <prior emission> --habitat-weight 0.5 --target 40000",
   "provenance": {
