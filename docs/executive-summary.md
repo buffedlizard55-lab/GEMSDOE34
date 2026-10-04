@@ -45,9 +45,11 @@ must print `bdbcb62e8af6aaaa02b0baad19c80f15be5610aa8d7abddf20841408a58e5a66`.
   out of the penalty terms ([community, 2026-09-16](https://community.drivendata.org/t/11516)),
   so this mass is inert — it cannot help and cannot hurt. It is included because the rules ask for
   predictions for all faults in the region.
-* **40,000 isolated off-catalogue dots** — the part that competes. This is 26 % fewer dots than the
-  group's best-scoring artifact (37,654 dots, live 0.2778) while carrying 97 % of its measured
-  credit, because the field behind it was selected for credit-per-dot.
+* **40,000 isolated off-catalogue dots** — the part that competes. The count sits inside the only
+  range this group has ever measured live (37,654-61,328 dots scored 0.2449-0.2778), so the
+  dose-response is interpolated rather than extrapolated. The field is a hybrid: half of the one
+  lineage whose catalogue credit is measured to convert into live score **1:1**, half of the
+  pre-registered detrended-elevation curvature ridge, which is new mass.
 * **No mass between 1 and 3 px of the catalogue.** That ring is the band where a prediction is
   charged but, on the group's own record, earns nothing: nested artifacts differing only by
   2,545 and 3,891 pixels there scored 0.2778 → 0.2708 → 0.2600.
@@ -77,8 +79,7 @@ The metric is an identity: for `n` unit dots carrying total true credit `T` agai
 of effective mass `K`, `score = T/(0.2n + 0.8K)` exactly. `h33-2-b2` holds 37,654 dots, none on
 the catalogue, worth `T = 5,399.8` against an independent official fault compilation. Fitting the
 single constant `K` on the group's own five nested dotted artifacts reproduces **five live
-leaderboard scores to RMSE 0.0045**. The shipped field carries ≈ 35 % more credit at the same dot
-count, and ships 26 % fewer dots; the shipped file goes further and uses the one thing this workspace could *calibrate*: among ten
+leaderboard scores to RMSE 0.0045**. The shipped file uses the one thing this workspace could *calibrate*: among ten
 unit-dot artifacts, the group's own leading lineage is the only one whose catalogue credit is
 measured to convert into live score 1:1 (ratios 0.97–1.02, against 0.21–0.45 for four other fields).
 The shipped emission therefore re-places mass on the *measured* recipe — isolated dots inside the
