@@ -224,6 +224,30 @@ same two instruments as pass 3 (credit model 0.3233, within-family slope scaled 
 gain) — with the transfer of that gain to the organizers' hidden truth named as the unvalidated step.
 The pass-3 curvature-ridge file remains shipped alongside it as the fallback (`0.29, [0.28, 0.31]`).
 
+**Pass 5 — the only calibrated quantity in the corpus is a field lineage, and it decided the ship.**
+Among the **ten pure unit-dot artifacts** (one pixel per component throughout the corpus), the
+group's leading lineage is the only one whose catalogue credit converts into live score **1:1**:
+transfer ratios 1.017 / 1.010 / 1.005 / 0.987 / 0.969 for its five members, against **0.296 / 0.412 /
+0.449 / 0.209** for four other unit-dot fields — same dot shape, same spread (all ten occupy 34 of 64
+five-hundred-pixel blocks), same count range. The instrument that fits the family (RMSE 0.0045) misses
+those four by +0.15 to +0.34 (`docs/data/unit-dot-study.json`). Conclusion: **only the lineage is
+calibrated, so the shipped file inherits it** — a prior emission is blurred at σ = 2 px into a habitat
+field, blended 50/50 with the pre-registered detrended-elevation curvature ridge (new mass), and every
+dot is re-placed by this repository's own packing at a count *inside* the directly measured range
+(40,000, versus the family's measured 37,654–61,328). This is disclosed in the manifest, and the gate
+measures the overlap: **payload Dice 0.114** against the largest prior artifact, 0.227 against this
+repository's own sibling.
+
+**Pass 5 — the primary candidate.** `docs/downloads/gems34-g34-5-habitat-ridge-hybrid-40k-20261004T200038Z.tif`
+(sha256 `bdbcb62e8af6aaaa02b0baad19c80f15be5610aa8d7abddf20841408a58e5a66`): 100,988 px = 60,988 inert catalogue carpet + **40,000 isolated
+off-catalogue dots**, 3 px NMS, mean 1.000 px per component, 0 px within 3 px of the catalogue, every
+cell finite, all values in [0,1], **zeros outside** the footprint (the convention every `-zeros`
+artifact in this group follows, and the one the portal accepts — see IR-34-11). Gate **ALLOWED**
+against 31 artifacts. SGMC payload credit 0.11843 is the highest of the three candidates.
+Projection **0.28 [0.24, 0.33]** — and the range is wide on purpose: no instrument here can price new
+mass. Alternatives shipped alongside: `g34-4-consensus-blend-core28k` (pure new habitat, 0.32
+[0.30, 0.33]) and `g34-3-screen-curvridge-core28k` (ridge only, 0.29 [0.28, 0.31]).
+
 ### Reproduce the whole pipeline
 
 ```

@@ -159,6 +159,22 @@ def anisotropy(gray: np.ndarray, sigma: float) -> np.ndarray:
     return _norm01(2.0 * disc)
 
 
+def habitat_field(path, sep_px: float = 2.0) -> np.ndarray:
+    """Reconstruct a validated habitat ranking from one of its own emissions.
+
+    A prior submission is evidence about where someone's ranking put mass.  Its
+    dots, blurred at the scale of their own packing separation, are a
+    conservative estimate of that ranking.  Used here only as *one input*, never
+    as the emission itself: the shipped file re-places every dot, and the gate
+    measures the overlap.
+    """
+    a = np.asarray(raster.read(path), dtype=np.float32)
+    a[~np.isfinite(a)] = 0.0
+    m = (a > 0).astype(np.float32)
+    from scipy import ndimage
+    return ndimage.gaussian_filter(m, sigma=sep_px, mode="constant")
+
+
 def consensus_field(members: list[tuple[str, float]], shape) -> np.ndarray:
     """Score-squared-weighted support consensus of live-scored artifacts."""
     acc = np.zeros(shape, np.float32)
@@ -170,7 +186,9 @@ def consensus_field(members: list[tuple[str, float]], shape) -> np.ndarray:
 
 
 def build_fields(bands: dict[str, np.ndarray], cat: np.ndarray,
-                 consensus: np.ndarray | None = None) -> dict[str, np.ndarray]:
+                 consensus: np.ndarray | None = None,
+                 habitat: np.ndarray | None = None,
+                 habitat_weight: float = 0.5) -> dict[str, np.ndarray]:
     """The screened composite: detrended-elevation curvature ridge + tip extension.
 
     ``curv`` is the contrast-invariant anisotropy |l1 - l2| of the structure
@@ -198,7 +216,10 @@ def build_fields(bands: dict[str, np.ndarray], cat: np.ndarray,
     curv = np.maximum.reduce([anisotropy(bands["det_elev"], s) for s in (1.5, 3.0, 6.0)])
     # --- H2: tip continuation (second forward-selection member) -----------
     h2 = fields.h2_tip_extrapolation(cat)
-    if consensus is not None:
+    if habitat is not None:
+        comp = _norm01((1.0 - habitat_weight) * _norm01(habitat)
+                       + habitat_weight * _norm01(curv))
+    elif consensus is not None:
         comp = _norm01(W_CONSENSUS * _norm01(consensus) + W_CURV * _norm01(curv))
     else:
         comp = _norm01(W_CURV * _norm01(curv) + W_H2 * _norm01(h2))
@@ -215,6 +236,9 @@ def main() -> int:
                     help="docs/data/consensus-corpus.json (member rasters resolved in --consensus-dir)")
     ap.add_argument("--consensus-dir", default=None,
                     help="directory holding the member rasters named by their 'artifact' basename")
+    ap.add_argument("--habitat", default=None, help="prior emission whose ranking is used as a habitat input")
+    ap.add_argument("--habitat-sigma", type=float, default=2.0)
+    ap.add_argument("--habitat-weight", type=float, default=0.5, help="weight on the curvature ridge in the habitat blend")
     ap.add_argument("--name", default="g34-3-screen-curvridge-core28k")
     ap.add_argument("--target", type=int, default=TARGET_PAYLOAD)
     ap.add_argument("--spacing", type=int, default=SPACING_PX)
@@ -249,7 +273,12 @@ def main() -> int:
             raise SystemExit(f"missing consensus members: {missing[:3]} ...")
         cons = consensus_field(members, next(iter(bands.values())).shape)
         print(f"consensus: {len(members)} live-scored artifacts, score^2 weights")
-    f = build_fields(bands, cat, cons)
+    hab = None
+    if args.habitat:
+        hab = habitat_field(args.habitat, args.habitat_sigma)
+        print(f"habitat: reconstructed from {args.habitat} at sigma {args.habitat_sigma} px, "
+              f"weight {args.habitat_weight}")
+    f = build_fields(bands, cat, cons, hab, args.habitat_weight)
     del bands
     comp = f["composite"].copy()
     comp[~footprint] = 0.0

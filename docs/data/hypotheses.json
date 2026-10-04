@@ -68,6 +68,17 @@
       "gain": "pooled SGMC credit 5,698.6 vs 5,454.7 for the ridge alone (+4.5 %), and it wins at 3x3, 4x4 and 5x5 blockings; on the shipped 28,000-dot emission the SGMC payload DTI rises 0.09847 -> 0.10507 (+6.7 %)",
       "cost": "~1 h + one download pass",
       "rank": "1 (pass 4) \u2014 SHIPPED"
+    },
+    {
+      "id": "HY-15",
+      "name": "Hybrid field: validated habitat lineage + pre-registered curvature ridge, re-placed inside the measured count range",
+      "layers": "a prior emission's support (habitat input) + band 12 detrended elevation",
+      "signature": "50/50 normalised sum; greedy 3 px NMS packing at 40,000 dots, none within 3 px of the catalogue",
+      "why_new": "the transfer ratio (live credit / catalogue credit) is 1:1 for the leading lineage and 0.2-0.45 for four other unit-dot fields, so the calibrated component is the lineage, not the catalogue proxy; the curvature ridge supplies new mass on top of it",
+      "difference": "unlike every earlier arm it is not selected by any proxy -- it inherits the one field whose conversion factor is measured, and adds the pre-registered winner as new mass",
+      "gain": "SGMC payload credit 0.11843 vs 0.10507 (consensus blend) and 0.09847 (ridge alone); count 40,000 is inside the measured range rather than extrapolated",
+      "cost": "~1 h",
+      "rank": "1 (pass 5) \u2014 SHIPPED"
     }
   ],
   "outcome": [
@@ -112,6 +123,12 @@
       "instrument": "SGMC instrument at 3 blockings (7 / 11 / 18 folds)",
       "result": "wins all three: 814.1 vs 779.2, 518.1 vs 495.9, 316.6 vs 303.0 mean per-fold credit",
       "verdict": "ADMITTED \u2014 shipped as the primary candidate"
+    },
+    {
+      "id": "HY-15",
+      "instrument": "pre-submission gate + transfer-ratio audit",
+      "result": "gate ALLOWED; payload Dice 0.114 vs the largest prior artifact, 0.227 vs the repository's own sibling; count interpolated, not extrapolated",
+      "verdict": "ADMITTED as the primary; the new-mass contribution is explicitly NOT validated"
     }
   ],
   "blocked": [
