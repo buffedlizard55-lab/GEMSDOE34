@@ -1,97 +1,129 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Limitations</title><style>
-:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Limitations &amp; Future Work — GEMSDOE34</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36;--btn-bg:#1d212b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
-header b{font-size:17px;white-space:nowrap}
-nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
-nav a:hover{color:var(--acc)}
-main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
-h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
-h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
-h3{font-size:16.5px;margin-top:24px}
-a{color:var(--acc)}
-code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
-pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--mut);font-weight:600}
+header{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.98);backdrop-filter:blur(8px);z-index:50}
+header b{font-size:18px;color:#fff;letter-spacing:0.5px;white-space:nowrap}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-size:13.5px;padding:4px 8px;border-radius:6px;transition:all 0.15s ease}
+nav a:hover{color:var(--acc);background:rgba(77,163,255,0.08)}
+nav a.active{color:#fff;background:var(--btn-bg);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:28px 24px 90px}
+h1{font-size:28px;line-height:1.3;margin:16px 0 10px;color:#fff}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:8px;color:#f0f3f8}
+h3{font-size:17px;margin-top:24px;color:#d8e2ec}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:2px 6px;font-size:13px;word-break:break-all;color:#7ee787}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font-size:13px;line-height:1.5;color:#e6edf3}
+pre code{background:transparent;border:0;padding:0;color:inherit}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600;background:rgba(23,26,33,0.6)}
+tr:hover td{background:rgba(255,255,255,0.02)}
 .mut{color:var(--mut)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
-.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
-.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
-.dl a.z{background:#2a3140;color:var(--fg)}
-.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
-.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
-.kpi b{display:block;font-size:23px;color:var(--acc)}
-ul,ol{padding-left:21px}li{margin:5px 0}
-footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
-details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
-</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html">Method</a><a href="validation.html">Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html" style=color:#e8eaf0>Limitations</a></nav></header><main><h1>Limitations and remaining work</h1><pre># Limitations and remaining work
-
-## What blocks a higher score
-
-**L1 — no novelty-sensitive truth population (the binding constraint).**
-Both instruments in this repository score rules against *catalogue* geometry: the blocked holdout
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.dl{border:1px solid #1d5c3c;background:linear-gradient(180deg,#0f261c 0%,#171a21 100%);border-radius:12px;padding:22px;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.dl h2{margin-top:0;border:0;color:#fff;display:flex;align-items:center;gap:8px}
+.dl a.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ok);color:#04220f;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none;margin:8px 10px 8px 0;font-size:14.5px;transition:opacity 0.15s ease}
+.dl a.btn:hover{opacity:0.92;text-decoration:none}
+.dl a.z{background:#262d3d;color:#e8eaf0;border:1px solid var(--line)}
+.dl a.z:hover{background:#30384c}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px;font-weight:600}
+.tag.ok{color:var(--ok);border-color:#1d5c3c;background:rgba(57,217,138,0.1)}
+.tag.warn{color:var(--warn);border-color:#5c4a1d;background:rgba(255,179,71,0.1)}
+.tag.bad{color:var(--bad);border-color:#5c1d1d;background:rgba(255,107,107,0.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.kpi span.label{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+.kpi b{display:block;font-size:26px;color:#fff;font-weight:700}
+.kpi span.sub{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+ul,ol{padding-left:22px}li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 0 10px;margin-top:48px;color:var(--mut);font-size:13px}
+details{margin:12px 0;background:#0d1015;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details[open]{padding-bottom:14px}
+summary{cursor:pointer;color:var(--acc);font-weight:600;user-select:none}
+.step-box{background:#11151d;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" class="">Overview</a><a href="executive-summary.html" class="">How to submit</a><a href="method.html" class="">Method</a><a href="validation.html" class="">Validation</a><a href="hypotheses.html" class="">Hypotheses</a><a href="history.html" class="">History &amp; collapse</a><a href="sources.html" class="">Sources</a><a href="irregularities.html" class="">Irregularities</a><a href="limitations.html" class="active">Limitations</a></nav></header><main><h1>Limitations and remaining work</h1>
+<h2>What blocks a higher score</h2>
+<p><strong>L1 — no novelty-sensitive truth population (the binding constraint).</strong>
+Both instruments in this repository score rules against <em>catalogue</em> geometry: the blocked holdout
 (whole 4×4 blocks) and the near-field instrument (contiguous removed runs). They can measure
-whether a rule recovers unseen fault geometry under the organizers&#x27; masking rule. They cannot
+whether a rule recovers unseen fault geometry under the organizers' masking rule. They cannot
 measure whether a rule finds a fault that is absent from every catalogue, because no such
 population is available here. The consequence is sharp and measured: on the blocked holdout,
-**every field tested lands within noise of the free carpet** (best 0.00289 vs carpet 0.00278 over
-11 folds), so the far-field half of the shipped file is priced by the metric&#x27;s algebra and capped,
-not validated by an instrument.
-
-*What would fix it.* An independent, expert-mapped fault population in the same region that is
-**disjoint** from the competition catalogue. Named, free, official sources:
-
-* **USGS Quaternary Fault and Fold Database (Qfaults)** — https://earthquake.usgs.gov/qfaults/
-  Public domain. *Checkable but not reachable from this sandbox* (direct HTTPS fails at TLS for
+<strong>every field tested lands within noise of the free carpet</strong> (best 0.00289 vs carpet 0.00278 over
+11 folds), so the far-field half of the shipped file is priced by the metric's algebra and capped,
+not validated by an instrument.</p>
+<p><em>What would fix it.</em> An independent, expert-mapped fault population in the same region that is
+<strong>disjoint</strong> from the competition catalogue. Named, free, official sources:</p>
+<ul>
+<li><strong>USGS Quaternary Fault and Fold Database (Qfaults)</strong> — https://earthquake.usgs.gov/qfaults/
+  Public domain. <em>Checkable but not reachable from this sandbox</em> (direct HTTPS fails at TLS for
   every host except GitHub). A sibling project built a 3-band raster from
-  `https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip`
-  (zip sha256 `447eadc5…`, product sha256 `538b4573…`) — but that is a *USGS catalogue*, so a rule
-  that reproduces it reproduces known faults; it was tested for this purpose and rejected.
-* **USGS SGMC** (Horton et al. 2017, DOI `10.5066/F7WH2N65`; NV part DOI `10.3133/ds1052`;
-  ScienceBase `5888bf4fe4b05ccb964bab9d`; zips `mrdata.usgs.gov/geology/state/zip/NV.zip`,
-  `CA.zip`). Their own provenance note says &quot;rebuild-from-official pending&quot;, so nothing here
-  depends on the sibling-built raster.
-
-**L2 — no 1 m DEM in the sandbox.**
-The competition supplies `1m_DEM_links.csv` (716 unique tiles, verified against the S3 listing)
+  <code>https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip</code>
+  (zip sha256 <code>447eadc5…</code>, product sha256 <code>538b4573…</code>) — but that is a <em>USGS catalogue</em>, so a rule
+  that reproduces it reproduces known faults; it was tested for this purpose and rejected.</li>
+<li><strong>USGS SGMC</strong> (Horton et al. 2017, DOI <code>10.5066/F7WH2N65</code>; NV part DOI <code>10.3133/ds1052</code>;
+  ScienceBase <code>5888bf4fe4b05ccb964bab9d</code>; zips <code>mrdata.usgs.gov/geology/state/zip/NV.zip</code>,
+  <code>CA.zip</code>). Their own provenance note says "rebuild-from-official pending", so nothing here
+  depends on the sibling-built raster.</li>
+</ul>
+<p><strong>L2 — no 1 m DEM in the sandbox.</strong>
+The competition supplies <code>1m_DEM_links.csv</code> (716 unique tiles, verified against the S3 listing)
 but the tiles cannot be downloaded here. Every geomorphic criterion an expert would use —
 scarps, facets, deflected drainages — is therefore unavailable, and every hypothesis that needs
-it is **untested rather than rejected**. This is the largest unexplored evidence class.
-
-**L3 — 2 CPU, ~4 GB RAM, no GPU.**
-The organizers&#x27; own reference solution is a U-Net (5 epochs, Monte-Carlo dropout, patches of
+it is <strong>untested rather than rejected</strong>. This is the largest unexplored evidence class.</p>
+<p><strong>L3 — 2 CPU, ~4 GB RAM, no GPU.</strong>
+The organizers' own reference solution is a U-Net (5 epochs, Monte-Carlo dropout, patches of
 128). It is out of reach here. Everything in this repository is deliberately CPU-only and runs
-end-to-end in minutes.
-
-**L4 — the masking wording admits two readings.**
-&quot;Masked/excluded from evaluation&quot; can mean *not charged to FP_w* or *removed from evaluation
-entirely*. Both readings make the free carpet non-harmful, and both make the collapse diagnosis
+end-to-end in minutes.</p>
+<p><strong>L4 — the masking wording admits two readings.</strong>
+"Masked/excluded from evaluation" can mean <em>not charged to FP_w</em> or <em>removed from evaluation
+entirely</em>. Both readings make the free carpet non-harmful, and both make the collapse diagnosis
 above valid; they differ on whether that mass can ever earn credit. Every decision here is safe
-under both.
-
-## Open questions, and the experiment that settles each
-
-| # | Question | Experiment |
-| --- | --- | --- |
-| Q1 | Does the far-field payload earn anything on the real test set? | spend one slot on the shipped file, read the public score, compare with the group&#x27;s 0.2778 claim |
-| Q2 | Is the group&#x27;s 0.2778 attributable to `gemsdoe32-h33-h33-2-b2-…-zeros.tif`? | obtain one submission receipt or submission id — none exists in any sibling repository, and that file&#x27;s own `.zip` is 0 bytes |
-| Q3 | Would a payload restricted to ≥ 800 m from the catalogue beat 0.2778? | the shipped payload&#x27;s median is 9 px; the three best claimed artifacts sit at medians of 16.8–19.6 px. Rebuild with `--min-dcat 8` and compare on the real board — no local instrument can rank this |
-| Q4 | Does the 1 m DEM carry the signal? | download a handful of tiles off-sandbox and test the scarp-curvature hypothesis |
-
-## Suggested next steps, in order
-
-1. Obtain Qfaults or SGMC out-of-band, build a novelty-sensitive truth population (faults ≥ 300 m
-   from the competition catalogue), and re-run `scripts/run_hypotheses.py` against it.
-2. Re-run the same script with `--free-mode dilate3` and compare the ranking: if it flips, L4 is
-   the constraint to resolve first.
-3. Download 3DEP 1 m DEM tiles over the highest-ranked structural targets and test the
-   scarp-curvature hypothesis — the only major evidence class still untested.
-4. Spend a slot only on a candidate that clears `scripts/run_gate.py` and beats the current best
-   on at least one instrument, and record the outcome in `registry/history.json` with its
-   evidence class.
-</pre><footer>Generated 2026-10-04 17:58 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
+under both.</p>
+<h2>Open questions, and the experiment that settles each</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Experiment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1</td>
+<td>Does the far-field payload earn anything on the real test set?</td>
+<td>spend one slot on the shipped file, read the public score, compare with the group's 0.2778 claim</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td>Is the group's 0.2778 attributable to <code>gemsdoe32-h33-h33-2-b2-…-zeros.tif</code>?</td>
+<td>obtain one submission receipt or submission id — none exists in any sibling repository, and that file's own <code>.zip</code> is 0 bytes</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>Would a payload restricted to ≥ 800 m from the catalogue beat 0.2778?</td>
+<td>the shipped payload's median is 9 px; the three best claimed artifacts sit at medians of 16.8–19.6 px. Rebuild with <code>--min-dcat 8</code> and compare on the real board — no local instrument can rank this</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td>Does the 1 m DEM carry the signal?</td>
+<td>download a handful of tiles off-sandbox and test the scarp-curvature hypothesis</td>
+</tr>
+</tbody>
+</table>
+<h2>Suggested next steps, in order</h2>
+<ol>
+<li>Obtain Qfaults or SGMC out-of-band, build a novelty-sensitive truth population (faults ≥ 300 m
+   from the competition catalogue), and re-run <code>scripts/run_hypotheses.py</code> against it.</li>
+<li>Re-run the same script with <code>--free-mode dilate3</code> and compare the ranking: if it flips, L4 is
+   the constraint to resolve first.</li>
+<li>Download 3DEP 1 m DEM tiles over the highest-ranked structural targets and test the
+   scarp-curvature hypothesis — the only major evidence class still untested.</li>
+<li>Spend a slot only on a candidate that clears <code>scripts/run_gate.py</code> and beats the current best
+   on at least one instrument, and record the outcome in <code>registry/history.json</code> with its
+   evidence class.</li>
+</ol><footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

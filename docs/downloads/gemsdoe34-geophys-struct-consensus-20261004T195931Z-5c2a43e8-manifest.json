@@ -1,0 +1,22 @@
+{
+  "name": "gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8",
+  "tif": "gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif",
+  "zip": "gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.zip",
+  "audit": "gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8-audit.json",
+  "gate": "gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8-gate.json",
+  "sha256": "d67b9bddc8af86d128fcebffecb0e91d00ce6db3b0bfb14ae689c2e91f6f5233",
+  "n_positive": 81016,
+  "params": {
+    "bar_struct": 0.35,
+    "bar_geophys": 0.35,
+    "spacing_struct": 6,
+    "spacing_geophys": 6,
+    "near_field_limit_px": -1,
+    "farfield_cap": 25000,
+    "bar_hedge": 0.04,
+    "spacing_hedge": 4,
+    "profile": "consensus",
+    "outside": "zero"
+  },
+  "note": "GEMSDOE34: 81,016 px = 60,988 on-mask free carpet + 20,028 off-mask consensus dots (gravity, MT, strain, tip-ext). Gate ALLOWED."
+}

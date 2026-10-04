@@ -1,193 +1,189 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Method</title><style>
-:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Method &amp; Mathematical Derivations — GEMSDOE34</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36;--btn-bg:#1d212b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
-header b{font-size:17px;white-space:nowrap}
-nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
-nav a:hover{color:var(--acc)}
-main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
-h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
-h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
-h3{font-size:16.5px;margin-top:24px}
-a{color:var(--acc)}
-code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
-pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--mut);font-weight:600}
+header{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.98);backdrop-filter:blur(8px);z-index:50}
+header b{font-size:18px;color:#fff;letter-spacing:0.5px;white-space:nowrap}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-size:13.5px;padding:4px 8px;border-radius:6px;transition:all 0.15s ease}
+nav a:hover{color:var(--acc);background:rgba(77,163,255,0.08)}
+nav a.active{color:#fff;background:var(--btn-bg);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:28px 24px 90px}
+h1{font-size:28px;line-height:1.3;margin:16px 0 10px;color:#fff}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:8px;color:#f0f3f8}
+h3{font-size:17px;margin-top:24px;color:#d8e2ec}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:2px 6px;font-size:13px;word-break:break-all;color:#7ee787}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font-size:13px;line-height:1.5;color:#e6edf3}
+pre code{background:transparent;border:0;padding:0;color:inherit}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600;background:rgba(23,26,33,0.6)}
+tr:hover td{background:rgba(255,255,255,0.02)}
 .mut{color:var(--mut)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
-.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
-.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
-.dl a.z{background:#2a3140;color:var(--fg)}
-.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
-.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
-.kpi b{display:block;font-size:23px;color:var(--acc)}
-ul,ol{padding-left:21px}li{margin:5px 0}
-footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
-details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
-</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html" style=color:#e8eaf0>Method</a><a href="validation.html">Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Method</h1><pre># The metric, the masking rule, and what they imply for an emission
-
-## The equations (verbatim from the problem description)
-
-    k(d)  = max(1 - d/R, 0)                      triangular kernel, R = 300 m (= 3 px)
-    TP_w  = sum_{g in G} max_{x: d(x,g)&lt;=R} p(x) * k(d(x,g))
-    FP_w  = sum_{x: p(x)&gt;0} p(x) * [1 - max_{g in G} k(d(x,g))]
-    FN_w  = sum_{g in G} [1 - max_{x: d(x,g)&lt;=R} p(x) * k(d(x,g))]
-    DTI   = TP_w / (TP_w + 0.2*FP_w + 0.8*FN_w + eps)
-
-Published worked example: `TP_w = 3.00, FP_w = 1.89, FN_w = 2.00`,
-`TI_w(0.2, 0.8) = 3.00 / (3.00 + 0.2*1.89 + 0.8*2.00) = 0.60`.
-
-Three structural consequences that are not obvious from the formulas but follow
-immediately once they are read carefully:
-
-1. **FN_w is the complement of TP_w.** Both sums are taken over the *same*
-   truth pixels and the *same* inner maximum, so `TP_w + FN_w = |G|` exactly.
-   The metric becomes `DTI = T / (0.2*(T+F) + 0.8*K)` with `K = |G|`.
-2. **FP_w is distance-weighted, not binary.** A prediction pixel *d* metres from
-   the nearest truth pixel is charged `0.2 * (d/R)` — a prediction inside 300 m
-   of a truth fault is charged proportionally, not fully.
-3. **One prediction pixel can serve many truth pixels**, and one truth pixel is
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.dl{border:1px solid #1d5c3c;background:linear-gradient(180deg,#0f261c 0%,#171a21 100%);border-radius:12px;padding:22px;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.dl h2{margin-top:0;border:0;color:#fff;display:flex;align-items:center;gap:8px}
+.dl a.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ok);color:#04220f;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none;margin:8px 10px 8px 0;font-size:14.5px;transition:opacity 0.15s ease}
+.dl a.btn:hover{opacity:0.92;text-decoration:none}
+.dl a.z{background:#262d3d;color:#e8eaf0;border:1px solid var(--line)}
+.dl a.z:hover{background:#30384c}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px;font-weight:600}
+.tag.ok{color:var(--ok);border-color:#1d5c3c;background:rgba(57,217,138,0.1)}
+.tag.warn{color:var(--warn);border-color:#5c4a1d;background:rgba(255,179,71,0.1)}
+.tag.bad{color:var(--bad);border-color:#5c1d1d;background:rgba(255,107,107,0.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.kpi span.label{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+.kpi b{display:block;font-size:26px;color:#fff;font-weight:700}
+.kpi span.sub{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+ul,ol{padding-left:22px}li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 0 10px;margin-top:48px;color:var(--mut);font-size:13px}
+details{margin:12px 0;background:#0d1015;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details[open]{padding-bottom:14px}
+summary{cursor:pointer;color:var(--acc);font-weight:600;user-select:none}
+.step-box{background:#11151d;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" class="">Overview</a><a href="executive-summary.html" class="">How to submit</a><a href="method.html" class="active">Method</a><a href="validation.html" class="">Validation</a><a href="hypotheses.html" class="">Hypotheses</a><a href="history.html" class="">History &amp; collapse</a><a href="sources.html" class="">Sources</a><a href="irregularities.html" class="">Irregularities</a><a href="limitations.html" class="">Limitations</a></nav></header><main><h1>The metric, the masking rule, and what they imply for an emission</h1>
+<h2>The equations (verbatim from the problem description)</h2>
+<pre><code>k(d)  = max(1 - d/R, 0)                      triangular kernel, R = 300 m (= 3 px)
+TP_w  = sum_{g in G} max_{x: d(x,g)&lt;=R} p(x) * k(d(x,g))
+FP_w  = sum_{x: p(x)&gt;0} p(x) * [1 - max_{g in G} k(d(x,g))]
+FN_w  = sum_{g in G} [1 - max_{x: d(x,g)&lt;=R} p(x) * k(d(x,g))]
+DTI   = TP_w / (TP_w + 0.2*FP_w + 0.8*FN_w + eps)
+</code></pre>
+<p>Published worked example: <code>TP_w = 3.00, FP_w = 1.89, FN_w = 2.00</code>,
+<code>TI_w(0.2, 0.8) = 3.00 / (3.00 + 0.2*1.89 + 0.8*2.00) = 0.60</code>.</p>
+<p>Three structural consequences that are not obvious from the formulas but follow
+immediately once they are read carefully:</p>
+<ol>
+<li><strong>FN_w is the complement of TP_w.</strong> Both sums are taken over the <em>same</em>
+   truth pixels and the <em>same</em> inner maximum, so <code>TP_w + FN_w = |G|</code> exactly.
+   The metric becomes <code>DTI = T / (0.2*(T+F) + 0.8*K)</code> with <code>K = |G|</code>.</li>
+<li><strong>FP_w is distance-weighted, not binary.</strong> A prediction pixel <em>d</em> metres from
+   the nearest truth pixel is charged <code>0.2 * (d/R)</code> — a prediction inside 300 m
+   of a truth fault is charged proportionally, not fully.</li>
+<li><strong>One prediction pixel can serve many truth pixels</strong>, and one truth pixel is
    served by its single best prediction within 300 m. Coverage is therefore a
-   *max*, not a sum: packing predictions closer than 300 m buys less than it
-   looks like it should.
-
-## The masking rule
-
-&gt; &quot;Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded
-&gt; from evaluation, so they do not count towards penalty terms.&quot; — chrisk-dd
-
-Operationally: prediction mass on a known-fault pixel is not charged to `FP_w`,
-and known-fault pixels are not part of `G` (so they are not `FN_w` either).
-
-**Consequence — the free carpet is weakly dominant.** Adding mass `v = 1` to a
-known-fault pixel contributes `dF = 0` and `dT &gt;= 0`. Then
-`d(DTI) = dT * D / (D + 0.2 * dT)` when `dF = 0`… and since `D &gt;= 0`, this is
+   <em>max</em>, not a sum: packing predictions closer than 300 m buys less than it
+   looks like it should.</li>
+</ol>
+<h2>The masking rule</h2>
+<blockquote>
+<p>"Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded
+from evaluation, so they do not count towards penalty terms." — chrisk-dd</p>
+</blockquote>
+<p>Operationally: prediction mass on a known-fault pixel is not charged to <code>FP_w</code>,
+and known-fault pixels are not part of <code>G</code> (so they are not <code>FN_w</code> either).</p>
+<p><strong>Consequence — the free carpet is weakly dominant.</strong> Adding mass <code>v = 1</code> to a
+known-fault pixel contributes <code>dF = 0</code> and <code>dT &gt;= 0</code>. Then
+<code>d(DTI) = dT * D / (D + 0.2 * dT)</code> when <code>dF = 0</code>… and since <code>D &gt;= 0</code>, this is
 never negative. Turning every known-fault pixel on cannot lower the score and
-can raise it wherever a *new* fault lies within 300 m of a mapped one.
-
-## Break-even rule for charged mass
-
-With `D = 0.2*(T+F) + 0.8*K`, `s = T/D`, and one unit of mass whose realised
-kernel credit is `k` and whose FP charge is `u` (so `u = 1 - k` off the mask,
-`u = 0` on it):
-
-    d(DTI) &gt; 0   &lt;=&gt;   k*(D - T*(0.2 - 0.8)) &gt; 0.2*T*u
-                 &lt;=&gt;   k &gt; 0.2*s*u / (1 - 0.2*s + 0.8*s)
-
-At `s = 0.28` this is `k &gt; 0.0479` for a charged pixel and `k &gt; 0` for a free
-one. `src/gems34/metric.py::marginal_bar` implements exactly this, and
-`tests/test_metric.py` verifies it against a brute-force perturbation rather
-than against a re-derivation.
-
-## What this implies for an emission
-
-* Emit the free carpet — it is free and it is sometimes worth a lot.
-* Everywhere else, emit only where the *expected* kernel credit exceeds
-  `marginal_bar(s)`. A candidate location with a 10 % chance of a new fault
+can raise it wherever a <em>new</em> fault lies within 300 m of a mapped one.</p>
+<h2>Break-even rule for charged mass</h2>
+<p>With <code>D = 0.2*(T+F) + 0.8*K</code>, <code>s = T/D</code>, and one unit of mass whose realised
+kernel credit is <code>k</code> and whose FP charge is <code>u</code> (so <code>u = 1 - k</code> off the mask,
+<code>u = 0</code> on it):</p>
+<pre><code>d(DTI) &gt; 0   &lt;=&gt;   k*(D - T*(0.2 - 0.8)) &gt; 0.2*T*u
+             &lt;=&gt;   k &gt; 0.2*s*u / (1 - 0.2*s + 0.8*s)
+</code></pre>
+<p>At <code>s = 0.28</code> this is <code>k &gt; 0.0479</code> for a charged pixel and <code>k &gt; 0</code> for a free
+one. <code>src/gems34/metric.py::marginal_bar</code> implements exactly this, and
+<code>tests/test_metric.py</code> verifies it against a brute-force perturbation rather
+than against a re-derivation.</p>
+<h2>What this implies for an emission</h2>
+<ul>
+<li>Emit the free carpet — it is free and it is sometimes worth a lot.</li>
+<li>Everywhere else, emit only where the <em>expected</em> kernel credit exceeds
+  <code>marginal_bar(s)</code>. A candidate location with a 10 % chance of a new fault
   within 300 m at an average kernel weight of 0.5 has expected credit 0.05,
-  which is *at* the bar for `s = 0.28` — so a location needs roughly a
-  one-in-ten chance of hosting a real fault to be worth a charged pixel.
-* Spacing: because coverage is a max over a 300 m disk, predictions packed
+  which is <em>at</em> the bar for <code>s = 0.28</code> — so a location needs roughly a
+  one-in-ten chance of hosting a real fault to be worth a charged pixel.</li>
+<li>Spacing: because coverage is a max over a 300 m disk, predictions packed
   closer than ~300 m do not add independent coverage; the useful packing is
-  approximately one prediction per 300 m of target structure.
-
-## Where the collapse came from
-
-`docs/data/collapse-diagnosis.json` measures it: the three artifacts that
+  approximately one prediction per 300 m of target structure.</li>
+</ul>
+<h2>Where the collapse came from</h2>
+<p><code>docs/data/collapse-diagnosis.json</code> measures it: the three artifacts that
 scored 0.1563 are two copies of one file plus a strict superset of it whose
-54,533 extra pixels lie **100.00 % on the free mask**. Because free-mask mass is
-metrically inert, the &quot;improvement&quot; step of the pipeline could not change the
-score — and indeed it did not. The gate in `src/gems34/registry.py` therefore
-compares the **payload** (support minus free mask), not the whole file: Dice
+54,533 extra pixels lie <strong>100.00 % on the free mask</strong>. Because free-mask mass is
+metrically inert, the "improvement" step of the pipeline could not change the
+score — and indeed it did not. The gate in <code>src/gems34/registry.py</code> therefore
+compares the <strong>payload</strong> (support minus free mask), not the whole file: Dice
 over the non-free support, plus the support-restricted Pearson correlation of
 the raw surfaces, plus exact-duplicate checks on both the values and the
-support.
+support.</p>
 
-
-# Geology, the target population, and the resulting strategy
-
-Only statements traceable to the sources in `01_official_sources.md` are
-asserted here. Anything this project has *not* verified is marked.
-
-## What the target actually is (verified from the problem description)
-
-The competition is not &quot;reproduce the USGS fault map&quot;. The organizers state that:
-
-1. the mapping is incomplete and &quot;may even contain some inaccurate data&quot;;
-2. the test set is a set of faults **manually identified by fault experts that are
-   not contained within the current public USGS database**;
-3. the region is split into a public and a private test set;
-4. the **Final Prize Round** re-scores the same submissions against a label set
-   that experts expand *after reviewing every team&#x27;s submission* — &quot;Predictions
+<h1>Geology, the target population, and the resulting strategy</h1>
+<p>Only statements traceable to the sources in <code>01_official_sources.md</code> are
+asserted here. Anything this project has <em>not</em> verified is marked.</p>
+<h2>What the target actually is (verified from the problem description)</h2>
+<p>The competition is not "reproduce the USGS fault map". The organizers state that:</p>
+<ol>
+<li>the mapping is incomplete and "may even contain some inaccurate data";</li>
+<li>the test set is a set of faults <strong>manually identified by fault experts that are
+   not contained within the current public USGS database</strong>;</li>
+<li>the region is split into a public and a private test set;</li>
+<li>the <strong>Final Prize Round</strong> re-scores the same submissions against a label set
+   that experts expand <em>after reviewing every team's submission</em> — "Predictions
    that helped experts identify previously-unmapped faults can score higher here
-   than in the Initial Prize Round.&quot;
-
-Consequence: the metric and the prize structure both reward **real, precisely
-located faults that are absent from the published catalogue**, not a
+   than in the Initial Prize Round."</li>
+</ol>
+<p>Consequence: the metric and the prize structure both reward <strong>real, precisely
+located faults that are absent from the published catalogue</strong>, not a
 reproduction of the catalogue. The $250k final round explicitly rewards
-predictions an expert panel can verify.
-
-## The masking rule and the free carpet
-
-Known USGS/INGENIOUS pixels are excluded from the penalty terms (see
-`02_metric_and_masking.md`). Prediction mass there is free. This makes
-&quot;saturate the known-fault mask&quot; a weakly dominant policy, and it explains why
-several of this group&#x27;s submissions scored the same to four decimal places
+predictions an expert panel can verify.</p>
+<h2>The masking rule and the free carpet</h2>
+<p>Known USGS/INGENIOUS pixels are excluded from the penalty terms (see
+<code>02_metric_and_masking.md</code>). Prediction mass there is free. This makes
+"saturate the known-fault mask" a weakly dominant policy, and it explains why
+several of this group's submissions scored the same to four decimal places
 while differing by tens of thousands of pixels: their differences were inside
-the inert region (measured; `docs/data/collapse-diagnosis.json`).
-
-## What the provided layers can and cannot show
-
-`training_features.tif` carries nineteen float32 bands. Per the problem
+the inert region (measured; <code>docs/data/collapse-diagnosis.json</code>).</p>
+<h2>What the provided layers can and cannot show</h2>
+<p><code>training_features.tif</code> carries nineteen float32 bands. Per the problem
 description they cover: surface conductivity and depth to conductive base;
 detrended elevation and its slope; dilatation rate, shear strain rate and the
 second invariant of the strain-rate tensor; isostatic gravity anomaly and its
 slope; magnetics (RTP anomaly, TMI, vertical and horizontal slope of TMI,
-top-of-crustal magnetic source depth); earthquake density.
-
-What is **not** provided, and cannot be obtained from this sandbox:
-
-* the 1 m DEM tiles (`1m_DEM_links.csv` is available, the tiles are not
+top-of-crustal magnetic source depth); earthquake density.</p>
+<p>What is <strong>not</strong> provided, and cannot be obtained from this sandbox:</p>
+<ul>
+<li>the 1 m DEM tiles (<code>1m_DEM_links.csv</code> is available, the tiles are not
   reachable — direct HTTPS from this workspace fails at TLS for every host
-  except GitHub);
-* any high-resolution imagery, LiDAR point cloud, or field mapping.
-
-So every geomorphic criterion that a fault expert would use — scarps, triangular
-facets, deflected drainages, spring lines — is unavailable here. What *is*
+  except GitHub);</li>
+<li>any high-resolution imagery, LiDAR point cloud, or field mapping.</li>
+</ul>
+<p>So every geomorphic criterion that a fault expert would use — scarps, triangular
+facets, deflected drainages, spring lines — is unavailable here. What <em>is</em>
 available is potential-field and strain-rate data, which respond to structure at
-depth as well as at the surface.
-
-## Strategy this implies
-
-1. **Carpet the known-fault mask** — free, weakly dominant, and it makes the
-   submission &quot;predictions for all faults in the region&quot; as the rules ask.
-2. **Spend the charged budget on precisely located, line-like predictions** that
+depth as well as at the surface.</p>
+<h2>Strategy this implies</h2>
+<ol>
+<li><strong>Carpet the known-fault mask</strong> — free, weakly dominant, and it makes the
+   submission "predictions for all faults in the region" as the rules ask.</li>
+<li><strong>Spend the charged budget on precisely located, line-like predictions</strong> that
    an expert could confirm or reject from the published geophysics. Because the
-   metric charges every predicted pixel `0.2 * (d/R)` and gives credit only
+   metric charges every predicted pixel <code>0.2 * (d/R)</code> and gives credit only
    within 300 m of a real fault, the payout of a prediction is dominated by
-   whether it sits on a fault, not by how many pixels it covers.
-3. **Never let the pipeline&#x27;s &quot;improvement&quot; step saturate the inert region** —
-   that is the mechanism that collapsed three submissions onto 0.1563.
-
-## Honest limits of the evidence gathered here
-
-* The instruments in this repository score candidate rules against *catalogue*
+   whether it sits on a fault, not by how many pixels it covers.</li>
+<li><strong>Never let the pipeline's "improvement" step saturate the inert region</strong> —
+   that is the mechanism that collapsed three submissions onto 0.1563.</li>
+</ol>
+<h2>Honest limits of the evidence gathered here</h2>
+<ul>
+<li>The instruments in this repository score candidate rules against <em>catalogue</em>
   geometry (held-out blocks and held-out runs). They can measure whether a rule
-  recovers unseen fault geometry under the organizers&#x27; masking rule. They cannot
+  recovers unseen fault geometry under the organizers' masking rule. They cannot
   measure whether a rule finds a fault that is absent from every catalogue,
-  because no such population is available in this workspace.
-* One external population that *would* help — additional USGS-mapped faults not
+  because no such population is available in this workspace.</li>
+<li>One external population that <em>would</em> help — additional USGS-mapped faults not
   in the competition labels — was tested for exactly this purpose and rejected:
   the Qfaults prior in the sibling repositories is itself a USGS catalogue, so a
   rule that reproduces it is reproducing known faults, not finding new ones.
-  It is kept as a catalogue-gap sensitivity check, nothing more.
-* Therefore the shipped payload is a *hedge*: a bounded set of precisely located
+  It is kept as a catalogue-gap sensitivity check, nothing more.</li>
+<li>Therefore the shipped payload is a <em>hedge</em>: a bounded set of precisely located
   sites from structural extrapolation and corroborated geophysical lineaments,
   priced with the break-even rule above, with its worst case stated rather than
-  hidden.
-</pre><footer>Generated 2026-10-04 17:58 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
+  hidden.</li>
+</ul><footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

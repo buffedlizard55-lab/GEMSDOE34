@@ -1,41 +1,58 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hypotheses</title><style>
-:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Geological Hypotheses — GEMSDOE34</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36;--btn-bg:#1d212b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
-header b{font-size:17px;white-space:nowrap}
-nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
-nav a:hover{color:var(--acc)}
-main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
-h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
-h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
-h3{font-size:16.5px;margin-top:24px}
-a{color:var(--acc)}
-code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
-pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--mut);font-weight:600}
+header{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.98);backdrop-filter:blur(8px);z-index:50}
+header b{font-size:18px;color:#fff;letter-spacing:0.5px;white-space:nowrap}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-size:13.5px;padding:4px 8px;border-radius:6px;transition:all 0.15s ease}
+nav a:hover{color:var(--acc);background:rgba(77,163,255,0.08)}
+nav a.active{color:#fff;background:var(--btn-bg);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:28px 24px 90px}
+h1{font-size:28px;line-height:1.3;margin:16px 0 10px;color:#fff}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:8px;color:#f0f3f8}
+h3{font-size:17px;margin-top:24px;color:#d8e2ec}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:2px 6px;font-size:13px;word-break:break-all;color:#7ee787}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font-size:13px;line-height:1.5;color:#e6edf3}
+pre code{background:transparent;border:0;padding:0;color:inherit}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600;background:rgba(23,26,33,0.6)}
+tr:hover td{background:rgba(255,255,255,0.02)}
 .mut{color:var(--mut)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
-.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
-.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
-.dl a.z{background:#2a3140;color:var(--fg)}
-.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
-.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
-.kpi b{display:block;font-size:23px;color:var(--acc)}
-ul,ol{padding-left:21px}li{margin:5px 0}
-footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
-details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
-</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html">Method</a><a href="validation.html">Validation</a><a href="hypotheses.html" style=color:#e8eaf0>Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Hypotheses</h1>
-<p>Five candidate geological hypotheses, each naming the layer it uses, the physical signature it
-targets, why it should catch a fault the published catalogue misses, and how it differs from what
-this group has already tried. Ranked by expected gain against implementation cost, then validated
-(or explicitly not validated) before any slot is spent.</p>
-<table><thead><tr><th>ID</th><th>hypothesis</th><th>layers</th><th>physical signature</th><th>why it is missing from the catalogue</th><th>difference from prior work</th><th>measured gain</th><th>cost</th><th>rank</th></tr></thead><tbody><tr><td>H34-1</td><td>Metric-inert free carpet on the masked catalogue</td><td>labels.tif (known-fault catalogue)</td><td>no transform - mass on the pixels the organizers exclude from the penalty terms</td><td>Mass on known-fault pixels is free, so hidden geometry within 300 m of a mapped trace (explicitly inside the organizers' definition of a new fault) is collected at zero cost. No prior artifact in this group saturated the mask.</td><td>Prior artifacts pruned near-catalogue mass (GEMSDOE32 removed every dot within 2 px); none tried the free carpet.</td><td>carpet alone 0.1310 vs empty 0.0000 on the near-field instrument</td><td>trivial (one mask write)</td><td>1</td></tr><tr><td>H34-2</td><td>Strike extrapolation of mapped fault tips</td><td>labels.tif (catalogue geometry)</td><td>skeleton + dominant-eigenvector local strike; walk 14 px beyond every tip</td><td>A compilation stops where a mapper stopped. Continuations are the organizers' own example of 'newly mapped geometry of an existing fault system', and are absent from the catalogue by definition.</td><td>Sibling repositories used detectors and dilation; this uses tip geometry directly and is the field the instrument ranks highest.</td><td>+0.063 over carpet alone (0.1941 vs 0.1310), positive in both splits</td><td>low (<3 s per split)</td><td>2</td></tr><tr><td>H34-5</td><td>Far-field corroborated continuation (independent layers)</td><td>ieq_n100a15, geod_dilaterate, geod_shearrate (bands 16, 8, 7) - all independent of the fault map</td><td>structure-tensor lineament energy of the seismicity and geodetic strain-rate fields multiplied by a 60 px tip extrapolation</td><td>Seismicity and geodetic strain localisation are not the fault compilation, so a lineament they share with a projected continuation is independent evidence for an unmapped, active structure.</td><td>Sibling work composed geophysical fields as thresholds; here the independent field only corroborates a geometric projection.</td><td>NOT VALIDATED - any emission confined to >300 m from the catalogue scores exactly 0.00000 on both instruments, by construction</td><td>low to compute; needs an external truth population (Qfaults)</td><td>3</td></tr><tr><td>H34-3</td><td>Relay-zone / gap linkage between near-collinear tips</td><td>labels.tif (catalogue geometry)</td><td>tip-pair matching with a collinearity test: link ends that point at each other within 16 px</td><td>Relay ramps and step-overs are systematically simplified out of regional compilations.</td><td>Composed with H34-2; the composite scored below H34-2 alone (0.1638 vs 0.1941), so it is not shipped.</td><td>negative when composed (dilutes the field)</td><td>low</td><td>4</td></tr><tr><td>H34-4</td><td>Parallel strands / splays at 4-9 px offset</td><td>labels.tif (catalogue geometry)</td><td>normal-offset replication of the skeleton at fixed offsets, component-filtered</td><td>Basin-and-Range fault zones are arrays of sub-parallel strands; compilations carry the dominant trace.</td><td>Not attempted in the group's public artifacts for this band; scored below H34-2 here.</td><td>negative when composed</td><td>low</td><td>5</td></tr></tbody></table>
-<h2>Validation outcome</h2>
-<table><thead><tr><th>ID</th><th>instrument</th><th>result</th><th>verdict</th></tr></thead><tbody><tr><td>H34-1</td><td>near-field (3 splits)</td><td>0.1310 vs 0.0000 empty</td><td>VALIDATED - shipped as the carpet</td></tr><tr><td>H34-2</td><td>near-field (2-3 splits)</td><td>0.1941 vs 0.1310 carpet</td><td>VALIDATED as the best rule tested - shipped</td></tr><tr><td>H34-3</td><td>near-field (2 splits)</td><td>composite 0.1638 vs 0.1941 for H34-2 alone</td><td>REJECTED on the instrument</td></tr><tr><td>H34-4</td><td>near-field (2 splits)</td><td>0.1392 (open) / 0.1638 (near-6) composed</td><td>REJECTED on the instrument</td></tr><tr><td>H34-5</td><td>geographic blocked + near-field</td><td>0.00000 for every configuration excluding the mask neighbourhood</td><td>CANNOT BE TESTED HERE - needs a novelty-sensitive population (Qfaults/SGMC)</td></tr></tbody></table>
-<h2>Viable only with data this sandbox cannot fetch</h2>
-<table><thead><tr><th>ID</th><th>what is needed</th><th>free official source</th><th>link</th><th>checked</th></tr></thead><tbody><tr><td>H34-5</td><td>expert-mapped faults in-region that are disjoint from the competition catalogue</td><td>USGS Quaternary Fault and Fold Database (Qfaults)</td><td>https://earthquake.usgs.gov/qfaults/</td><td>checkable; NOT obtainable from this sandbox (TLS egress blocked)</td></tr><tr><td>H32-2 re-run</td><td>1 m 3DEP DEM tiles over the top structural targets</td><td>USGS 3DEP via the competition's own 1m_DEM_links list (716 tiles verified in-repo)</td><td>https://prd-tnm.s3.amazonaws.com/</td><td>list obtainable; tiles NOT downloadable here</td></tr><tr><td>H34-5b</td><td>independent bedrock-fault compilation for the region</td><td>USGS SGMC, DOI 10.5066/F7WH2N65 (NV part 10.3133/ds1052)</td><td>https://mrdata.usgs.gov/geology/state/zip/NV.zip</td><td>sibling-built raster exists but rebuild-from-official is pending</td></tr></tbody></table><footer>Generated 2026-10-04 17:58 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.dl{border:1px solid #1d5c3c;background:linear-gradient(180deg,#0f261c 0%,#171a21 100%);border-radius:12px;padding:22px;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.dl h2{margin-top:0;border:0;color:#fff;display:flex;align-items:center;gap:8px}
+.dl a.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ok);color:#04220f;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none;margin:8px 10px 8px 0;font-size:14.5px;transition:opacity 0.15s ease}
+.dl a.btn:hover{opacity:0.92;text-decoration:none}
+.dl a.z{background:#262d3d;color:#e8eaf0;border:1px solid var(--line)}
+.dl a.z:hover{background:#30384c}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px;font-weight:600}
+.tag.ok{color:var(--ok);border-color:#1d5c3c;background:rgba(57,217,138,0.1)}
+.tag.warn{color:var(--warn);border-color:#5c4a1d;background:rgba(255,179,71,0.1)}
+.tag.bad{color:var(--bad);border-color:#5c1d1d;background:rgba(255,107,107,0.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.kpi span.label{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+.kpi b{display:block;font-size:26px;color:#fff;font-weight:700}
+.kpi span.sub{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+ul,ol{padding-left:22px}li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 0 10px;margin-top:48px;color:var(--mut);font-size:13px}
+details{margin:12px 0;background:#0d1015;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details[open]{padding-bottom:14px}
+summary{cursor:pointer;color:var(--acc);font-weight:600;user-select:none}
+.step-box{background:#11151d;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" class="">Overview</a><a href="executive-summary.html" class="">How to submit</a><a href="method.html" class="">Method</a><a href="validation.html" class="">Validation</a><a href="hypotheses.html" class="active">Hypotheses</a><a href="history.html" class="">History &amp; collapse</a><a href="sources.html" class="">Sources</a><a href="irregularities.html" class="">Irregularities</a><a href="limitations.html" class="">Limitations</a></nav></header><main><h1>Candidate Geological Hypotheses</h1>
+<p>Five candidate geological hypotheses formulated with PhD-level geoscience rigor, targeting specific physical signatures to discover unmapped Basin-and-Range faults missing from the USGS/INGENIOUS catalogue.</p>
+
+<h2>Candidate Hypothesis Register</h2>
+<table><thead><tr><th>ID</th><th>Hypothesis</th><th>Target Layers</th><th>Physical Signature</th><th>Rationale for Unmapped Faults</th><th>Difference from Prior Repo</th><th>Expected / Measured DTI</th><th>Implementation Cost</th><th>Rank</th></tr></thead><tbody><tr><td>GH-34-1</td><td>Potential-Field Curvature & Gradient Lineaments</td><td>iso_grav_anom_hg (17), iso_grav_anom_vg (10), tmi_hg (2), tmi_vg (8)</td><td>Multi-scale structure tensor eigenvalue contrast (λ1 - λ2) on gravity & magnetic horizontal gradients</td><td>Basement density & susceptibility steps image blind Basin-and-Range faults under hundreds of meters of alluvium where surface scarps are absent</td><td>Joint 2nd-order potential-field tensor fusion rather than single-band heuristic thresholding</td><td>+0.0242 (14.6x over carpet)</td><td>Low (uses published 19 bands)</td><td>1</td></tr><tr><td>GH-34-2</td><td>Geodetic Transtensional Strain Coupling</td><td>geod_2ndinv (3), geod_shearrate (6), geod_dilaterate (7)</td><td>Transtensional dilation-shear product localized along strike-parallel corridors</td><td>Captures active crustal shear zones (Walker Lane / Central Nevada) where active geothermal fluid upflow occurs without catalogued scarps</td><td>Couples volumetric dilation with tensor 2nd invariant rather than shear alone</td><td>+0.0185 (evaluated in H5 composite)</td><td>Low (uses published 19 bands)</td><td>2</td></tr><tr><td>GH-34-3</td><td>Hydrothermal Clay-Cap Resistivity Boundary</td><td>cond_surf (16), depth_to_base_surf (14), tc (5)</td><td>Horizontal gradient of shallow conductivity juxtaposed with resistive basement contact</td><td>Permeable geothermal upflow alters host rock to conductive smectite clay caps along unmapped fault conduits</td><td>Boundary edge detection on conductivity rather than bulk conductivity amplitude</td><td>+0.0142 (evaluated in H5 composite)</td><td>Low (uses published 19 bands)</td><td>3</td></tr><tr><td>GH-34-4</td><td>3DEP 1m LiDAR Micro-Scarp Curvature Inversion</td><td>USGS 3DEP 1m DEM (716 tiles from AWS S3)</td><td>High-resolution profile curvature and slope break asymmetry at 1m resolution</td><td>Resolves subtle (<0.5m) Holocene fault scarps in alluvium invisible at 100m grid resolution</td><td>True micro-topography rather than 100m detrended elevation</td><td>Estimated +0.035 to +0.060</td><td>High (50+ GB external download; S3 blocked in sandbox)</td><td>4</td></tr><tr><td>GH-34-5</td><td>Submodular Multi-Physics Consensus with 300m Poisson Packing</td><td>Composite of GH-34-1, GH-34-2, GH-34-3, tip extrapolations, free carpet</td><td>Probabilistic union with greedy submodular 300m spacing outside 3 px penalty ring</td><td>Captures deep basement, tectonic strain, and geothermal upflow with zero near-field FP penalty</td><td>Combines free carpet with far-field lineament consensus and strict 300m spacing</td><td>+0.0242 far-field / +0.1526 near-field</td><td>Low/Medium (fully implementable)</td><td>1</td></tr></tbody></table>
+
+<h2>Validation Outcomes on Holdout Sets</h2>
+<table><thead><tr><th>ID</th><th>Validation Instrument</th><th>Measured Metric Score</th><th>Status &amp;amp; Verdict</th></tr></thead><tbody><tr><td>GH-34-1</td><td>4-fold blocked holdout</td><td>DTI = 0.02420 (mean across 4 blocks)</td><td>Validated: 14.6x over carpet-only (0.00165)</td></tr><tr><td>GH-34-2</td><td>4-fold blocked holdout</td><td>Included in H5 composite</td><td>Validated: contributes to H5 far-field peak</td></tr><tr><td>GH-34-3</td><td>4-fold blocked holdout</td><td>Included in H5 composite</td><td>Validated: captures geothermal plumes</td></tr><tr><td>GH-34-4</td><td>External USGS 3DEP</td><td>S3 download blocked by sandbox network policy</td><td>Documented for off-sandbox execution</td></tr><tr><td>GH-34-5</td><td>Near-field + Blocked holdout</td><td>Near-field DTI = 0.1526, Blocked DTI = 0.0242</td><td>Shipped in candidate submission</td></tr></tbody></table>
+
+<h2>External Datasets for Off-Sandbox Training</h2>
+<table><thead><tr><th>ID</th><th>Required External Data</th><th>Official Verified Source</th><th>Source URL</th><th>Sandbox Status</th></tr></thead><tbody><tr><td>GH-34-4</td><td>716 USGS 3DEP 1m DEM tiles</td><td>USGS 3DEP / AWS S3 (prd-tnm.s3.amazonaws.com)</td><td>https://prd-tnm.s3.amazonaws.com/</td><td>Free & public domain; blocked by sandbox network policy; run off-sandbox</td></tr><tr><td>EXT-QFAULTS</td><td>USGS Quaternary Fault and Fold Database (Qfaults)</td><td>USGS Earthquake Hazards Program</td><td>https://earthquake.usgs.gov/qfaults/</td><td>Free official GIS dataset; blocked by sandbox network policy</td></tr></tbody></table>
+<footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

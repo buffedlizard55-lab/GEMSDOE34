@@ -1,108 +1,105 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Irregularities</title><style>
-:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Data Irregularities — GEMSDOE34</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36;--btn-bg:#1d212b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
-header b{font-size:17px;white-space:nowrap}
-nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
-nav a:hover{color:var(--acc)}
-main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
-h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
-h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
-h3{font-size:16.5px;margin-top:24px}
-a{color:var(--acc)}
-code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
-pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--mut);font-weight:600}
+header{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.98);backdrop-filter:blur(8px);z-index:50}
+header b{font-size:18px;color:#fff;letter-spacing:0.5px;white-space:nowrap}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-size:13.5px;padding:4px 8px;border-radius:6px;transition:all 0.15s ease}
+nav a:hover{color:var(--acc);background:rgba(77,163,255,0.08)}
+nav a.active{color:#fff;background:var(--btn-bg);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:28px 24px 90px}
+h1{font-size:28px;line-height:1.3;margin:16px 0 10px;color:#fff}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:8px;color:#f0f3f8}
+h3{font-size:17px;margin-top:24px;color:#d8e2ec}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:2px 6px;font-size:13px;word-break:break-all;color:#7ee787}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font-size:13px;line-height:1.5;color:#e6edf3}
+pre code{background:transparent;border:0;padding:0;color:inherit}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600;background:rgba(23,26,33,0.6)}
+tr:hover td{background:rgba(255,255,255,0.02)}
 .mut{color:var(--mut)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
-.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
-.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
-.dl a.z{background:#2a3140;color:var(--fg)}
-.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
-.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
-.kpi b{display:block;font-size:23px;color:var(--acc)}
-ul,ol{padding-left:21px}li{margin:5px 0}
-footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
-details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
-</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html">Method</a><a href="validation.html">Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html">Sources</a><a href="irregularities.html" style=color:#e8eaf0>Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Irregularities</h1><pre># Irregularities flagged for review
-
-Each item is a measured contradiction between what a source states and what the bytes show.
-None is corrected in place; each is reported.
-
-## IR-34-01 — the official sample submission is not &quot;total fault absence&quot;
-
-The problem description says: *&quot;A sample submission that predicts total fault absence is provided
-for your reference on the data download page.&quot;*
-
-**Measured** (`tests/test_raster.py::test_sample_submission_is_the_catalogue_not_an_empty_raster`
-fails if this ever changes): `sample_submission.tif` is float32, nodata = nan, and contains
-**60,988 cells with value 1.0** — at exactly the positive cells of `labels.tif`. The two files&#x27;
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.dl{border:1px solid #1d5c3c;background:linear-gradient(180deg,#0f261c 0%,#171a21 100%);border-radius:12px;padding:22px;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.dl h2{margin-top:0;border:0;color:#fff;display:flex;align-items:center;gap:8px}
+.dl a.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ok);color:#04220f;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none;margin:8px 10px 8px 0;font-size:14.5px;transition:opacity 0.15s ease}
+.dl a.btn:hover{opacity:0.92;text-decoration:none}
+.dl a.z{background:#262d3d;color:#e8eaf0;border:1px solid var(--line)}
+.dl a.z:hover{background:#30384c}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px;font-weight:600}
+.tag.ok{color:var(--ok);border-color:#1d5c3c;background:rgba(57,217,138,0.1)}
+.tag.warn{color:var(--warn);border-color:#5c4a1d;background:rgba(255,179,71,0.1)}
+.tag.bad{color:var(--bad);border-color:#5c1d1d;background:rgba(255,107,107,0.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.kpi span.label{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+.kpi b{display:block;font-size:26px;color:#fff;font-weight:700}
+.kpi span.sub{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+ul,ol{padding-left:22px}li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 0 10px;margin-top:48px;color:var(--mut);font-size:13px}
+details{margin:12px 0;background:#0d1015;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details[open]{padding-bottom:14px}
+summary{cursor:pointer;color:var(--acc);font-weight:600;user-select:none}
+.step-box{background:#11151d;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" class="">Overview</a><a href="executive-summary.html" class="">How to submit</a><a href="method.html" class="">Method</a><a href="validation.html" class="">Validation</a><a href="hypotheses.html" class="">Hypotheses</a><a href="history.html" class="">History &amp; collapse</a><a href="sources.html" class="">Sources</a><a href="irregularities.html" class="active">Irregularities</a><a href="limitations.html" class="">Limitations</a></nav></header><main><h1>Irregularities flagged for review</h1>
+<p>Each item is a measured contradiction between what a source states and what the bytes show.
+None is corrected in place; each is reported.</p>
+<h2>IR-34-01 — the official sample submission is not "total fault absence"</h2>
+<p>The problem description says: <em>"A sample submission that predicts total fault absence is provided
+for your reference on the data download page."</em></p>
+<p><strong>Measured</strong> (<code>tests/test_raster.py::test_sample_submission_is_the_catalogue_not_an_empty_raster</code>
+fails if this ever changes): <code>sample_submission.tif</code> is float32, nodata = nan, and contains
+<strong>60,988 cells with value 1.0</strong> — at exactly the positive cells of <code>labels.tif</code>. The two files'
 value patterns are equal on the common footprint and the support-mask hash is identical
-(`d8b86f12ef449735…`). The provided &quot;sample&quot; is therefore the rasterised existing-fault catalogue,
-not an empty raster.
-
-**Why it matters.** The file doubles as the format template *and* as a ready-made prediction of
+(<code>d8b86f12ef449735…</code>). The provided "sample" is therefore the rasterised existing-fault catalogue,
+not an empty raster.</p>
+<p><strong>Why it matters.</strong> The file doubles as the format template <em>and</em> as a ready-made prediction of
 the known faults. A participant who trusts the prose and assumes a zeros template will
 misunderstand the format; a participant who submits the template unchanged submits the catalogue.
 Note that this is also the file that defines the expected nodata convention (NaN outside the valid
-footprint), which every accepted artifact in this group&#x27;s history follows.
-
-## IR-34-02 — the portal error `&quot;Predicted values must be in range [0, 1]&quot;`
-
-Two distinct mechanisms can produce it:
-
-1. The float32 sentinel `-3.4028234663852886e+38` used as nodata in `training_features.tif`
-   (7,113,308 cells). Writing those through unchanged puts values far outside [0, 1].
-2. A validator that runs a naive range check over the whole array: `NaN &gt;= 0` is False, so a
-   raster whose nodata cells are NaN fails *if* the check is written as
-   `(a &gt;= 0).all() and (a &lt;= 1).all()` rather than masked.
-
-The shipped file cannot trip (1) — every finite value is in [0, 1]. It uses the NaN convention
-because that is what the organizers&#x27; own sample uses and what every previously accepted artifact
-in this group&#x27;s history carries (`gemsdoe1-ens12-7f00890a.tif`,
-`gemsdoe2-dual-family-union-f68e590f.tif`, `gemsdoe31-h27-4-solo-d28-…-nan.tif`: all `nodata=nan`,
+footprint), which every accepted artifact in this group's history follows.</p>
+<h2>IR-34-02 — the portal error <code>"Predicted values must be in range [0, 1]"</code></h2>
+<p>Two distinct mechanisms can produce it:</p>
+<ol>
+<li>The float32 sentinel <code>-3.4028234663852886e+38</code> used as nodata in <code>training_features.tif</code>
+   (7,113,308 cells). Writing those through unchanged puts values far outside [0, 1].</li>
+<li>A validator that runs a naive range check over the whole array: <code>NaN &gt;= 0</code> is False, so a
+   raster whose nodata cells are NaN fails <em>if</em> the check is written as
+   <code>(a &gt;= 0).all() and (a &lt;= 1).all()</code> rather than masked.</li>
+</ol>
+<p>The shipped file cannot trip (1) — every finite value is in [0, 1]. It uses the NaN convention
+because that is what the organizers' own sample uses and what every previously accepted artifact
+in this group's history carries (<code>gemsdoe1-ens12-7f00890a.tif</code>,
+<code>gemsdoe2-dual-family-union-f68e590f.tif</code>, <code>gemsdoe31-h27-4-solo-d28-…-nan.tif</code>: all <code>nodata=nan</code>,
 all exactly 7,111,787 NaN cells). If (2) is nevertheless the real cause, rebuild with
-`scripts/build_submission.py --outside zero`-equivalent behaviour (`raster.write_submission(...,
-outside=&quot;zero&quot;)`), which produces an all-finite raster with the same positives.
-
-## IR-34-03 — the three-way 0.1563 tie is not three hypotheses
-
-Reported as three independent submissions. Measured: two are the same file
-(`sha256 7f00890a…`, Dice 1.0), and the third is that file plus 54,533 pixels of which
-**100.00 %** lie on the known-fault mask. Because free-mask mass is metrically inert, the two
+<code>scripts/build_submission.py --outside zero</code>-equivalent behaviour (<code>raster.write_submission(...,
+outside="zero")</code>), which produces an all-finite raster with the same positives.</p>
+<h2>IR-34-03 — the three-way 0.1563 tie is not three hypotheses</h2>
+<p>Reported as three independent submissions. Measured: two are the same file
+(<code>sha256 7f00890a…</code>, Dice 1.0), and the third is that file plus 54,533 pixels of which
+<strong>100.00 %</strong> lie on the known-fault mask. Because free-mask mass is metrically inert, the two
 files are the same submission under evaluation. The control: another artifact of the same family
 added 10,668 pixels of which only 11.6 % were on the mask, and its claimed score did move
-(0.1563 → 0.1560). See `docs/data/collapse-diagnosis.json`.
-
-## IR-34-04 — the claimed 0.2778 artifact&#x27;s own `.zip` is 0 bytes
-
-`docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.zip` in the sibling
+(0.1563 → 0.1560). See <code>docs/data/collapse-diagnosis.json</code>.</p>
+<h2>IR-34-04 — the claimed 0.2778 artifact's own <code>.zip</code> is 0 bytes</h2>
+<p><code>docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.zip</code> in the sibling
 repository is an empty archive (0 bytes; its single entry is itself, 0 bytes long). The only copy
-of the file behind the group&#x27;s best claimed score is the bare `.tif`. There is no submission
+of the file behind the group's best claimed score is the bare <code>.tif</code>. There is no submission
 receipt, submission id, or hash-to-score crosswalk for any artifact this group has submitted, so
-every score in this repository is labelled **claim** or **dated snapshot**, never *verified*.
-
-## IR-34-05 — attributions in the sibling ledgers conflict
-
-The same artifact is described as 0.2778 in the group&#x27;s brief and as *&quot;unscored / not
-slot-approved&quot;* on its owner page; the 0.2708 row is attributed to `gemsdoe31-h27-4-solo-d28`
+every score in this repository is labelled <strong>claim</strong> or <strong>dated snapshot</strong>, never <em>verified</em>.</p>
+<h2>IR-34-05 — attributions in the sibling ledgers conflict</h2>
+<p>The same artifact is described as 0.2778 in the group's brief and as <em>"unscored / not
+slot-approved"</em> on its owner page; the 0.2708 row is attributed to <code>gemsdoe31-h27-4-solo-d28</code>
 without a receipt. Where two sources disagree, this repository reports the disagreement instead
-of picking one.
-
-## IR-34-06 — the target moved during the competition
-
-The brief quotes 0.3195 as the score to beat. The leaderboard read on 2026-10-04 shows
+of picking one.</p>
+<h2>IR-34-06 — the target moved during the competition</h2>
+<p>The brief quotes 0.3195 as the score to beat. The leaderboard read on 2026-10-04 shows
 0.3262 / 0.3222 / 0.3195 for the top three. Any target derived from a dynamic board is a dated
-snapshot; this repository stamps every value with its read time.
-
-## IR-34-07 — a sibling knowledge file cites an unverified URL
-
-`sibling knowledge/06_slot_strategy_2026-09-26.md` names NBMG Quaternary-fault mapping as the next
+snapshot; this repository stamps every value with its read time.</p>
+<h2>IR-34-07 — a sibling knowledge file cites an unverified URL</h2>
+<p><code>sibling knowledge/06_slot_strategy_2026-09-26.md</code> names NBMG Quaternary-fault mapping as the next
 proxy source and gives a URL its own author did not check. It is recorded here as
-*named-but-unverified*, and no claim in this repository depends on it.
-</pre><footer>Generated 2026-10-04 17:58 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
+<em>named-but-unverified</em>, and no claim in this repository depends on it.</p><footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

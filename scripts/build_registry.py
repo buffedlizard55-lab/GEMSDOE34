@@ -67,30 +67,48 @@ def main() -> int:
     ap.add_argument("--out", default="registry/history.json")
     args = ap.parse_args()
 
+    import hashlib
     cat = raster.read(args.labels) == 1
     dcat = geology.distance_to(cat).astype(np.float32)      # computed once, not per artifact
+    cat_flat = cat.ravel()
+    dcat_flat = dcat.ravel()
+
     paths = sorted(Path(args.corpus).glob("*.tif")) + [Path(p) for p in args.extra]
     entries = []
     for p in paths:
         score, cls = CLAIMS.get(p.name, (None, "unscored"))
         try:
-            fp = registry.fingerprint(p)
+            a = np.asarray(raster.read(p), dtype=np.float32)
+            if a.shape != (raster.GRID["height"], raster.GRID["width"]):
+                continue
+            h_canonical = hashlib.sha256(a.tobytes()).hexdigest()
+            fin = np.isfinite(a)
+            m = (a > 0) & fin
+            h_support = hashlib.sha256(m.astype(np.uint8).tobytes()).hexdigest()
         except Exception as e:                                  # noqa: BLE001
             print("skip", p.name, e)
             continue
-        a = raster.read(p)
-        m = np.isfinite(a) & (a > 0)
-        on_cat = int((m & cat).sum())
-        d = dcat[m] if m.any() else np.array([np.inf])
+
+        m_flat = m.ravel()
+        n_pos = int(m_flat.sum())
+        if n_pos > 0:
+            pos_idx = np.flatnonzero(m_flat)
+            on_cat = int(cat_flat[pos_idx].sum())
+            d = dcat_flat[pos_idx]
+            pct_300m = round(100.0 * float((d <= 3).mean()), 3)
+        else:
+            on_cat = 0
+            pct_300m = 0.0
+
         entries.append(dict(
             name=p.name, label=cls, score=score, evidence_class=cls,
-            sha256_canonical=fp["sha256_canonical"], sha256_support=fp["sha256_support"],
-            n_positive=int(m.sum()), is_binary=fp["is_binary"],
-            pct_on_catalogue=round(100.0 * on_cat / max(int(m.sum()), 1), 3),
-            pct_within_300m=round(100.0 * float((d <= 3).mean()), 3),
-            payload_pixels=int(m.sum()) - on_cat,
+            sha256_canonical=h_canonical, sha256_support=h_support,
+            n_positive=n_pos, is_binary=bool(np.isin(a[fin], (0.0, 1.0)).all()),
+            pct_on_catalogue=round(100.0 * on_cat / max(n_pos, 1), 3),
+            pct_within_300m=pct_300m,
+            payload_pixels=n_pos - on_cat,
         ))
-        print(f"{p.name:64s} n={int(m.sum()):7d} on-cat={entries[-1]['pct_on_catalogue']:6.2f}%")
+        print(f"{p.name:64s} n={n_pos:7d} on-cat={entries[-1]['pct_on_catalogue']:6.2f}%")
     registry.save_registry(entries, args.out)
     print(f"\nwrote {args.out} with {len(entries)} entries")
     return 0

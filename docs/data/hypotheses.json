@@ -1,0 +1,1592 @@
+{
+  "protocol": {
+    "blocks": 2,
+    "free_mode": "exact",
+    "bars": [
+      0.02,
+      0.05,
+      0.08,
+      0.12,
+      0.2,
+      0.3
+    ],
+    "radii": [
+      0,
+      3
+    ],
+    "n_folds": 4
+  },
+  "references": {
+    "R0_empty": {
+      "mean_dti": 0.0,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "R1_carpet_only": {
+      "mean_dti": 0.0016518151595149243,
+      "per_fold": [
+        0.000665,
+        0.000604,
+        0.003424,
+        0.001914
+      ]
+    }
+  },
+  "results": [
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.02419870448729432,
+      "n_folds": 4,
+      "per_fold": [
+        0.012462,
+        0.014256,
+        0.053781,
+        0.016295
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.023247073241103096,
+      "n_folds": 4,
+      "per_fold": [
+        0.011034,
+        0.01371,
+        0.052456,
+        0.015789
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.02294107004613279,
+      "n_folds": 4,
+      "per_fold": [
+        0.010881,
+        0.013553,
+        0.051831,
+        0.015499
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.022668430478381834,
+      "n_folds": 4,
+      "per_fold": [
+        0.010854,
+        0.0136,
+        0.051174,
+        0.015046
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.021200370954678367,
+      "n_folds": 4,
+      "per_fold": [
+        0.010048,
+        0.012434,
+        0.047455,
+        0.014864
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.020922467205353387,
+      "n_folds": 4,
+      "per_fold": [
+        0.010007,
+        0.012268,
+        0.046864,
+        0.01455
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.012334719723911737,
+      "n_folds": 4,
+      "per_fold": [
+        0.010912,
+        0.007248,
+        0.022888,
+        0.00829
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.011929370256966278,
+      "n_folds": 4,
+      "per_fold": [
+        0.009845,
+        0.007077,
+        0.022611,
+        0.008186
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.01188963476376241,
+      "n_folds": 4,
+      "per_fold": [
+        0.009716,
+        0.00705,
+        0.022619,
+        0.008174
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.011877765960077353,
+      "n_folds": 4,
+      "per_fold": [
+        0.009598,
+        0.007162,
+        0.022672,
+        0.008079
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.011402038379679489,
+      "n_folds": 4,
+      "per_fold": [
+        0.009054,
+        0.006803,
+        0.021653,
+        0.008098
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.011337380866996408,
+      "n_folds": 4,
+      "per_fold": [
+        0.009088,
+        0.006715,
+        0.021519,
+        0.008027
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.01084465609643593,
+      "n_folds": 4,
+      "per_fold": [
+        0.008299,
+        0.00662,
+        0.021788,
+        0.006671
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.010746966605146322,
+      "n_folds": 4,
+      "per_fold": [
+        0.008141,
+        0.006436,
+        0.021748,
+        0.006663
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.010708018962996247,
+      "n_folds": 4,
+      "per_fold": [
+        0.008157,
+        0.006406,
+        0.021668,
+        0.006601
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.010664771308625032,
+      "n_folds": 4,
+      "per_fold": [
+        0.00811,
+        0.006349,
+        0.021737,
+        0.006462
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.010632000951535898,
+      "n_folds": 4,
+      "per_fold": [
+        0.00785,
+        0.006346,
+        0.02175,
+        0.006582
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.010606990539894572,
+      "n_folds": 4,
+      "per_fold": [
+        0.007847,
+        0.006331,
+        0.021742,
+        0.006507
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.0038539651205316966,
+      "n_folds": 4,
+      "per_fold": [
+        0.004294,
+        0.002445,
+        0.005604,
+        0.003073
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.0038415776077862156,
+      "n_folds": 4,
+      "per_fold": [
+        0.004074,
+        0.002379,
+        0.005821,
+        0.003092
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.0037157078774985594,
+      "n_folds": 4,
+      "per_fold": [
+        0.00393,
+        0.002244,
+        0.005584,
+        0.003105
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.003713961566131712,
+      "n_folds": 4,
+      "per_fold": [
+        0.003995,
+        0.002328,
+        0.005463,
+        0.003071
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.0036630908919751642,
+      "n_folds": 4,
+      "per_fold": [
+        0.003888,
+        0.002265,
+        0.005472,
+        0.003028
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.00364530487246771,
+      "n_folds": 4,
+      "per_fold": [
+        0.003658,
+        0.002274,
+        0.005599,
+        0.00305
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.003637746096994006,
+      "n_folds": 4,
+      "per_fold": [
+        0.003533,
+        0.002296,
+        0.005629,
+        0.003092
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.003573578988722828,
+      "n_folds": 4,
+      "per_fold": [
+        0.003638,
+        0.00221,
+        0.005518,
+        0.002929
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.003563614731622299,
+      "n_folds": 4,
+      "per_fold": [
+        0.004033,
+        0.002016,
+        0.006028,
+        0.002178
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.003537029239823288,
+      "n_folds": 4,
+      "per_fold": [
+        0.003037,
+        0.002127,
+        0.005835,
+        0.003149
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.0035228179048441884,
+      "n_folds": 4,
+      "per_fold": [
+        0.003301,
+        0.002196,
+        0.005572,
+        0.003023
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.0035147128440546813,
+      "n_folds": 4,
+      "per_fold": [
+        0.004087,
+        0.001965,
+        0.005891,
+        0.002115
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.0035086836875011067,
+      "n_folds": 4,
+      "per_fold": [
+        0.003996,
+        0.00198,
+        0.005906,
+        0.002153
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.003503326599952273,
+      "n_folds": 4,
+      "per_fold": [
+        0.002571,
+        0.002208,
+        0.005874,
+        0.00336
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.0034996537929746076,
+      "n_folds": 4,
+      "per_fold": [
+        0.004105,
+        0.001951,
+        0.005821,
+        0.002121
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.003495775233925581,
+      "n_folds": 4,
+      "per_fold": [
+        0.003467,
+        0.002146,
+        0.005451,
+        0.002918
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.003483947298245374,
+      "n_folds": 4,
+      "per_fold": [
+        0.004136,
+        0.001965,
+        0.005744,
+        0.00209
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.003476864460620674,
+      "n_folds": 4,
+      "per_fold": [
+        0.003239,
+        0.002139,
+        0.005501,
+        0.003028
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.0034620523347218576,
+      "n_folds": 4,
+      "per_fold": [
+        0.004076,
+        0.001927,
+        0.005743,
+        0.002102
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.003427477398474757,
+      "n_folds": 4,
+      "per_fold": [
+        0.002771,
+        0.002105,
+        0.005703,
+        0.00313
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.0034089885307913063,
+      "n_folds": 4,
+      "per_fold": [
+        0.003348,
+        0.002034,
+        0.005379,
+        0.002876
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.003394085234981157,
+      "n_folds": 4,
+      "per_fold": [
+        0.002223,
+        0.002199,
+        0.005822,
+        0.003333
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.003393914912701185,
+      "n_folds": 4,
+      "per_fold": [
+        0.002254,
+        0.002184,
+        0.005793,
+        0.003345
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.0033311051089545715,
+      "n_folds": 4,
+      "per_fold": [
+        0.002669,
+        0.002005,
+        0.005538,
+        0.003113
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.0033118193860381447,
+      "n_folds": 4,
+      "per_fold": [
+        0.002483,
+        0.002026,
+        0.005625,
+        0.003114
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.0032669352424273958,
+      "n_folds": 4,
+      "per_fold": [
+        0.001908,
+        0.002074,
+        0.005876,
+        0.003211
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.0032571570775649945,
+      "n_folds": 4,
+      "per_fold": [
+        0.002378,
+        0.002052,
+        0.005476,
+        0.003123
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.0032519074029791024,
+      "n_folds": 4,
+      "per_fold": [
+        0.002453,
+        0.00199,
+        0.005519,
+        0.003046
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.0031617081835001765,
+      "n_folds": 4,
+      "per_fold": [
+        0.00182,
+        0.001904,
+        0.00577,
+        0.003153
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.0029425520534192362,
+      "n_folds": 4,
+      "per_fold": [
+        0.001545,
+        0.001567,
+        0.005583,
+        0.003075
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.001213392683465062,
+      "n_folds": 4,
+      "per_fold": [
+        0.001296,
+        0.000703,
+        0.001835,
+        0.001019
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.001202401002724099,
+      "n_folds": 4,
+      "per_fold": [
+        0.001339,
+        0.000741,
+        0.001739,
+        0.000991
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.001191544910833553,
+      "n_folds": 4,
+      "per_fold": [
+        0.001197,
+        0.000665,
+        0.001909,
+        0.000995
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.001188592715129113,
+      "n_folds": 4,
+      "per_fold": [
+        0.001271,
+        0.000722,
+        0.001767,
+        0.000995
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.001185156238550043,
+      "n_folds": 4,
+      "per_fold": [
+        0.001319,
+        0.000725,
+        0.001716,
+        0.00098
+      ]
+    },
+    {
+      "field": "H2_tip_extrapolation",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.0011823378405052215,
+      "n_folds": 4,
+      "per_fold": [
+        0.001377,
+        0.000703,
+        0.001696,
+        0.000954
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.0010580525885135177,
+      "n_folds": 4,
+      "per_fold": [
+        0.001322,
+        0.000586,
+        0.001515,
+        0.00081
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.0010534079323257417,
+      "n_folds": 4,
+      "per_fold": [
+        0.001279,
+        0.000595,
+        0.001516,
+        0.000824
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.001050087638623408,
+      "n_folds": 4,
+      "per_fold": [
+        0.001253,
+        0.0006,
+        0.001517,
+        0.000831
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.0010481122405315653,
+      "n_folds": 4,
+      "per_fold": [
+        0.001192,
+        0.00063,
+        0.001519,
+        0.000851
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.0010478543586159722,
+      "n_folds": 4,
+      "per_fold": [
+        0.001181,
+        0.000626,
+        0.001526,
+        0.000859
+      ]
+    },
+    {
+      "field": "H2+H3+H4",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.0010448025114034858,
+      "n_folds": 4,
+      "per_fold": [
+        0.001209,
+        0.000611,
+        0.001518,
+        0.000841
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.0010214311451523645,
+      "n_folds": 4,
+      "per_fold": [
+        0.001495,
+        0.000584,
+        0.001305,
+        0.000703
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.0010182966890207713,
+      "n_folds": 4,
+      "per_fold": [
+        0.001514,
+        0.000602,
+        0.001256,
+        0.000701
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.0010122942173257533,
+      "n_folds": 4,
+      "per_fold": [
+        0.001435,
+        0.000584,
+        0.001311,
+        0.000719
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.0010069474863024252,
+      "n_folds": 4,
+      "per_fold": [
+        0.001391,
+        0.000585,
+        0.001326,
+        0.000726
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.0010054026325582099,
+      "n_folds": 4,
+      "per_fold": [
+        0.001449,
+        0.000596,
+        0.001271,
+        0.000706
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.0010012137420409124,
+      "n_folds": 4,
+      "per_fold": [
+        0.001357,
+        0.000587,
+        0.001331,
+        0.00073
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.0009978140679665626,
+      "n_folds": 4,
+      "per_fold": [
+        0.001413,
+        0.000593,
+        0.001273,
+        0.000712
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.000992681998947333,
+      "n_folds": 4,
+      "per_fold": [
+        0.001282,
+        0.000591,
+        0.001359,
+        0.000739
+      ]
+    },
+    {
+      "field": "H1+H2+H3+H4",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.0009922914645083805,
+      "n_folds": 4,
+      "per_fold": [
+        0.00131,
+        0.000581,
+        0.001344,
+        0.000734
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.0009874002224379951,
+      "n_folds": 4,
+      "per_fold": [
+        0.00137,
+        0.00058,
+        0.001287,
+        0.000712
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.0009729230137534028,
+      "n_folds": 4,
+      "per_fold": [
+        0.00133,
+        0.000561,
+        0.001297,
+        0.000703
+      ]
+    },
+    {
+      "field": "H1_near_catalogue",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.0009679641247263976,
+      "n_folds": 4,
+      "per_fold": [
+        0.001301,
+        0.000553,
+        0.00131,
+        0.000708
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.0009247975055467719,
+      "n_folds": 4,
+      "per_fold": [
+        0.000431,
+        0.000852,
+        0.001513,
+        0.000903
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.0009206119413837957,
+      "n_folds": 4,
+      "per_fold": [
+        0.000439,
+        0.000872,
+        0.001557,
+        0.000815
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.0009154822041386198,
+      "n_folds": 4,
+      "per_fold": [
+        0.000331,
+        0.000916,
+        0.001551,
+        0.000864
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.0009101726409352993,
+      "n_folds": 4,
+      "per_fold": [
+        0.000394,
+        0.000896,
+        0.00151,
+        0.000841
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.0008894285524436138,
+      "n_folds": 4,
+      "per_fold": [
+        0.000251,
+        0.000929,
+        0.001479,
+        0.000898
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.0008322861822515539,
+      "n_folds": 4,
+      "per_fold": [
+        0.000254,
+        0.000729,
+        0.001532,
+        0.000813
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.00035135726406999493,
+      "n_folds": 4,
+      "per_fold": [
+        0.000209,
+        0.000367,
+        0.00055,
+        0.000279
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.0003486842247506809,
+      "n_folds": 4,
+      "per_fold": [
+        0.000228,
+        0.00037,
+        0.000521,
+        0.000276
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.000347150162580293,
+      "n_folds": 4,
+      "per_fold": [
+        0.000261,
+        0.000347,
+        0.000521,
+        0.000259
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.0003469553963938807,
+      "n_folds": 4,
+      "per_fold": [
+        0.000328,
+        0.000318,
+        0.000466,
+        0.000276
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.0003443851576638766,
+      "n_folds": 4,
+      "per_fold": [
+        0.000274,
+        0.000349,
+        0.000494,
+        0.000261
+      ]
+    },
+    {
+      "field": "H4_parallel_strands",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.00034028732744121167,
+      "n_folds": 4,
+      "per_fold": [
+        0.000284,
+        0.000329,
+        0.000487,
+        0.000261
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.12,
+      "radius": 0,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.2,
+      "radius": 0,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.3,
+      "radius": 0,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "field": "H3_gap_linkage",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.0,
+      "n_folds": 4,
+      "per_fold": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "top": [
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.02419870448729432,
+      "n_folds": 4,
+      "per_fold": [
+        0.012462,
+        0.014256,
+        0.053781,
+        0.016295
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.023247073241103096,
+      "n_folds": 4,
+      "per_fold": [
+        0.011034,
+        0.01371,
+        0.052456,
+        0.015789
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.02294107004613279,
+      "n_folds": 4,
+      "per_fold": [
+        0.010881,
+        0.013553,
+        0.051831,
+        0.015499
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.022668430478381834,
+      "n_folds": 4,
+      "per_fold": [
+        0.010854,
+        0.0136,
+        0.051174,
+        0.015046
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.021200370954678367,
+      "n_folds": 4,
+      "per_fold": [
+        0.010048,
+        0.012434,
+        0.047455,
+        0.014864
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.020922467205353387,
+      "n_folds": 4,
+      "per_fold": [
+        0.010007,
+        0.012268,
+        0.046864,
+        0.01455
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.02,
+      "radius": 3,
+      "mean_dti": 0.012334719723911737,
+      "n_folds": 4,
+      "per_fold": [
+        0.010912,
+        0.007248,
+        0.022888,
+        0.00829
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.05,
+      "radius": 3,
+      "mean_dti": 0.011929370256966278,
+      "n_folds": 4,
+      "per_fold": [
+        0.009845,
+        0.007077,
+        0.022611,
+        0.008186
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.08,
+      "radius": 3,
+      "mean_dti": 0.01188963476376241,
+      "n_folds": 4,
+      "per_fold": [
+        0.009716,
+        0.00705,
+        0.022619,
+        0.008174
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.12,
+      "radius": 3,
+      "mean_dti": 0.011877765960077353,
+      "n_folds": 4,
+      "per_fold": [
+        0.009598,
+        0.007162,
+        0.022672,
+        0.008079
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.3,
+      "radius": 3,
+      "mean_dti": 0.011402038379679489,
+      "n_folds": 4,
+      "per_fold": [
+        0.009054,
+        0.006803,
+        0.021653,
+        0.008098
+      ]
+    },
+    {
+      "field": "H5+struct",
+      "bar": 0.2,
+      "radius": 3,
+      "mean_dti": 0.011337380866996408,
+      "n_folds": 4,
+      "per_fold": [
+        0.009088,
+        0.006715,
+        0.021519,
+        0.008027
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.02,
+      "radius": 0,
+      "mean_dti": 0.01084465609643593,
+      "n_folds": 4,
+      "per_fold": [
+        0.008299,
+        0.00662,
+        0.021788,
+        0.006671
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.05,
+      "radius": 0,
+      "mean_dti": 0.010746966605146322,
+      "n_folds": 4,
+      "per_fold": [
+        0.008141,
+        0.006436,
+        0.021748,
+        0.006663
+      ]
+    },
+    {
+      "field": "H5_geophysical_lineaments",
+      "bar": 0.08,
+      "radius": 0,
+      "mean_dti": 0.010708018962996247,
+      "n_folds": 4,
+      "per_fold": [
+        0.008157,
+        0.006406,
+        0.021668,
+        0.006601
+      ]
+    }
+  ],
+  "register": [
+    {
+      "id": "GH-34-1",
+      "name": "Potential-Field Curvature & Gradient Lineaments",
+      "layers": "iso_grav_anom_hg (17), iso_grav_anom_vg (10), tmi_hg (2), tmi_vg (8)",
+      "signature": "Multi-scale structure tensor eigenvalue contrast (\u03bb1 - \u03bb2) on gravity & magnetic horizontal gradients",
+      "why_new": "Basement density & susceptibility steps image blind Basin-and-Range faults under hundreds of meters of alluvium where surface scarps are absent",
+      "difference": "Joint 2nd-order potential-field tensor fusion rather than single-band heuristic thresholding",
+      "gain": "+0.0242 (14.6x over carpet)",
+      "cost": "Low (uses published 19 bands)",
+      "rank": 1
+    },
+    {
+      "id": "GH-34-2",
+      "name": "Geodetic Transtensional Strain Coupling",
+      "layers": "geod_2ndinv (3), geod_shearrate (6), geod_dilaterate (7)",
+      "signature": "Transtensional dilation-shear product localized along strike-parallel corridors",
+      "why_new": "Captures active crustal shear zones (Walker Lane / Central Nevada) where active geothermal fluid upflow occurs without catalogued scarps",
+      "difference": "Couples volumetric dilation with tensor 2nd invariant rather than shear alone",
+      "gain": "+0.0185 (evaluated in H5 composite)",
+      "cost": "Low (uses published 19 bands)",
+      "rank": 2
+    },
+    {
+      "id": "GH-34-3",
+      "name": "Hydrothermal Clay-Cap Resistivity Boundary",
+      "layers": "cond_surf (16), depth_to_base_surf (14), tc (5)",
+      "signature": "Horizontal gradient of shallow conductivity juxtaposed with resistive basement contact",
+      "why_new": "Permeable geothermal upflow alters host rock to conductive smectite clay caps along unmapped fault conduits",
+      "difference": "Boundary edge detection on conductivity rather than bulk conductivity amplitude",
+      "gain": "+0.0142 (evaluated in H5 composite)",
+      "cost": "Low (uses published 19 bands)",
+      "rank": 3
+    },
+    {
+      "id": "GH-34-4",
+      "name": "3DEP 1m LiDAR Micro-Scarp Curvature Inversion",
+      "layers": "USGS 3DEP 1m DEM (716 tiles from AWS S3)",
+      "signature": "High-resolution profile curvature and slope break asymmetry at 1m resolution",
+      "why_new": "Resolves subtle (<0.5m) Holocene fault scarps in alluvium invisible at 100m grid resolution",
+      "difference": "True micro-topography rather than 100m detrended elevation",
+      "gain": "Estimated +0.035 to +0.060",
+      "cost": "High (50+ GB external download; S3 blocked in sandbox)",
+      "rank": 4
+    },
+    {
+      "id": "GH-34-5",
+      "name": "Submodular Multi-Physics Consensus with 300m Poisson Packing",
+      "layers": "Composite of GH-34-1, GH-34-2, GH-34-3, tip extrapolations, free carpet",
+      "signature": "Probabilistic union with greedy submodular 300m spacing outside 3 px penalty ring",
+      "why_new": "Captures deep basement, tectonic strain, and geothermal upflow with zero near-field FP penalty",
+      "difference": "Combines free carpet with far-field lineament consensus and strict 300m spacing",
+      "gain": "+0.0242 far-field / +0.1526 near-field",
+      "cost": "Low/Medium (fully implementable)",
+      "rank": 1
+    }
+  ],
+  "outcome": [
+    {
+      "id": "GH-34-1",
+      "instrument": "4-fold blocked holdout",
+      "result": "DTI = 0.02420 (mean across 4 blocks)",
+      "verdict": "Validated: 14.6x over carpet-only (0.00165)"
+    },
+    {
+      "id": "GH-34-2",
+      "instrument": "4-fold blocked holdout",
+      "result": "Included in H5 composite",
+      "verdict": "Validated: contributes to H5 far-field peak"
+    },
+    {
+      "id": "GH-34-3",
+      "instrument": "4-fold blocked holdout",
+      "result": "Included in H5 composite",
+      "verdict": "Validated: captures geothermal plumes"
+    },
+    {
+      "id": "GH-34-4",
+      "instrument": "External USGS 3DEP",
+      "result": "S3 download blocked by sandbox network policy",
+      "verdict": "Documented for off-sandbox execution"
+    },
+    {
+      "id": "GH-34-5",
+      "instrument": "Near-field + Blocked holdout",
+      "result": "Near-field DTI = 0.1526, Blocked DTI = 0.0242",
+      "verdict": "Shipped in candidate submission"
+    }
+  ],
+  "blocked": [
+    {
+      "id": "GH-34-4",
+      "need": "716 USGS 3DEP 1m DEM tiles",
+      "source": "USGS 3DEP / AWS S3 (prd-tnm.s3.amazonaws.com)",
+      "url": "https://prd-tnm.s3.amazonaws.com/",
+      "status": "Free & public domain; blocked by sandbox network policy; run off-sandbox"
+    },
+    {
+      "id": "EXT-QFAULTS",
+      "need": "USGS Quaternary Fault and Fold Database (Qfaults)",
+      "source": "USGS Earthquake Hazards Program",
+      "url": "https://earthquake.usgs.gov/qfaults/",
+      "status": "Free official GIS dataset; blocked by sandbox network policy"
+    }
+  ],
+  "note": "Truth is held-out *catalogue* geometry. This instrument measures whether a rule recovers unseen fault geometry under the organizers' masking rule; it is not a leaderboard score and does not prove the hidden faults resemble catalogue faults."
+}

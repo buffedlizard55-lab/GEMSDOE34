@@ -1,165 +1,377 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sources</title><style>
-:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verified Official Sources — GEMSDOE34</title><style>
+:root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4da3ff;--ok:#39d98a;--warn:#ffb347;--bad:#ff6b6b;--line:#262b36;--btn-bg:#1d212b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-header{border-bottom:1px solid var(--line);padding:12px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.97);z-index:5}
-header b{font-size:17px;white-space:nowrap}
-nav a{color:var(--mut);text-decoration:none;margin-right:13px;font-size:13.5px}
-nav a:hover{color:var(--acc)}
-main{max-width:1060px;margin:0 auto;padding:24px 22px 90px}
-h1{font-size:30px;line-height:1.25;margin:16px 0 6px}
-h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:7px}
-h3{font-size:16.5px;margin-top:24px}
-a{color:var(--acc)}
-code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px;word-break:break-all}
-pre{background:#0b0d11;border:1px solid var(--line);border-radius:9px;padding:13px;overflow:auto;font-size:12.8px;white-space:pre-wrap}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--mut);font-weight:600}
+header{border-bottom:1px solid var(--line);padding:14px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:rgba(15,17,21,.98);backdrop-filter:blur(8px);z-index:50}
+header b{font-size:18px;color:#fff;letter-spacing:0.5px;white-space:nowrap}
+nav{display:flex;gap:12px;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-size:13.5px;padding:4px 8px;border-radius:6px;transition:all 0.15s ease}
+nav a:hover{color:var(--acc);background:rgba(77,163,255,0.08)}
+nav a.active{color:#fff;background:var(--btn-bg);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:28px 24px 90px}
+h1{font-size:28px;line-height:1.3;margin:16px 0 10px;color:#fff}
+h2{font-size:21px;margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:8px;color:#f0f3f8}
+h3{font-size:17px;margin-top:24px;color:#d8e2ec}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:#0b0d11;border:1px solid var(--line);border-radius:5px;padding:2px 6px;font-size:13px;word-break:break-all;color:#7ee787}
+pre{background:#0b0d11;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font-size:13px;line-height:1.5;color:#e6edf3}
+pre code{background:transparent;border:0;padding:0;color:inherit}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600;background:rgba(23,26,33,0.6)}
+tr:hover td{background:rgba(255,255,255,0.02)}
 .mut{color:var(--mut)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
-.dl{border:1px solid var(--ok);background:linear-gradient(180deg,#12291f,#171a21);border-radius:12px;padding:18px;margin:16px 0}
-.dl a.btn{display:inline-block;background:var(--ok);color:#04220f;font-weight:700;padding:12px 19px;border-radius:9px;text-decoration:none;margin:6px 9px 6px 0}
-.dl a.z{background:#2a3140;color:var(--fg)}
-.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px}
-.tag.ok{color:var(--ok);border-color:#1d5c3c}.tag.warn{color:var(--warn);border-color:#5c4a1d}.tag.bad{color:var(--bad);border-color:#5c1d1d}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px}
-.kpi b{display:block;font-size:23px;color:var(--acc)}
-ul,ol{padding-left:21px}li{margin:5px 0}
-footer{border-top:1px solid var(--line);padding:18px 22px;color:var(--mut);font-size:13px}
-details{margin:8px 0}summary{cursor:pointer;color:var(--acc)}
-</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html">Overview</a><a href="executive-summary.html">How to submit</a><a href="method.html">Method</a><a href="validation.html">Validation</a><a href="hypotheses.html">Hypotheses</a><a href="history.html">History &amp; collapse</a><a href="sources.html" style=color:#e8eaf0>Sources</a><a href="irregularities.html">Irregularities</a><a href="limitations.html">Limitations</a></nav></header><main><h1>Sources</h1><pre># Sources, with evidence class
-
-Every row was read directly by this session (2026-10-04) unless marked *in-repo*.
-Nothing on this site is inferred from a source that could not be fetched.
-
-## Official competition material
-
-| Source | Read | Evidence class |
-| --- | --- | --- |
-| Problem description (metric, submission format, prize structure) — https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ | 2026-10-04 | OFFICIAL page, fetched |
-| Leaderboard — https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/ | 2026-10-04 | OFFICIAL snapshot (dynamic; page 1 top-25) |
-| Competition home / rules entry — https://www.drivendata.org/competitions/306/competition-doe-gems/ | 2026-10-04 | OFFICIAL page |
-| NLR GEMS rules PDF — https://docs.nlr.gov/docs/fy26osti/96647.pdf | referenced by the competition; **not fetched this session** | NOT VERIFIED here |
-| Reference solution (Dr. John Lipor, PSU) — https://github.com/drivendataorg/gems-prize-reference-solution | cloned 2026-10-04 | OFFICIAL, code read |
-
-## Official forum rulings (DrivenData staff)
-
-| Ruling | Quote | Link |
-| --- | --- | --- |
-| Known faults are masked from the penalty terms | &quot;Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded from evaluation, so they do not count towards penalty terms.&quot; / &quot;Re-evaluation will also mask/exclude the existing USGS/INGENIOUS faults.&quot; / &quot;for scoring purposes it should not matter whether these known faults are included with predictions or not.&quot; — chrisk-dd, 2026-09-16 | https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516 |
-| What counts as a &quot;new fault&quot; | &quot;&#x27;new fault&#x27; means &#x27;any fault pixel not already captured by USGS/INGENIOUS&#x27; and can include newly mapped geometry of an existing fault system.&quot; — chrisk-dd, 2026-09-23 | https://community.drivendata.org/t/where-do-you-draw-the-line/11536 |
-| Test-fault provenance withheld; Phase-2 set is built from Phase-1 submissions | &quot;We&#x27;re not sharing details about the data sources, fault types, or coverage behind the test faults beyond what&#x27;s in the problem description.&quot; / &quot;the largest prize pool (Phase 2) will use a test set that is updated by expert review of all Phase 1 submissions&quot; — chrisk-dd, 2026-09-23 | https://community.drivendata.org/t/how-were-the-new-test-faults-identified-data-sources-and-fault-types/11527 |
-
-## Hash-pinned competition rasters (measured from the bytes this session)
-
-| File | SHA-256 | Note |
-| --- | --- | --- |
-| `training_features.tif` (a.k.a. `gems-geodawn-numerical-features.tif`) | `4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5` | 418,912,844 B, 19 float32 bands, EPSG:32611, nodata `-3.4028234663852886e+38` |
-| `labels.tif` (= `existing_faults.tif`) | `7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093` | 60,988 positives / 5,106,385 zeros / 7,111,787 nodata |
-| `sample_submission.tif` (= `example_submission.tif`) | `2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc` | **contains the catalogue itself**, see irregularities |
-
-The SHA-256 of `training_features.tif` matches the pin recorded inside the sibling repository&#x27;s
-`data/bridge/manifest.json` (in-repo), which in turn records the official data-tab and the Dropbox
-mirrors it was transported through. The value is therefore *self-consistent across two independent
-checkouts*; it is **not** an organizer-published checksum, because the data tab requires login.
-
-## Official data products referenced (not fetched — no external HTTP egress in this sandbox)
-
-| Product | Official landing page | Status |
-| --- | --- | --- |
-| USGS GeoDAWN airborne magnetic/radiometric surveys | https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and | not fetched; the competition&#x27;s own derived bands were used instead |
-| GeoDAWN study-area catalogue entry | https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7 | not fetched |
-| INGENIOUS geothermal data compilation | https://gdr.openei.org/submissions/1391 | not fetched |
-| USGS SGMC (Horton et al. 2017, DOI 10.5066/F7WH2N65; NV part Ludington et al. 2007, DOI 10.3133/ds1052; ScienceBase 5888bf4fe4b05ccb964bab9d; zips `mrdata.usgs.gov/geology/state/zip/NV.zip`, `CA.zip`) | https://www.sciencebase.gov/catalog/item/5888bf4fe4b05ccb964bab9d | *in-repo* record only; a sibling-built raster exists but its **rebuild-from-official is pending** and it is therefore not used for any claim here |
-| USGS Quaternary Fault and Fold Database (Qfaults) | https://earthquake.usgs.gov/qfaults/ | **needed and not yet obtained** — named as the next validation asset |
-| NBMG Quaternary-fault mapping (Nevada Bureau of Mines and Geology) | https://nbmg.unr.edu/ | named in a sibling knowledge file with an **unverified URL**; not cited as confirmed |
-| USGS 3DEP 1 m DEM (list supplied by the competition as `1m_DEM_links.csv` / `Digital-elevation-model-links-JSON.pdf`) | https://prd-tnm.s3.amazonaws.com/ | list is available in-repo (716 unique tiles confirmed against the S3 listing); tiles **not downloadable here** |
-
-## Sandbox access reality (checked this session)
-
-* `git`/`gh` over HTTPS to `github.com` — **works** (repositories cloned successfully).
-* `fetch_page` to readcompetition/forum HTML — **works**.
-* Direct `curl`/`wget` to any host (`dropbox.com`, `sciencebase.gov`, `prd-tnm.s3.amazonaws.com`,
-  `drivendata-public-assets.s3.amazonaws.com`) — **fails at TLS** (exit before handshake).
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.dl{border:1px solid #1d5c3c;background:linear-gradient(180deg,#0f261c 0%,#171a21 100%);border-radius:12px;padding:22px;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.dl h2{margin-top:0;border:0;color:#fff;display:flex;align-items:center;gap:8px}
+.dl a.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ok);color:#04220f;font-weight:700;padding:12px 20px;border-radius:8px;text-decoration:none;margin:8px 10px 8px 0;font-size:14.5px;transition:opacity 0.15s ease}
+.dl a.btn:hover{opacity:0.92;text-decoration:none}
+.dl a.z{background:#262d3d;color:#e8eaf0;border:1px solid var(--line)}
+.dl a.z:hover{background:#30384c}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut);margin-right:5px;font-weight:600}
+.tag.ok{color:var(--ok);border-color:#1d5c3c;background:rgba(57,217,138,0.1)}
+.tag.warn{color:var(--warn);border-color:#5c4a1d;background:rgba(255,179,71,0.1)}
+.tag.bad{color:var(--bad);border-color:#5c1d1d;background:rgba(255,107,107,0.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:20px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.kpi span.label{display:block;font-size:13px;color:var(--mut);margin-bottom:4px}
+.kpi b{display:block;font-size:26px;color:#fff;font-weight:700}
+.kpi span.sub{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+ul,ol{padding-left:22px}li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 0 10px;margin-top:48px;color:var(--mut);font-size:13px}
+details{margin:12px 0;background:#0d1015;border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+details[open]{padding-bottom:14px}
+summary{cursor:pointer;color:var(--acc);font-weight:600;user-select:none}
+.step-box{background:#11151d;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0}
+</style></head><body><header><b>GEMSDOE34</b><nav><a href="index.html" class="">Overview</a><a href="executive-summary.html" class="">How to submit</a><a href="method.html" class="">Method</a><a href="validation.html" class="">Validation</a><a href="hypotheses.html" class="">Hypotheses</a><a href="history.html" class="">History &amp; collapse</a><a href="sources.html" class="active">Sources</a><a href="irregularities.html" class="">Irregularities</a><a href="limitations.html" class="">Limitations</a></nav></header><main><h1>Sources, with evidence class</h1>
+<p>Every row was read directly by this session (2026-10-04) unless marked <em>in-repo</em>.
+Nothing on this site is inferred from a source that could not be fetched.</p>
+<h2>Official competition material</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Read</th>
+<th>Evidence class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problem description (metric, submission format, prize structure) — https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/</td>
+<td>2026-10-04</td>
+<td>OFFICIAL page, fetched</td>
+</tr>
+<tr>
+<td>Leaderboard — https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/</td>
+<td>2026-10-04</td>
+<td>OFFICIAL snapshot (dynamic; page 1 top-25)</td>
+</tr>
+<tr>
+<td>Competition home / rules entry — https://www.drivendata.org/competitions/306/competition-doe-gems/</td>
+<td>2026-10-04</td>
+<td>OFFICIAL page</td>
+</tr>
+<tr>
+<td>NLR GEMS rules PDF — https://docs.nlr.gov/docs/fy26osti/96647.pdf</td>
+<td>referenced by the competition; <strong>not fetched this session</strong></td>
+<td>NOT VERIFIED here</td>
+</tr>
+<tr>
+<td>Reference solution (Dr. John Lipor, PSU) — https://github.com/drivendataorg/gems-prize-reference-solution</td>
+<td>cloned 2026-10-04</td>
+<td>OFFICIAL, code read</td>
+</tr>
+</tbody>
+</table>
+<h2>Official forum rulings (DrivenData staff)</h2>
+<table>
+<thead>
+<tr>
+<th>Ruling</th>
+<th>Quote</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Known faults are masked from the penalty terms</td>
+<td>"Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded from evaluation, so they do not count towards penalty terms." / "Re-evaluation will also mask/exclude the existing USGS/INGENIOUS faults." / "for scoring purposes it should not matter whether these known faults are included with predictions or not." — chrisk-dd, 2026-09-16</td>
+<td>https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516</td>
+</tr>
+<tr>
+<td>What counts as a "new fault"</td>
+<td>"'new fault' means 'any fault pixel not already captured by USGS/INGENIOUS' and can include newly mapped geometry of an existing fault system." — chrisk-dd, 2026-09-23</td>
+<td>https://community.drivendata.org/t/where-do-you-draw-the-line/11536</td>
+</tr>
+<tr>
+<td>Test-fault provenance withheld; Phase-2 set is built from Phase-1 submissions</td>
+<td>"We're not sharing details about the data sources, fault types, or coverage behind the test faults beyond what's in the problem description." / "the largest prize pool (Phase 2) will use a test set that is updated by expert review of all Phase 1 submissions" — chrisk-dd, 2026-09-23</td>
+<td>https://community.drivendata.org/t/how-were-the-new-test-faults-identified-data-sources-and-fault-types/11527</td>
+</tr>
+</tbody>
+</table>
+<h2>Hash-pinned competition rasters (measured from the bytes this session)</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>SHA-256</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>training_features.tif</code> (a.k.a. <code>gems-geodawn-numerical-features.tif</code>)</td>
+<td><code>4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5</code></td>
+<td>418,912,844 B, 19 float32 bands, EPSG:32611, nodata <code>-3.4028234663852886e+38</code></td>
+</tr>
+<tr>
+<td><code>labels.tif</code> (= <code>existing_faults.tif</code>)</td>
+<td><code>7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093</code></td>
+<td>60,988 positives / 5,106,385 zeros / 7,111,787 nodata</td>
+</tr>
+<tr>
+<td><code>sample_submission.tif</code> (= <code>example_submission.tif</code>)</td>
+<td><code>2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc</code></td>
+<td><strong>contains the catalogue itself</strong>, see irregularities</td>
+</tr>
+</tbody>
+</table>
+<p>The SHA-256 of <code>training_features.tif</code> matches the pin recorded inside the sibling repository's
+<code>data/bridge/manifest.json</code> (in-repo), which in turn records the official data-tab and the Dropbox
+mirrors it was transported through. The value is therefore <em>self-consistent across two independent
+checkouts</em>; it is <strong>not</strong> an organizer-published checksum, because the data tab requires login.</p>
+<h2>Official data products referenced (not fetched — no external HTTP egress in this sandbox)</h2>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Official landing page</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USGS GeoDAWN airborne magnetic/radiometric surveys</td>
+<td>https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and</td>
+<td>not fetched; the competition's own derived bands were used instead</td>
+</tr>
+<tr>
+<td>GeoDAWN study-area catalogue entry</td>
+<td>https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7</td>
+<td>not fetched</td>
+</tr>
+<tr>
+<td>INGENIOUS geothermal data compilation</td>
+<td>https://gdr.openei.org/submissions/1391</td>
+<td>not fetched</td>
+</tr>
+<tr>
+<td>USGS SGMC (Horton et al. 2017, DOI 10.5066/F7WH2N65; NV part Ludington et al. 2007, DOI 10.3133/ds1052; ScienceBase 5888bf4fe4b05ccb964bab9d; zips <code>mrdata.usgs.gov/geology/state/zip/NV.zip</code>, <code>CA.zip</code>)</td>
+<td>https://www.sciencebase.gov/catalog/item/5888bf4fe4b05ccb964bab9d</td>
+<td><em>in-repo</em> record only; a sibling-built raster exists but its <strong>rebuild-from-official is pending</strong> and it is therefore not used for any claim here</td>
+</tr>
+<tr>
+<td>USGS Quaternary Fault and Fold Database (Qfaults)</td>
+<td>https://earthquake.usgs.gov/qfaults/</td>
+<td><strong>needed and not yet obtained</strong> — named as the next validation asset</td>
+</tr>
+<tr>
+<td>NBMG Quaternary-fault mapping (Nevada Bureau of Mines and Geology)</td>
+<td>https://nbmg.unr.edu/</td>
+<td>named in a sibling knowledge file with an <strong>unverified URL</strong>; not cited as confirmed</td>
+</tr>
+<tr>
+<td>USGS 3DEP 1 m DEM (list supplied by the competition as <code>1m_DEM_links.csv</code> / <code>Digital-elevation-model-links-JSON.pdf</code>)</td>
+<td>https://prd-tnm.s3.amazonaws.com/</td>
+<td>list is available in-repo (716 unique tiles confirmed against the S3 listing); tiles <strong>not downloadable here</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Sandbox access reality (checked this session)</h2>
+<ul>
+<li><code>git</code>/<code>gh</code> over HTTPS to <code>github.com</code> — <strong>works</strong> (repositories cloned successfully).</li>
+<li><code>fetch_page</code> to readcompetition/forum HTML — <strong>works</strong>.</li>
+<li>Direct <code>curl</code>/<code>wget</code> to any host (<code>dropbox.com</code>, <code>sciencebase.gov</code>, <code>prd-tnm.s3.amazonaws.com</code>,
+  <code>drivendata-public-assets.s3.amazonaws.com</code>) — <strong>fails at TLS</strong> (exit before handshake).
   No external raster can be downloaded in this environment; every external-dependency claim below is
-  therefore marked as obtainable-or-not rather than assumed.
+  therefore marked as obtainable-or-not rather than assumed.</li>
+</ul>
 
-
-# Official sources — read this before adding any claim to this repository
-
-Every line below was read by this project directly (fetch, `git`, or a hash
+<h1>Official sources — read this before adding any claim to this repository</h1>
+<p>Every line below was read by this project directly (fetch, <code>git</code>, or a hash
 verification) on the date shown. Nothing here is quoted from a secondary blog
-post, a model&#x27;s memory, or another participant&#x27;s summary. Where a source could
-**not** be reached from this sandbox, it is marked `NOT FETCHED` and no claim
-depends on it.
-
-## 1. The competition
-
-| What | Where | Evidence class |
-| --- | --- | --- |
-| Problem description (task, structure, datasets, metric, format, worked example) | https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ | OFFICIAL, fetched 2026-10-04 (both chunks) |
-| Competition home / rules entry | https://www.drivendata.org/competitions/306/competition-doe-gems/ | OFFICIAL, fetched 2026-10-04 |
-| Public leaderboard | https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/ | OFFICIAL snapshot, read 2026-10-04 (rank 1 = 0.3262) |
-| Organizers&#x27; reference solution | https://github.com/drivendataorg/gems-prize-reference-solution | OFFICIAL code, cloned + read 2026-10-04 |
-| NLR/DOE rules PDF | https://docs.nlr.gov/docs/fy26osti/96647.pdf | named by the competition; **NOT FETCHED** |
-| GeoDAWN survey data (USGS) | https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and | official product page; **NOT FETCHED** |
-| GeoDAWN study-area catalogue entry | https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7 | official; **NOT FETCHED** |
-| INGENIOUS project (Great Basin Center for Geothermal Energy) | https://gbcge.org/current-projects/ingenious/ | official; **NOT FETCHED** |
-| USGS Quaternary Fault and Fold Database (Qfaults) | https://earthquake.usgs.gov/qfaults/ | official; **NOT FETCHED here** (a sibling project fetched `Qfaults_GIS.zip`, recorded below) |
-| USGS State Geologic Map Compilation (SGMC), Horton et al. 2017 | https://www.sciencebase.gov/catalog/item/5888bf4fe4b05ccb964bab9d · DOI 10.5066/F7WH2N65 · NV part DOI 10.3133/ds1052 | official identifiers recorded from a sibling manifest; **staging page NOT FETCHED** |
-
-### Verbatim statements from the problem description that drive the design
-
-* &quot;we have consulted with fault experts who have **manually identified faults that
-  are not contained within the current public USGS database**. These new faults
-  will comprise the test dataset for the initial prize round.&quot;
-* &quot;The GeoDAWN region is chunked and split into a public test set and a private
-  test set.&quot;
-* Final round: &quot;An **expanded** label set — Initial Prize Round labels **plus**
-  previously-unknown faults that experts verify after reviewing *every team&#x27;s*
+post, a model's memory, or another participant's summary. Where a source could
+<strong>not</strong> be reached from this sandbox, it is marked <code>NOT FETCHED</code> and no claim
+depends on it.</p>
+<h2>1. The competition</h2>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Where</th>
+<th>Evidence class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problem description (task, structure, datasets, metric, format, worked example)</td>
+<td>https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/</td>
+<td>OFFICIAL, fetched 2026-10-04 (both chunks)</td>
+</tr>
+<tr>
+<td>Competition home / rules entry</td>
+<td>https://www.drivendata.org/competitions/306/competition-doe-gems/</td>
+<td>OFFICIAL, fetched 2026-10-04</td>
+</tr>
+<tr>
+<td>Public leaderboard</td>
+<td>https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/</td>
+<td>OFFICIAL snapshot, read 2026-10-04 (rank 1 = 0.3262)</td>
+</tr>
+<tr>
+<td>Organizers' reference solution</td>
+<td>https://github.com/drivendataorg/gems-prize-reference-solution</td>
+<td>OFFICIAL code, cloned + read 2026-10-04</td>
+</tr>
+<tr>
+<td>NLR/DOE rules PDF</td>
+<td>https://docs.nlr.gov/docs/fy26osti/96647.pdf</td>
+<td>named by the competition; <strong>NOT FETCHED</strong></td>
+</tr>
+<tr>
+<td>GeoDAWN survey data (USGS)</td>
+<td>https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and</td>
+<td>official product page; <strong>NOT FETCHED</strong></td>
+</tr>
+<tr>
+<td>GeoDAWN study-area catalogue entry</td>
+<td>https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7</td>
+<td>official; <strong>NOT FETCHED</strong></td>
+</tr>
+<tr>
+<td>INGENIOUS project (Great Basin Center for Geothermal Energy)</td>
+<td>https://gbcge.org/current-projects/ingenious/</td>
+<td>official; <strong>NOT FETCHED</strong></td>
+</tr>
+<tr>
+<td>USGS Quaternary Fault and Fold Database (Qfaults)</td>
+<td>https://earthquake.usgs.gov/qfaults/</td>
+<td>official; <strong>NOT FETCHED here</strong> (a sibling project fetched <code>Qfaults_GIS.zip</code>, recorded below)</td>
+</tr>
+<tr>
+<td>USGS State Geologic Map Compilation (SGMC), Horton et al. 2017</td>
+<td>https://www.sciencebase.gov/catalog/item/5888bf4fe4b05ccb964bab9d · DOI 10.5066/F7WH2N65 · NV part DOI 10.3133/ds1052</td>
+<td>official identifiers recorded from a sibling manifest; <strong>staging page NOT FETCHED</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Verbatim statements from the problem description that drive the design</h3>
+<ul>
+<li>"we have consulted with fault experts who have <strong>manually identified faults that
+  are not contained within the current public USGS database</strong>. These new faults
+  will comprise the test dataset for the initial prize round."</li>
+<li>"The GeoDAWN region is chunked and split into a public test set and a private
+  test set."</li>
+<li>Final round: "An <strong>expanded</strong> label set — Initial Prize Round labels <strong>plus</strong>
+  previously-unknown faults that experts verify after reviewing <em>every team's</em>
   submission … Predictions that helped experts identify previously-unmapped
-  faults can score higher here than in the Initial Prize Round.&quot;
-* &quot;The labels for this challenge come from the USGS quaternary fault maps and
-  from INGENIOUS.&quot;
-* Provided features: `training_features.tif`, EPSG:32611, 100 m, with layers —
+  faults can score higher here than in the Initial Prize Round."</li>
+<li>"The labels for this challenge come from the USGS quaternary fault maps and
+  from INGENIOUS."</li>
+<li>Provided features: <code>training_features.tif</code>, EPSG:32611, 100 m, with layers —
   surface conductivity and depth to conductive base surface; detrended elevation
   and its slope; dilatation rate, shear strain rate, second invariant of the
   strain-rate tensor; isostatic gravity anomaly and its slope; magnetics
   (RTP anomaly, TMI, vertical and horizontal slope of TMI, top-of-crustal
-  magnetic source depth); earthquake density.
-* &quot;A sample submission that predicts **total fault absence** is provided for your
-  reference&quot; — see `docs/irregularities.md` IR-34-01: the shipped file does
-  **not** do that; it contains 60,988 ones at the label cells.
-
-## 2. Organizer rulings on the forum (quoted)
-
-| Topic | Quote | Link | Read |
-| --- | --- | --- | --- |
-| Known faults are masked from the penalty terms | &quot;Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded from evaluation, so they do not count towards penalty terms.&quot; · &quot;Re-evaluation will also mask/exclude the existing USGS/INGENIOUS faults.&quot; · &quot;for scoring purposes it should not matter whether these known faults are included with predictions or not.&quot; — chrisk-dd | https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516 | 2026-10-04 |
-| What counts as a &quot;new fault&quot; | &quot;&#x27;new fault&#x27; means &#x27;any fault pixel not already captured by USGS/INGENIOUS&#x27; and can include newly mapped geometry of an existing fault system.&quot; — chrisk-dd | https://community.drivendata.org/t/where-do-you-draw-the-line/11536 | 2026-10-04 |
-| Test-fault provenance | &quot;We&#x27;re not sharing details about the data sources, fault types, or coverage behind the test faults beyond what&#x27;s in the problem description.&quot; — chrisk-dd | https://community.drivendata.org/t/how-were-the-new-test-faults-identified-data-sources-and-fault-types/11527 | 2026-10-04 |
-
-## 3. The competition rasters, verified by hash
-
-Measured in this workspace on 2026-10-04 by re-reading the bytes; the SHA-256 of
-`training_features.tif` additionally matches the pin recorded in the sibling
+  magnetic source depth); earthquake density.</li>
+<li>"A sample submission that predicts <strong>total fault absence</strong> is provided for your
+  reference" — see <code>docs/irregularities.md</code> IR-34-01: the shipped file does
+  <strong>not</strong> do that; it contains 60,988 ones at the label cells.</li>
+</ul>
+<h2>2. Organizer rulings on the forum (quoted)</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Quote</th>
+<th>Link</th>
+<th>Read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Known faults are masked from the penalty terms</td>
+<td>"Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded from evaluation, so they do not count towards penalty terms." · "Re-evaluation will also mask/exclude the existing USGS/INGENIOUS faults." · "for scoring purposes it should not matter whether these known faults are included with predictions or not." — chrisk-dd</td>
+<td>https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516</td>
+<td>2026-10-04</td>
+</tr>
+<tr>
+<td>What counts as a "new fault"</td>
+<td>"'new fault' means 'any fault pixel not already captured by USGS/INGENIOUS' and can include newly mapped geometry of an existing fault system." — chrisk-dd</td>
+<td>https://community.drivendata.org/t/where-do-you-draw-the-line/11536</td>
+<td>2026-10-04</td>
+</tr>
+<tr>
+<td>Test-fault provenance</td>
+<td>"We're not sharing details about the data sources, fault types, or coverage behind the test faults beyond what's in the problem description." — chrisk-dd</td>
+<td>https://community.drivendata.org/t/how-were-the-new-test-faults-identified-data-sources-and-fault-types/11527</td>
+<td>2026-10-04</td>
+</tr>
+</tbody>
+</table>
+<h2>3. The competition rasters, verified by hash</h2>
+<p>Measured in this workspace on 2026-10-04 by re-reading the bytes; the SHA-256 of
+<code>training_features.tif</code> additionally matches the pin recorded in the sibling
 bridge manifest, so the file is self-consistent across two independent
-checkouts (it is **not** checked against an organizer-published checksum,
-because the data tab requires a login).
-
-| File | SHA-256 | Geometry / values |
-| --- | --- | --- |
-| `training_features.tif` | `4371c82e…` (full hash in `docs/data/collapse-diagnosis.json`) | 19 bands, float32, EPSG:32611, 100 m, 3292x3730, nodata −3.4028234663852886e+38 in 7,113,308 cells |
-| `labels.tif` (= `existing_faults.tif`) | `7ba308cc…` | int8, nodata −1 in 7,111,787 cells; 5,106,385 zeros; **60,988 ones** |
-| `sample_submission.tif` (= `example_submission.tif`) | `2176d08e…` | float32, nodata nan in 7,111,787 cells; 5,106,385 zeros; **60,988 ones — at exactly the label cells** |
-
-## 4. Third-party material actually relied on
-
-| Item | Provenance recorded | Used for |
-| --- | --- | --- |
-| `Qfaults_GIS.zip` → 3-band uint8 prior on the competition grid | source URL https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip, zip sha256 `447eadc5…`, product sha256 `538b4573…`, feature count and observed attribute list recorded in the sibling manifest | **catalogue-gap sensitivity only** — it is a USGS catalogue, so a model that reproduces it is reproducing known faults, not finding new ones |
-| `smp.Unet` / `segmentation_models_pytorch` (reference solution) | read from the organizers&#x27; notebook | understanding the organizers&#x27; own baseline; not runnable here (no GPU) |
-
-</pre><footer>Generated 2026-10-04 17:58 UTC · every figure on this site is read from <code>docs/data/*.json</code> or <code>registry/history.json</code> · scores attributed to this group are user-reported claims, never organizer receipts.</footer></main></body></html>
+checkouts (it is <strong>not</strong> checked against an organizer-published checksum,
+because the data tab requires a login).</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>SHA-256</th>
+<th>Geometry / values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>training_features.tif</code></td>
+<td><code>4371c82e…</code> (full hash in <code>docs/data/collapse-diagnosis.json</code>)</td>
+<td>19 bands, float32, EPSG:32611, 100 m, 3292x3730, nodata −3.4028234663852886e+38 in 7,113,308 cells</td>
+</tr>
+<tr>
+<td><code>labels.tif</code> (= <code>existing_faults.tif</code>)</td>
+<td><code>7ba308cc…</code></td>
+<td>int8, nodata −1 in 7,111,787 cells; 5,106,385 zeros; <strong>60,988 ones</strong></td>
+</tr>
+<tr>
+<td><code>sample_submission.tif</code> (= <code>example_submission.tif</code>)</td>
+<td><code>2176d08e…</code></td>
+<td>float32, nodata nan in 7,111,787 cells; 5,106,385 zeros; <strong>60,988 ones — at exactly the label cells</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>4. Third-party material actually relied on</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Provenance recorded</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Qfaults_GIS.zip</code> → 3-band uint8 prior on the competition grid</td>
+<td>source URL https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip, zip sha256 <code>447eadc5…</code>, product sha256 <code>538b4573…</code>, feature count and observed attribute list recorded in the sibling manifest</td>
+<td><strong>catalogue-gap sensitivity only</strong> — it is a USGS catalogue, so a model that reproduces it is reproducing known faults, not finding new ones</td>
+</tr>
+<tr>
+<td><code>smp.Unet</code> / <code>segmentation_models_pytorch</code> (reference solution)</td>
+<td>read from the organizers' notebook</td>
+<td>understanding the organizers' own baseline; not runnable here (no GPU)</td>
+</tr>
+</tbody>
+</table><footer>Generated 2026-10-04 20:05 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

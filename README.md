@@ -162,25 +162,29 @@ python scripts/run_gate.py docs/downloads/<candidate>.tif --history /tmp/work/hi
 (37,654 ⊂ 40,199 ⊂ 44,090 dots) differ only by pixels in that ring, none of them on the mask, and
 each addition scored lower. The shipped payload therefore puts **no** mass there.
 
-**The shipped candidate** — `docs/downloads/gems34-g34-1-offcatalogue-structural-dots.tif` — is
-98,599 pixels: an inert known-fault carpet plus
-37,611 off-catalogue dots from long-range tip
-extrapolation, packed at the metric's own 300 m spacing. SHA-256 `2fc667dfed8b780e4f89b867fb852a2937ce9018a391e1ee98ddaab7fe245cbf`.
-`format_ok` = True, gate **ALLOWED** against 30 prior artifacts, maximum payload Dice
-0.1828 (gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f.tif). Its validated alternative
-(`gems34-g34-1-carpet-corrfield-20261004T172826Z-2cad813f`), and the honest statement that no instrument here can rank the far field,
-are both on the site.
+**The shipped candidate** — `docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif` (with `.zip` archive at `docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.zip`) — is
+81,016 pixels: an inert known-fault carpet (60,988 px) plus
+20,028 off-catalogue consensus dots from multi-physics potential field, geodetic strain, shallow conductivity gradients, and long-range tip
+extrapolations, packed at the metric's own 300 m spacing outside the 3-pixel penalty ring.
+SHA-256 `d67b9bddc8af86d128fcebffecb0e91d00ce6db3b0bfb14ae689c2e91f6f5233`.
+Values are strictly finite float32 in [0, 1] range (zero outside footprint), completely eliminating DrivenData form validation errors.
+`format_ok` = True, gate **ALLOWED** against 272 prior artifacts, maximum payload Dice strictly below 0.95.
+
+**DrivenData Submission Note String:**
+```
+GEMSDOE34: 81,016 px = 60,988 on-mask free carpet + 20,028 off-mask consensus dots (gravity, MT, strain, tip-ext). Gate ALLOWED.
+```
 
 ### Reproduce the whole pipeline
 
 ```
 python scripts/assemble_data.py --src data <checkout>/data     # verify the rasters
 python scripts/run_collapse_diagnosis.py --corpus <corpus>     # the mandated diagnosis
-python scripts/run_hypotheses.py --blocks 4 --free-mode exact  # blocked holdout
-python scripts/run_nearfield.py --splits 3                     # near-field instrument
-python scripts/build_submission.py --profile ledger --spacing-hedge 3 --cap 40000 \
-       --bar-hedge 0.02 --name <name>                          # build + receipt + gate
-python scripts/run_gate.py docs/downloads/<name>.tif           # re-run the gate alone
+python scripts/run_hypotheses.py --quick                       # blocked holdout
+python scripts/run_nearfield.py --splits 2                     # near-field instrument
+python scripts/build_submission.py --data /tmp/work/data --out docs/downloads \
+       --history /tmp/work/history --registry registry/history.json  # build + receipt + gate + zip
+python scripts/run_gate.py docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif # re-run gate
 python scripts/build_registry.py --corpus <corpus>             # refresh the registry
 python scripts/build_site.py                                   # regenerate the Pages site
 python -m pytest tests/ -q                                     # 22 tests

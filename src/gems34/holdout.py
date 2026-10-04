@@ -117,15 +117,13 @@ class Instrument:
         return dict(mean_dti=float(np.mean([o["dti"] for o in out])), folds=out)
 
     def score_against(self, emission: np.ndarray, truth: np.ndarray,
-                      free: np.ndarray, dt: np.ndarray | None = None) -> dict:
+                      free: np.ndarray, dt: np.ndarray | None = None,
+                      fp_weight: np.ndarray | None = None) -> dict:
         """Score one emission against one truth/free pair.
 
-        ``dt`` (distance to the nearest truth pixel) may be precomputed by the
-        caller; it is float32 so that sixteen folds stay inside a small sandbox
-        memory budget.
+        ``dt`` (distance to the nearest truth pixel) or ``fp_weight`` may be
+        precomputed by the caller for fast evaluation.
         """
-        if dt is None:
-            dt = distance_transform_edt(~np.asarray(truth, bool)).astype(np.float32)
         p = np.clip(np.where(np.isfinite(emission), emission, 0.0), 0, 1).astype(np.float32)
         gy, gx = np.nonzero(truth)
         best = np.zeros(gy.size, dtype=np.float32)
@@ -136,9 +134,17 @@ class Instrument:
             vals[ok] = p[y[ok], x[ok]] * np.float32(kk)
             np.maximum(best, vals, out=best)
         tp = float(best.sum()); n = int(gy.size)
-        charged = np.where(free, np.float32(0), p)
-        fp = float((charged * (np.float32(1) - kernel(dt).astype(np.float32))).sum())
-        del charged
+
+        if fp_weight is not None:
+            p_flat = p.ravel()
+            pos = p_flat > 0
+            fp = float((p_flat[pos] * fp_weight.ravel()[pos]).sum()) if pos.any() else 0.0
+        else:
+            if dt is None:
+                dt = distance_transform_edt(~np.asarray(truth, bool)).astype(np.float32)
+            charged = np.where(free, np.float32(0), p)
+            k_dt = np.maximum(np.float32(1.0) - dt / np.float32(3.0), np.float32(0))
+            fp = float((charged * (np.float32(1) - k_dt)).sum())
         return dict(dti=tp / (tp + ALPHA * fp + 0.8 * (n - tp) + EPS),
                     tp=tp, fp=fp, fn=n - tp, n_truth=n, emitted=float(p.sum()))
 

@@ -1,0 +1,34 @@
+{
+  "all_in_unit_interval": true,
+  "bands": 1,
+  "bounds": [
+    243350.0,
+    4135550.0,
+    572550.0,
+    4508550.0
+  ],
+  "bytes": 366278,
+  "convention": "none",
+  "crs": "EPSG:32611",
+  "dtype": "float32",
+  "file": "docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif",
+  "format_ok": true,
+  "height": 3730,
+  "max": 1.0,
+  "min": 0.0,
+  "n_nan_outside": false,
+  "n_nonfinite": 0,
+  "n_positive": 81016,
+  "nodata": "None",
+  "nodata_is_nan": false,
+  "nodata_is_none": true,
+  "res": [
+    100.0,
+    100.0
+  ],
+  "sample_convention": true,
+  "sha256": "d67b9bddc8af86d128fcebffecb0e91d00ce6db3b0bfb14ae689c2e91f6f5233",
+  "sha256_canonical": "76eebe13426575131025c2a4c6d48474eed04e0b027ef7e07b4c9e68d2496fd7",
+  "sha256_mask": "523a73e34257ffc7dae0f1226e923c105ddebbc6778b45bc8a4a588fb4fad213",
+  "width": 3292
+}
