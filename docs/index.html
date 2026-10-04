@@ -104,7 +104,7 @@ deliberately zero pixels on the USGS/INGENIOUS catalogue: those pixels are maske
 <div class="kpi"><span class="label">Public Leaderboard #1</span><b>0.3262</b><span class="sub">Official Leaderboard (read 2026-10-04)</span></div>
 <div class="kpi"><span class="label">GEMSDOE32 Prior High</span><b>0.2778</b><span class="sub">Pruned Near-Field Clutter</span></div>
 <div class="kpi"><span class="label">0.1563 Collapse Mechanism</span><b>54,533 px</b><span class="sub">100.00% On Inert Known-Fault Mask</span></div>
-<div class="kpi"><span class="label">Pre-Submission Gate</span><b>ALLOWED</b><span class="sub">Tested vs 272 Historical Artifacts</span></div>
+<div class="kpi"><span class="label">Pre-Submission Gate</span><b>ALLOWED</b><span class="sub">Tested vs 302 Historical Rasters</span></div>
 </div>
 
 <h2>Executive Summary of Breakthroughs</h2>
@@ -123,6 +123,11 @@ Analysis of the progression from 0.2600 → 0.2708 → 0.2778 proves that predic
 <li><strong>Strict Range [0, 1] GeoTIFF Form Validation:</strong>
 Fixed the DrivenData web portal rejection (<code>Predicted values must be in range [0, 1]</code>) by generating float32 rasters with strictly finite values in [0, 1] across the entire extent.</li>
 <li><strong>Mandatory Pre-Submission Gate:</strong>
-A formal gate hashes and correlates all candidates against 272 historical submissions, calculating raw pre-postprocessing Pearson correlation, final support Dice, and non-free payload Dice to prevent duplicated weekly submission slots.</li>
+A formal gate hashes and correlates the candidate against 302 historical rasters
+(272 of them carrying a reported score), calculating raw pre-postprocessing
+Pearson correlation, final support Dice, and payload Dice restricted to the region evaluation can
+see. The payload number is the one that matters: 8GEMSDOE's <code>Hedge-v2</code> differs from
+GEMSDOE's file by 54,533 pixels at raw correlation 0.8700, yet 100.00 % of those pixels lie on the
+masked catalogue, so its payload Dice is 1.0000 and its score is the identical 0.1563.</li>
 </ol>
-<footer>Generated 2026-10-04 22:46 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>
+<footer>Generated 2026-10-04 22:55 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>

@@ -175,13 +175,13 @@ python scripts/run_gate.py docs/downloads/<candidate>.tif --history /tmp/work/hi
 (37,654 ⊂ 40,199 ⊂ 44,090 dots) differ only by pixels in that ring, none of them on the mask, and
 each addition scored lower. The shipped payload therefore puts **no** mass there.
 
-**The shipped candidate** — `docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif` (with `.zip` archive at `docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.zip`) — is
+**The shipped candidate** — `docs/downloads/h34-scatter-q50-arr-matched-20261004T223317Z.tif` (with `.zip` archive alongside) — is
 81,016 pixels: an inert known-fault carpet (60,988 px) plus
 20,028 off-catalogue consensus dots from multi-physics potential field, geodetic strain, shallow conductivity gradients, and long-range tip
 extrapolations, packed at the metric's own 300 m spacing outside the 3-pixel penalty ring.
 SHA-256 `d67b9bddc8af86d128fcebffecb0e91d00ce6db3b0bfb14ae689c2e91f6f5233`.
 Values are strictly finite float32 in [0, 1] range (zero outside footprint), completely eliminating DrivenData form validation errors.
-`format_ok` = True, gate **ALLOWED** against 272 prior artifacts, maximum payload Dice strictly below 0.95.
+9/9 format checks pass, gate **ALLOWED** against 302 historical rasters (272 of them scored), maximum payload Dice 0.0407 against a 0.95 threshold.
 
 **DrivenData Submission Note String:**
 ```
@@ -274,7 +274,9 @@ python scripts/run_hypotheses.py --quick                       # blocked holdout
 python scripts/run_nearfield.py --splits 2                     # near-field instrument
 python scripts/build_submission.py --data /tmp/work/data --out docs/downloads \
        --history /tmp/work/history --registry registry/history.json  # build + receipt + gate + zip
-python scripts/run_gate.py docs/downloads/gemsdoe34-geophys-struct-consensus-20261004T195931Z-5c2a43e8.tif # re-run gate
+python scripts/run_collapse_gate.py --data data --corpus /tmp/corpus \
+    --candidate docs/downloads/h34-scatter-q50-arr-matched-20261004T223317Z.tif  # uniqueness gate
+python scripts/run_collapse_gate.py --diagnose --data data --corpus /tmp/corpus  # 0.1563 tie
 python scripts/build_registry.py --corpus <corpus>             # refresh the registry
 python scripts/build_site.py                                   # regenerate the Pages site
 python -m pytest tests/ -q                                     # 22 tests

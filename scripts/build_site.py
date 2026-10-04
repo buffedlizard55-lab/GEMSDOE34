@@ -142,6 +142,7 @@ def build() -> int:
     receipt = sub.get("receipt", {})
     note = sub.get("short_comment", sub.get("note_string", ""))
     n_pos = sub.get("n_positive", 81016)
+    n_corpus = gate.get("corpus", len(reg.get("entries", [])))
     n_carpet = sub.get("n_carpet", comp.get("carpet", 0))
     n_payload = sub.get("n_payload", comp.get("dots", n_pos - n_carpet))
 
@@ -226,7 +227,7 @@ Read <a href="limitations.html">Limitations</a> before spending a weekly slot.
 <div class="kpi"><span class="label">Public Leaderboard #1</span><b>0.3262</b><span class="sub">Official Leaderboard (read 2026-10-04)</span></div>
 <div class="kpi"><span class="label">GEMSDOE32 Prior High</span><b>0.2778</b><span class="sub">Pruned Near-Field Clutter</span></div>
 <div class="kpi"><span class="label">0.1563 Collapse Mechanism</span><b>54,533 px</b><span class="sub">100.00% On Inert Known-Fault Mask</span></div>
-<div class="kpi"><span class="label">Pre-Submission Gate</span><b>ALLOWED</b><span class="sub">Tested vs {len(reg.get('entries', []))} Historical Artifacts</span></div>
+<div class="kpi"><span class="label">Pre-Submission Gate</span><b>ALLOWED</b><span class="sub">Tested vs {n_corpus} Historical Rasters</span></div>
 </div>
 
 <h2>Executive Summary of Breakthroughs</h2>
@@ -245,7 +246,12 @@ Analysis of the progression from 0.2600 → 0.2708 → 0.2778 proves that predic
 <li><strong>Strict Range [0, 1] GeoTIFF Form Validation:</strong>
 Fixed the DrivenData web portal rejection (<code>Predicted values must be in range [0, 1]</code>) by generating float32 rasters with strictly finite values in [0, 1] across the entire extent.</li>
 <li><strong>Mandatory Pre-Submission Gate:</strong>
-A formal gate hashes and correlates all candidates against 272 historical submissions, calculating raw pre-postprocessing Pearson correlation, final support Dice, and non-free payload Dice to prevent duplicated weekly submission slots.</li>
+A formal gate hashes and correlates the candidate against {n_corpus} historical rasters
+({len(reg.get('entries', []))} of them carrying a reported score), calculating raw pre-postprocessing
+Pearson correlation, final support Dice, and payload Dice restricted to the region evaluation can
+see. The payload number is the one that matters: 8GEMSDOE's <code>Hedge-v2</code> differs from
+GEMSDOE's file by 54,533 pixels at raw correlation 0.8700, yet 100.00 % of those pixels lie on the
+masked catalogue, so its payload Dice is 1.0000 and its score is the identical 0.1563.</li>
 </ol>
 """
 
@@ -315,7 +321,8 @@ A formal gate hashes and correlates all candidates against 272 historical submis
 <ul>
 <li><strong>Format Receipt:</strong> Single-band Float32, EPSG:32611, 100 m resolution, 3730×3292 extent.</li>
 <li><strong>Value Range:</strong> [0.0, 1.0] finite across all 12,279,160 pixels. No NaN values inside or outside, ensuring zero rejection on DrivenData upload form.</li>
-<li><strong>Gating Decision:</strong> <span class="tag ok">ALLOWED</span> — Candidate support and non-free payload verified distinct against all {len(reg.get('entries', []))} historical submissions.</li>
+<li><strong>Gating Decision:</strong> <span class="tag ok">ALLOWED</span> — Candidate support and non-free payload verified distinct against all {n_corpus} historical rasters
+(max payload Dice {gate.get('max_payload_dice', '—')}).</li>
 </ul>
 </div>
 """

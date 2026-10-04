@@ -389,6 +389,126 @@ agrees empirically — across the matched arrangement the budget curve is flat
 fault pixels, closer. The ceiling at n = 37,654 and M = 9,754 is 0.636; the
 winner captures 44 % of it.</p>
 <hr />
+<h2>Five geological hypotheses not yet tried in this family</h2>
+<p>Each names the layers it uses, the physical signature, why it should find faults
+the catalogue missed, and how it differs from what this repository already
+implements. Ranked by expected gain against implementation cost.</p>
+<p><strong>None of them has been validated.</strong> No instrument in this workspace can score a
+hypothesis against faults absent from every published catalogue, and the one
+instrument that could rank them — the catalogue holdout — is inverted (§1). The
+ranking below is by measured coefficient strength and physical argument, not by
+observed score.</p>
+<h3>1. Magnetic-gradient ratio <code>tmi_hg / tmi_vg</code> — deep lateral offset, not shallow source</h3>
+<ul>
+<li><strong>Layers:</strong> <code>tmi_hg</code> (+0.167, the largest positive ridge coefficient),
+  <code>tmi_vg</code> (−0.512, the largest negative), <code>mag_anom</code>, <code>rtp</code>, <code>ext_TMI_up150</code>.</li>
+<li><strong>Signature:</strong> a normal fault juxtaposes basement of different magnetisation,
+  producing a <em>lateral</em> gradient high. The vertical gradient instead emphasises
+  shallow, near-surface sources — and it is the single strongest <em>negative</em>
+  predictor in the whole design matrix.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> the discriminant is depth of source.
+  A buried fault offsetting deep basement has high <code>tmi_hg</code> and <em>low</em> <code>tmi_vg</code>;
+  the USGS maps surface traces, so exactly this class is absent from it.</li>
+<li><strong>Difference from the repo:</strong> every existing implementation thresholds
+  <code>tmi_hg</code> or applies a tilt-angle operator, which mixes the two. None forms the
+  ratio, and none uses <code>tmi_vg</code> as a suppressor.</li>
+<li><strong>Cost:</strong> low — both bands are in the official 19-band stack.</li>
+</ul>
+<h3>2. Potassium-depletion alteration edge</h3>
+<ul>
+<li><strong>Layers:</strong> <code>rad_K</code> (−0.141 measured lift), <code>rad_TC</code> (−0.123), <code>rad_Th</code>
+  (−0.087), <code>rad_U</code> (−0.083), <code>ext_UK</code> (<strong>+0.068</strong>), <code>ext_UTh</code> (+0.052).</li>
+<li><strong>Signature:</strong> hydrothermal alteration along a fault zone leaches potassium and
+  concentrates uranium and thorium relative to it. The measured winner is
+  negative on <em>every absolute</em> radiometric channel and positive on the <em>ratio</em>
+  <code>U/K</code>. The ratio is the signal; the totals are not.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> alteration is a subsurface process.
+  A fault can be fully altered at depth with no surface trace to map — the
+  competition's own brief says "many are hidden below the surface".</li>
+<li><strong>Difference from the repo:</strong> existing radiometric work uses total-count and
+  tilt-angle operators. None forms a K-depletion gradient measured <em>normal to an
+  estimated strike</em>, which is what separates an alteration front from a
+  lithologic contact.</li>
+<li><strong>Cost:</strong> low — bands are in <code>/tmp/ext</code>, already co-registered.</li>
+</ul>
+<h3>3. Scarp-face asymmetry with low profile coherence</h3>
+<ul>
+<li><strong>Layers:</strong> <code>lid_upface_max</code> (+0.139), <code>lid_downface_max</code> (+0.125),
+  <code>lid_coh100</code> (<strong>−0.260</strong>, third-strongest ridge coefficient), <code>lid_ex_max</code>
+  (+0.113), <code>lid_relief</code> (+0.108).</li>
+<li><strong>Signature:</strong> a young normal fault has a steep planar up-facing scarp and a
+  blocky, disrupted footwall. A <em>high</em> 100 m profile coherence means a smooth,
+  undissected surface — i.e. either buried or long inactive. So the discriminant
+  is up/down-face asymmetry <strong>combined with low</strong> coherence.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> it separates <em>young</em> scarps from
+  degraded ones. Degraded scarps are the ones field mapping misses.</li>
+<li><strong>Difference from the repo:</strong> the LiDAR work here thresholds scarp height or
+  curvature magnitude alone and never uses coherence as a suppressor — yet it is
+  the third-strongest coefficient in the fitted model.</li>
+<li><strong>Cost:</strong> low.</li>
+</ul>
+<h3>4. Basement <em>step</em>, decorrelated from elevation</h3>
+<ul>
+<li><strong>Layers:</strong> <code>depth_to_base_surf</code>, <code>det_elev</code>, <code>det_elev_slope</code>,
+  <code>iso_grav_anom</code>, <code>iso_grav_anom_hg</code>.</li>
+<li><strong>Signature — and a warning:</strong> <code>pr_depth_to_base_surf</code> has univariate
+  ρ = <strong>−0.967</strong> (shallow basement good) but a ridge coefficient of <strong>+0.190</strong>
+  (deep good). The two disagree because the descriptor is collinear with
+  <code>det_elev</code>. The physically meaningful quantity is neither: it is the <em>gradient</em>
+  of basement depth — a large offset reaches the surface from any absolute depth.</li>
+<li><strong>Why it finds catalogue-missing faults:</strong> a deep basin margin with a large
+  basement step is exactly where an unmapped normal fault lives, and it is
+  invisible to any detector keyed on absolute depth or on elevation slope alone.</li>
+<li><strong>Difference from the repo:</strong> every existing implementation uses
+  <code>depth_to_base_surf</code> as a <em>level</em>. None uses its gradient, and none
+  decorrelates it from <code>det_elev_slope</code> before use.</li>
+<li><strong>Cost:</strong> low, but it must be built with the collinearity in mind or it will
+  reproduce the sign confusion above.</li>
+</ul>
+<h3>5. Access-bias negative prior — <strong>measured and falsified</strong></h3>
+<p>The obvious hypothesis is that the catalogue is incomplete where surveyors could
+not go, so unmapped faults should sit far from roads and outside mining claims.
+Measured directly against <code>tiger_road_distance_m</code> and
+<code>blm_closed_claim_distance_m</code>:</p>
+<table>
+<thead>
+<tr>
+<th>threshold</th>
+<th>catalogue</th>
+<th>footprint</th>
+<th>ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; 200 m of a road</td>
+<td>20.32 %</td>
+<td>19.19 %</td>
+<td><strong>1.06×</strong></td>
+</tr>
+<tr>
+<td>&lt; 1 km of a road</td>
+<td>66.44 %</td>
+<td>62.99 %</td>
+<td>1.05×</td>
+</tr>
+<tr>
+<td>&lt; 200 m of a closed claim</td>
+<td>46.49 %</td>
+<td>44.88 %</td>
+<td><strong>1.04×</strong></td>
+</tr>
+<tr>
+<td>&lt; 1 km of a closed claim</td>
+<td>64.41 %</td>
+<td>63.73 %</td>
+<td>1.01×</td>
+</tr>
+</tbody>
+</table>
+<p>A 1.01–1.06× enrichment is not a usable prior. <strong>Catalogue incompleteness in
+this region does not follow survey access.</strong> Recorded so that nobody builds it.</p>
+<hr />
 <h2>Ranked next steps</h2>
 <table>
 <thead>
@@ -439,4 +559,4 @@ winner captures 44 % of it.</p>
 </tbody>
 </table>
 <p>None of these has beaten 0.2778 on any instrument, so none of them justifies a
-slot on its own.</p><footer>Generated 2026-10-04 22:46 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>
+slot on its own.</p><footer>Generated 2026-10-04 22:55 UTC · Every figure on this site is read directly from <code>docs/data/*.json</code> or <code>registry/history.json</code> · Built with verified official data and rigorous hypothesis validation.</footer></main></body></html>
