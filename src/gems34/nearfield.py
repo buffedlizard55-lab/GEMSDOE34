@@ -61,7 +61,9 @@ def cut_runs(cat: np.ndarray, n_seeds: int = 400, run_radius: float = 6.0,
     return truth, visible
 
 
-def score(emission: np.ndarray, truth: np.ndarray, free: np.ndarray) -> dict:
+def score(emission: np.ndarray, truth: np.ndarray, free: np.ndarray,
+          dt: np.ndarray | None = None,
+          fp_weight: np.ndarray | None = None) -> dict:
     """Metric score of one emission against a near-field run holdout."""
     truth = np.asarray(truth, bool)
     free = np.asarray(free, bool)
@@ -77,10 +79,17 @@ def score(emission: np.ndarray, truth: np.ndarray, free: np.ndarray) -> dict:
         vals[ok] = p[y[ok], x[ok]] * np.float32(kk)
         np.maximum(best, vals, out=best)
     tp = float(best.sum())
-    dt = distance_transform_edt(~truth).astype(np.float32)
-    fp = float((np.where(free, np.float32(0), p) *
-                (np.float32(1) - kernel(dt).astype(np.float32))).sum())
-    del dt
+
+    if fp_weight is not None:
+        p_flat = p.ravel()
+        pos = p_flat > 0
+        fp = float((p_flat[pos] * fp_weight.ravel()[pos]).sum()) if pos.any() else 0.0
+    else:
+        if dt is None:
+            dt = distance_transform_edt(~truth).astype(np.float32)
+        k_dt = np.maximum(np.float32(1.0) - dt / np.float32(3.0), np.float32(0))
+        fp = float((np.where(free, np.float32(0), p) * (np.float32(1.0) - k_dt)).sum())
+
     return dict(dti=tp / (tp + ALPHA * fp + 0.8 * (n - tp) + EPS), tp=tp, fp=fp,
                 fn=n - tp, n_truth=n, emitted=float((p > 0).sum()))
 

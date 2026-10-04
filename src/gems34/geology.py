@@ -145,7 +145,10 @@ def bridge_gaps(sk: np.ndarray, max_gap: int = 14, angle_tol_deg: float = 35.0,
 
 
 def parallel_strands(cat: np.ndarray, offsets: tuple[int, ...] = (4, 6, 8),
-                     min_component: int = 25) -> np.ndarray:
+                     min_component: int = 25,
+                     sk: np.ndarray | None = None,
+                     cos: np.ndarray | None = None,
+                     sin: np.ndarray | None = None) -> np.ndarray:
     """Traces offset perpendicular to the catalogue, i.e. candidate splays.
 
     For every catalogue pixel the local normal is estimated from the skeleton
@@ -153,8 +156,10 @@ def parallel_strands(cat: np.ndarray, offsets: tuple[int, ...] = (4, 6, 8),
     Isolated specks are dropped so the result is a set of strands rather than a
     field of noise.
     """
-    sk = skeleton(cat)
-    cos, sin = local_strike(sk)
+    if sk is None:
+        sk = skeleton(cat)
+    if cos is None or sin is None:
+        cos, sin = local_strike(sk)
     h, w = sk.shape
     out = np.zeros((h, w), bool)
     ys, xs = np.nonzero(sk)

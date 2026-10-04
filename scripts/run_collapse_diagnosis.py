@@ -47,6 +47,12 @@ CLAIMS = [
      "GEMSDOE25 dotted h19-5 d2.8"),
     ("gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif", None, "unscored",
      "GEMSDOE25 all-finite twin"),
+    ("gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif", 0.2778, "claim",
+     "GEMSDOE32 h33-2-b2 (top score 0.2778)"),
+    ("gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-nan.tif", 0.2778, "claim",
+     "GEMSDOE32 h33-2-b2 nan variant"),
+    ("gems32-h19-5-smoothmaxcov-44090.tif", 0.2600, "claim",
+     "GEMSDOE32 44090-dot reference"),
 ]
 
 
@@ -63,6 +69,16 @@ def main() -> int:
 
     names = {p.name for p in corpus.glob("*.tif")}
     entries, missing = [], []
+    rasters = {}
+    pos_indices = {}
+
+    from gems34 import geology
+    cat = raster.read(args.labels) == 1
+    dcat = geology.distance_to(cat).astype(np.float32)
+    cat_flat = cat.ravel()
+    dcat_flat = dcat.ravel()
+    cat_set = set(np.flatnonzero(cat_flat))
+
     for fname, score, cls, note in CLAIMS:
         if fname not in names:
             missing.append(fname)
@@ -74,6 +90,10 @@ def main() -> int:
                   ("sha256_file", "sha256_canonical", "sha256_support", "n_positive",
                    "n_finite", "min", "max", "is_binary")})
         entries.append(e)
+        arr = raster.read(p)
+        rasters[fname] = arr
+        m = (arr > 0) & np.isfinite(arr)
+        pos_indices[fname] = set(np.flatnonzero(m))
 
     # ---------- 1. are the three 0.1563 artifacts the same bytes? ----------
     trio = [e for e in entries if e["score"] == 0.1563]
@@ -84,16 +104,89 @@ def main() -> int:
 
     # ---------- 2. pairwise raw-surface and final-mask comparison ----------
     pairs = []
-    for i in range(len(entries)):
-        for j in range(i + 1, len(entries)):
-            a, b = entries[i], entries[j]
-            raw = registry.raw_correlation(a["_path"], b["_path"])
-            fin = registry.final_agreement(a["_path"], b["_path"])
-            pairs.append(dict(a=a["name"], b=b["name"], score_a=a["score"],
-                              score_b=b["score"], **raw, **fin))
+    fm_rows = []
+    N = raster.GRID["height"] * raster.GRID["width"]
 
-    # ---------- 3. where do the extra pixels go? (the mechanism) ----------
-    fm = free_mask_analysis([e["_path"] for e in entries], args.labels, pairs)
+    for i in range(len(entries)):
+        a = entries[i]
+        sa = pos_indices[a["name"]]
+        ua = len(sa)
+        for j in range(i + 1, len(entries)):
+            b = entries[j]
+            sb = pos_indices[b["name"]]
+            ub = len(sb)
+            inter_set = sa & sb
+            inter = len(inter_set)
+            union = ua + ub - inter
+
+            contain_a_in_b = inter / ua if ua else float("nan")
+            contain_b_in_a = inter / ub if ub else float("nan")
+            dice = 2.0 * inter / (ua + ub) if (ua + ub) else float("nan")
+            jaccard = inter / union if union else float("nan")
+
+            # Pearson full
+            ma, mb = ua / N, ub / N
+            vara = ua * (1.0 - ma)
+            varb = ub * (1.0 - mb)
+            p_full = (inter - N * ma * mb) / np.sqrt(vara * varb) if vara > 0 and varb > 0 else float("nan")
+
+            # Pearson support
+            if union > 8 and ua > 0 and ub > 0:
+                if inter == ua == ub:
+                    p_sup = 1.0
+                else:
+                    num = inter * union - ua * ub
+                    denom = np.sqrt(float(ua * (union - ua) * ub * (union - ub)))
+                    p_sup = float(num / denom) if denom > 0 else float("nan")
+            else:
+                p_sup = float("nan")
+
+            fin = dict(
+                n_a=ua, n_b=ub, intersection=inter, union=union,
+                dice=dice, jaccard=jaccard,
+                containment_a_in_b=contain_a_in_b, containment_b_in_a=contain_b_in_a
+            )
+            pairs.append(dict(a=a["name"], b=b["name"], score_a=a["score"],
+                              score_b=b["score"], pearson_full=float(p_full),
+                              pearson_support=float(p_sup), spearman_support=float(p_sup),
+                              **fin))
+
+            # Containment check for free_mask_analysis
+            if contain_a_in_b >= 0.999 and ua < ub:
+                lo_name, hi_name = a["name"], b["name"]
+                s_lo, s_hi = sa, sb
+                score_lo, score_hi = a["score"], b["score"]
+            elif contain_b_in_a >= 0.999 and ub < ua:
+                lo_name, hi_name = b["name"], a["name"]
+                s_lo, s_hi = sb, sa
+                score_lo, score_hi = b["score"], a["score"]
+            else:
+                continue
+
+            added_set = s_hi - s_lo
+            n = len(added_set)
+            if n == 0:
+                continue
+            added_idx = np.array(list(added_set), dtype=np.int32)
+            on = int(cat_flat[added_idx].sum())
+            d = dcat_flat[added_idx]
+
+            s_lo_payload = s_lo - cat_set
+            s_hi_payload = s_hi - cat_set
+
+            fm_rows.append(dict(
+                smaller=lo_name, larger=hi_name, added_px=n,
+                added_on_mask=on, added_on_mask_pct=round(100.0 * on / n, 2),
+                added_charged=n - on, spared_fp_charge=round(0.2 * (n - on), 1),
+                median_dcat_added=round(float(np.median(d)), 2),
+                pct_added_within_300m=round(100.0 * float((d <= 3).mean()), 2),
+                payload_smaller=len(s_lo_payload),
+                payload_larger=len(s_hi_payload),
+                payload_identical=bool(s_lo_payload == s_hi_payload),
+                score_smaller=score_lo, score_larger=score_hi
+            ))
+
+    fm = dict(labels=str(args.labels), pairs=fm_rows)
 
     # ---------- 4. verdict ----------
     verdict = classify(entries, trio, identical_files, identical_support, pairs)
@@ -125,7 +218,7 @@ def main() -> int:
     return 0
 
 
-def free_mask_analysis(paths, labels_path, pairs) -> dict:
+def free_mask_analysis(paths, labels_path, pairs, rasters=None) -> dict:
     """Measure the mechanism the brief asked about: where do the extra pixels go?
 
     The organizers mask known USGS/INGENIOUS faults out of the penalty terms, so
@@ -143,7 +236,10 @@ def free_mask_analysis(paths, labels_path, pairs) -> dict:
     from gems34 import geology, raster as _raster
     cat = _raster.read(labels_path) == 1
     dcat = geology.distance_to(cat).astype("float32")
-    S = {p: (_raster.read(p) > 0) for p in paths}
+    if rasters is not None:
+        S = {p: (rasters[Path(p).name] > 0) for p in paths}
+    else:
+        S = {p: (_raster.read(p) > 0) for p in paths}
     rows = []
     for p in pairs:
         a = next((q for q in paths if q.endswith(p["a"])), None)

@@ -34,10 +34,16 @@ BAND = {
 
 def _norm(x: np.ndarray) -> np.ndarray:
     x = np.asarray(x, np.float32)
-    lo, hi = np.nanpercentile(x, 1), np.nanpercentile(x, 99)
-    if hi <= lo:
+    sample = x[::8, ::8].ravel()
+    sample = sample[np.isfinite(sample)]
+    if sample.size > 0:
+        lo, hi = float(np.percentile(sample, 1)), float(np.percentile(sample, 99))
+    else:
+        lo, hi = 0.0, 1.0
+    if hi <= lo + 1e-7:
         return np.zeros_like(x)
     out = np.clip((x - np.float32(lo)) / np.float32(hi - lo), 0.0, 1.0)
+    out[~np.isfinite(out)] = 0.0
     return out.astype(np.float32)
 
 
@@ -104,13 +110,16 @@ def h3_gap_linkage(cat: np.ndarray, max_gap: int = 16,
 # H4  parallel strands / splays
 # ---------------------------------------------------------------------------
 def h4_parallel_strands(cat: np.ndarray, offsets=(4, 6, 9),
-                        sigma_px: float = 2.0) -> np.ndarray:
+                        sigma_px: float = 2.0,
+                        sk: np.ndarray | None = None,
+                        cos: np.ndarray | None = None,
+                        sin: np.ndarray | None = None) -> np.ndarray:
     """P(a splay or parallel strand runs beside a mapped trace).
 
     Mechanism: Basin-and-Range normal-fault zones are arrays of sub-parallel
     strands; compilations typically carry the dominant trace only.
     """
-    st = geology.parallel_strands(cat, offsets=offsets)
+    st = geology.parallel_strands(cat, offsets=offsets, sk=sk, cos=cos, sin=sin)
     st &= ~cat
     return gaussian_filter(st.astype(np.float32), sigma_px)
 
@@ -123,7 +132,7 @@ def _lineament(gray: np.ndarray, sigma: float = 2.0) -> np.ndarray:
     gradient outer product -- i.e. ridge/edge anisotropy, complement-invariant
     to bright-vs-dark contrast (a fault is an edge but a scarp is a ridge).
     """
-    g = _fill(gray).astype(np.float64)      # float64 here: float32 squares overflow
+    g = _norm(gray)
     gy = sobel(g, axis=0); gx = sobel(g, axis=1)
     jxx = gaussian_filter(gx * gx, sigma)
     jyy = gaussian_filter(gy * gy, sigma)

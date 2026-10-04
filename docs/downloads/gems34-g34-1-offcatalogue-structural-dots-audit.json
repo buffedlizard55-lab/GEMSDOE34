@@ -7,7 +7,7 @@
     572550.0,
     4508550.0
   ],
-  "bytes": 447175,
+  "bytes": 443270,
   "convention": "nan-outside",
   "crs": "EPSG:32611",
   "dtype": "float32",
@@ -18,7 +18,7 @@
   "min": 0.0,
   "n_nan_outside": true,
   "n_nonfinite": 7111787,
-  "n_positive": 98599,
+  "n_positive": 98607,
   "nodata": "nan",
   "nodata_is_nan": true,
   "nodata_is_none": false,
@@ -27,8 +27,8 @@
     100.0
   ],
   "sample_convention": true,
-  "sha256": "2fc667dfed8b780e4f89b867fb852a2937ce9018a391e1ee98ddaab7fe245cbf",
-  "sha256_canonical": "8bda7a24d249ad2bcc54cdd7905068325b517b86efcfd887755e033928ba6ad7",
-  "sha256_mask": "9ac9da65afdc1a090e6de9d3ed74e2e2ae77a776b6feed9408dea8888686de00",
+  "sha256": "123d94a6ad57ab8ba42ddd30f277fc584a78dc8cda54184211b869319e6e45a0",
+  "sha256_canonical": "24b10acebec62a8ce9bb0e6296391741d040ebc0aa68f9d03b4e6f8005469c2d",
+  "sha256_mask": "d9e47a15eb5356bb0005f3269a993761a5af545c89307563444665162878b993",
   "width": 3292
 }
