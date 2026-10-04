@@ -205,6 +205,25 @@ field's credit-per-dot *rises* with `n` (elasticity +0.970) while the ledger's d
 27-artifact corpus (Pearson −0.168 / Spearman +0.368) because the identity assumes unit dots and
 the corpus contains contiguous blobs. Both are labelled where they appear.
 
+**Pass 4 — the shipped field is a consensus blend, and the consensus *alone* is a negative result.**
+The group's own live-scored artifacts were pooled into a score²-weighted support field
+(`docs/data/consensus-corpus.json`, 16 members, each with its repo path and a local sha256).
+Measured on the independent official SGMC instrument at an identical 28,000-dot budget:
+consensus alone **4,398.3** pooled credit — *worse* than a plain elevation-curvature ridge
+(5,454.7), so leaderboard agreement is **not** a truth proxy. The normalised **sum** of the two is:
+**5,698.6** pooled (+4.5 %), and it wins at every blocking tested — 3×3 814.1 vs 779.2, 4×4 518.1 vs
+495.9, 5×5 316.6 vs 303.0 mean per-fold credit. On the shipped emission the SGMC payload DTI rises
+0.09847 → **0.10507** (+6.7 %).
+
+**Pass 4 — the primary candidate.** `docs/downloads/gems34-g34-4-consensus-blend-core28k-20261004T193836Z.tif`
+(sha256 `9596d0653b6304040d08f652038c31a6655203d29d95b6b9c49e33c7bc91c29b`): 88,988 px = 60,988 inert catalogue carpet + 28,000 isolated off-catalogue dots,
+3 px NMS, mean 1.000 px per component, **0 px within 3 px of the catalogue**, every cell finite, all
+values in [0,1]. Gate **ALLOWED** against 31 artifacts, payload Dice ≤ 0.0575 against any *scored*
+artifact, exact-value and exact-support checks clear. Projection **0.32, range [0.30, 0.33]** under the
+same two instruments as pass 3 (credit model 0.3233, within-family slope scaled by the measured +6.7 %
+gain) — with the transfer of that gain to the organizers' hidden truth named as the unvalidated step.
+The pass-3 curvature-ridge file remains shipped alongside it as the fallback (`0.29, [0.28, 0.31]`).
+
 ### Reproduce the whole pipeline
 
 ```

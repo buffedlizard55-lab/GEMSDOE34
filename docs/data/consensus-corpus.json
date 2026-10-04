@@ -1,0 +1,176 @@
+{
+  "generated_utc": "2026-10-04T19:36:30.828909+00:00",
+  "purpose": "Corpus for the score-weighted consensus belief field. Every member is one of this group's own live-scored submissions. The shipped emission is a fresh 28,000-dot lattice derived from the consensus -- it is not a copy of any member, and the pre-submission gate measures the payload Dice against each of them. Scores are user claims (IR-34-08): no organizer receipt exists for any row.",
+  "weight": "claimed_score squared",
+  "normalisation": "each field divided by its 99.9th positive percentile, clipped to [0,1]",
+  "fetch": "gh api repos/buffedlizard55-lab/<repo>/contents/<path> -H 'Accept: application/vnd.github.raw'",
+  "members": [
+    {
+      "artifact": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "repo": "GEMSDOE32",
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "claimed_score": 0.2778,
+      "n_positive": 37654,
+      "sha256_local_copy": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "note": "the group's best live claim"
+    },
+    {
+      "artifact": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "repo": "GEMSDOE31",
+      "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+      "claimed_score": 0.2708,
+      "n_positive": 40199,
+      "sha256_local_copy": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+      "note": ""
+    },
+    {
+      "artifact": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "repo": "GEMSDOE32",
+      "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "claimed_score": 0.26,
+      "n_positive": 44090,
+      "sha256_local_copy": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
+      "note": ""
+    },
+    {
+      "artifact": "gemsdoe-ens12-adopted-7f00890a.tif",
+      "repo": "5GEMSDOE",
+      "path": "data/evidence/leaderboard_anchor/gemsdoe-ens12-adopted-7f00890a.tif",
+      "claimed_score": 0.1563,
+      "n_positive": 172974,
+      "sha256_local_copy": "7f00890a62878d612fb5eef67a9a364a2df819433dde74b6762ce4fc0fc4fe15",
+      "note": "one of the three 0.1563 artifacts"
+    },
+    {
+      "artifact": "8GEMSDOE_Hedge-v2_submission.tif",
+      "repo": "8GEMSDOE",
+      "path": "docs/downloads/8GEMSDOE_Hedge-v2_submission.tif",
+      "claimed_score": 0.1563,
+      "n_positive": 227507,
+      "sha256_local_copy": "052688eafbc7a55d90caab72252a50304fe5caa8ecf973f8e791b4ae910f0792",
+      "note": "one of the three 0.1563 artifacts"
+    },
+    {
+      "artifact": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+      "repo": "GEMSDOE24",
+      "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+      "claimed_score": 0.2477,
+      "n_positive": 60069,
+      "sha256_local_copy": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
+      "note": ""
+    },
+    {
+      "artifact": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "repo": "GEMSDOE28",
+      "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "claimed_score": 0.2449,
+      "n_positive": 61328,
+      "sha256_local_copy": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
+      "note": ""
+    },
+    {
+      "artifact": "gems19-h19-4-multiline-corroborated-openness-thermal-pop-20260930-691e4dfa-allfinite.tif",
+      "repo": "GEMSDOE22",
+      "path": "docs/downloads/gems19-h19-4-multiline-corroborated-openness-thermal-pop-20260930-691e4dfa-allfinite.tif",
+      "claimed_score": 0.1894,
+      "n_positive": 123779,
+      "sha256_local_copy": "ad52f4c2704f2a8721f74b736dc139b6b9e11cbf6130c3b971b91cfb3661ac84",
+      "note": ""
+    },
+    {
+      "artifact": "gems19-h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-allfinite.tif",
+      "repo": "GEMSDOE24",
+      "path": "inputs/gems19-h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-allfinite.tif",
+      "claimed_score": 0.1922,
+      "n_positive": 121131,
+      "sha256_local_copy": "ef2ae808eb7179861b9f1ff753fd3ded625ace7b7c158e29cec45bbd8fa3cfaa",
+      "note": ""
+    },
+    {
+      "artifact": "gems16-h16-1-topo-geophys-baseline-ridges-20260930-df20f65e-allfinite.tif",
+      "repo": "16GEMSDOE",
+      "path": "docs/downloads/gems16-h16-1-topo-geophys-baseline-ridges-20260930-df20f65e-allfinite.tif",
+      "claimed_score": 0.1855,
+      "n_positive": 123939,
+      "sha256_local_copy": "fde9fbd2270a5ae5cb4606f33dbc19eed096a0dc27e382baf6dd5d1dd82c8dda",
+      "note": ""
+    },
+    {
+      "artifact": "gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+      "repo": "GEMSDOE10",
+      "path": "docs/downloads/gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+      "claimed_score": 0.1839,
+      "n_positive": 69281,
+      "sha256_local_copy": "7637b72d4c6c3e10226bf46bd72a20272d62ccbe29743062632d10b158b49c58",
+      "note": ""
+    },
+    {
+      "artifact": "gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif",
+      "repo": "GEMSDOE23",
+      "path": "docs/downloads/gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif",
+      "claimed_score": 0.1352,
+      "n_positive": 91533,
+      "sha256_local_copy": "d07cbb6f69076e76f1a8a4806ddc5639421bc9a59b10d80a09b9fb423bb99427",
+      "note": ""
+    },
+    {
+      "artifact": "12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62_allfinite.tif",
+      "repo": "12GEMSDOE",
+      "path": "docs/downloads/12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62_allfinite.tif",
+      "claimed_score": 0.1294,
+      "n_positive": 103347,
+      "sha256_local_copy": "ce3f70fa2e1e7bbea60c8c62a2f805c22d15b8a8905ebec757259617ceb02fbc",
+      "note": ""
+    },
+    {
+      "artifact": "gems26-dilcond-oof-v1-20261003-47629f496133-nan.tif",
+      "repo": "GEMSDOE26",
+      "path": "docs/downloads/gems26-dilcond-oof-v1-20261003-47629f496133-nan.tif",
+      "claimed_score": 0.1223,
+      "n_positive": 60068,
+      "sha256_local_copy": "d54cf7edc6ec57c29b88dec81fe3fb101efa4fe31fc9c1088664a0c2e5190887",
+      "note": ""
+    },
+    {
+      "artifact": "gems10-h20-dem10-scarp-thin-20260927T155223039488Z-ffc91a1686.tif",
+      "repo": "GEMSDOE10",
+      "path": "docs/downloads/gems10-h20-dem10-scarp-thin-20260927T155223039488Z-ffc91a1686.tif",
+      "claimed_score": 0.0921,
+      "n_positive": 153957,
+      "sha256_local_copy": "a26e5e46acc00ddd867f0b2910e638b25e4e81108ebe05c0abcc7c9b04372247",
+      "note": ""
+    },
+    {
+      "artifact": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "repo": "13GEMSDOE",
+      "path": "docs/downloads/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "claimed_score": 0.0904,
+      "n_positive": 206895,
+      "sha256_local_copy": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "note": ""
+    }
+  ],
+  "result": {
+    "consensus_alone_pooled_T": 4398.3,
+    "curvature_ridge_pooled_T": 5454.7,
+    "blend_pooled_T": 5698.6,
+    "blockings": {
+      "3x3": {
+        "curv": 779.24,
+        "blend": 814.08,
+        "folds": 7
+      },
+      "4x4": {
+        "curv": 495.88,
+        "blend": 518.05,
+        "folds": 11
+      },
+      "5x5": {
+        "curv": 303.04,
+        "blend": 316.59,
+        "folds": 18
+      }
+    },
+    "verdict": "The group's own best live-scored artifacts are WORSE than a plain elevation-curvature ridge on the independent official SGMC instrument (4,398 vs 5,455 pooled credit at the same 28,000-dot budget) -- a negative result for leaderboard-consensus as a truth proxy. Their value is complementary: the normalised sum beats the ridge at every blocking tested."
+  }
+}

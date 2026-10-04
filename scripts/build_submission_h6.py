@@ -100,6 +100,17 @@ SENTINEL = 1.0e30   # training_features.tif stores nodata as -3.402823466e38
 # lost to a simpler field by 37 % on the blocked instrument.
 W_CURV, W_H2 = 0.85, 0.15
 
+# Pass 4: the shipped field is the *consensus blend* --
+#     norm( sum_s  score_s^2 * support_s )  +  norm( curvature ridge )
+# over the group's own live-scored artifacts (docs/data/consensus-corpus.json).
+# Justification is measured, not aesthetic: on the independent official SGMC
+# instrument at a fixed 28,000-dot budget the blend carries 5,698.6 pooled
+# credit units vs 5,454.7 for the curvature ridge alone, and it wins at every
+# blocking tested (3x3: 814.1 vs 779.2; 4x4: 518.1 vs 495.9; 5x5: 316.6 vs
+# 303.0 mean per-fold credit). The consensus *alone* is worse than the ridge
+# (4,398.3) -- leaderboard agreement is not truth, it is only complementary.
+W_CONSENSUS = 1.0
+
 # Payload size and packing.  See the module docstring: every isolated-dot
 # artifact this group has ever scored is larger than its best one.
 TARGET_PAYLOAD = 28000
@@ -148,7 +159,18 @@ def anisotropy(gray: np.ndarray, sigma: float) -> np.ndarray:
     return _norm01(2.0 * disc)
 
 
-def build_fields(bands: dict[str, np.ndarray], cat: np.ndarray) -> dict[str, np.ndarray]:
+def consensus_field(members: list[tuple[str, float]], shape) -> np.ndarray:
+    """Score-squared-weighted support consensus of live-scored artifacts."""
+    acc = np.zeros(shape, np.float32)
+    for path, score in members:
+        a = np.asarray(raster.read(path), dtype=np.float32)
+        a[~np.isfinite(a)] = 0.0
+        acc += np.float32(score * score) * (a > 0)
+    return acc
+
+
+def build_fields(bands: dict[str, np.ndarray], cat: np.ndarray,
+                 consensus: np.ndarray | None = None) -> dict[str, np.ndarray]:
     """The screened composite: detrended-elevation curvature ridge + tip extension.
 
     ``curv`` is the contrast-invariant anisotropy |l1 - l2| of the structure
@@ -176,7 +198,10 @@ def build_fields(bands: dict[str, np.ndarray], cat: np.ndarray) -> dict[str, np.
     curv = np.maximum.reduce([anisotropy(bands["det_elev"], s) for s in (1.5, 3.0, 6.0)])
     # --- H2: tip continuation (second forward-selection member) -----------
     h2 = fields.h2_tip_extrapolation(cat)
-    comp = _norm01(W_CURV * _norm01(curv) + W_H2 * _norm01(h2))
+    if consensus is not None:
+        comp = _norm01(W_CONSENSUS * _norm01(consensus) + W_CURV * _norm01(curv))
+    else:
+        comp = _norm01(W_CURV * _norm01(curv) + W_H2 * _norm01(h2))
     return {"h6": h6, "h5": h5, "curv": curv, "h2": h2, "composite": comp}
 
 
@@ -186,6 +211,10 @@ def main() -> int:
     ap.add_argument("--out", default="docs/downloads")
     ap.add_argument("--history", nargs="*", default=[])
     ap.add_argument("--registry", default="registry/history.json")
+    ap.add_argument("--consensus", default=None,
+                    help="docs/data/consensus-corpus.json (member rasters resolved in --consensus-dir)")
+    ap.add_argument("--consensus-dir", default=None,
+                    help="directory holding the member rasters named by their 'artifact' basename")
     ap.add_argument("--name", default="g34-3-screen-curvridge-core28k")
     ap.add_argument("--target", type=int, default=TARGET_PAYLOAD)
     ap.add_argument("--spacing", type=int, default=SPACING_PX)
@@ -210,7 +239,17 @@ def main() -> int:
     print(f"grid {cat.shape}  catalogue {int(cat.sum()):,}  footprint {int(footprint.sum()):,}")
 
     print("building fields ...", flush=True)
-    f = build_fields(bands, cat)
+    cons = None
+    if args.consensus:
+        cdir = Path(args.consensus_dir or ".")
+        members = [(str(cdir / Path(m["artifact"]).name), float(m["claimed_score"]))
+                   for m in json.loads(Path(args.consensus).read_text())["members"]]
+        missing = [p for p, _ in members if not Path(p).exists()]
+        if missing:
+            raise SystemExit(f"missing consensus members: {missing[:3]} ...")
+        cons = consensus_field(members, next(iter(bands.values())).shape)
+        print(f"consensus: {len(members)} live-scored artifacts, score^2 weights")
+    f = build_fields(bands, cat, cons)
     del bands
     comp = f["composite"].copy()
     comp[~footprint] = 0.0

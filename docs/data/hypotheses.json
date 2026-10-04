@@ -57,6 +57,17 @@
       "gain": "pooled credit 545.7 (\u221290 %) \u2014 the worst arm, and the reason H6's gate is not load-bearing",
       "cost": "~0.5 h",
       "rank": "5 \u2014 measured, rejected"
+    },
+    {
+      "id": "HY-14",
+      "name": "Score-weighted consensus of the group's own live-scored emissions (field, not truth)",
+      "layers": "the 16 live-scored submission rasters themselves (docs/data/consensus-corpus.json)",
+      "signature": "score^2-weighted vote per pixel, normalised, added to the curvature ridge",
+      "why_new": "the public leaderboard is the only signal that reaches the organizers' hidden truth; each scored artifact is a noisy probe of it, so agreement between probes is evidence and disagreement is noise",
+      "difference": "every other arm in this repo builds a field from the 19 bands or the catalogue; this is the only arm that uses the scored submissions as measurements",
+      "gain": "pooled SGMC credit 5,698.6 vs 5,454.7 for the ridge alone (+4.5 %), and it wins at 3x3, 4x4 and 5x5 blockings; on the shipped 28,000-dot emission the SGMC payload DTI rises 0.09847 -> 0.10507 (+6.7 %)",
+      "cost": "~1 h + one download pass",
+      "rank": "1 (pass 4) \u2014 SHIPPED"
     }
   ],
   "outcome": [
@@ -89,6 +100,18 @@
       "instrument": "two live-score-calibrated instruments",
       "result": "see docs/data/score-diagnostics.json",
       "verdict": "count = 28,000 chosen at the intersection; the field's own credit curve says more dots, the ledger's mass slope says fewer"
+    },
+    {
+      "id": "HY-14 consensus alone",
+      "instrument": "same 11 blocked folds, same 28,000-dot emission",
+      "result": "4,398.3 pooled credit \u2014 19 % BELOW the curvature ridge it must help",
+      "verdict": "consensus is admitted only as a COMPLEMENT; leaderboard agreement is not truth"
+    },
+    {
+      "id": "HY-14 blend",
+      "instrument": "SGMC instrument at 3 blockings (7 / 11 / 18 folds)",
+      "result": "wins all three: 814.1 vs 779.2, 518.1 vs 495.9, 316.6 vs 303.0 mean per-fold credit",
+      "verdict": "ADMITTED \u2014 shipped as the primary candidate"
     }
   ],
   "blocked": [

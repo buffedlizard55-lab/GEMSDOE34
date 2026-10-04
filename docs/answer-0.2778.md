@@ -125,9 +125,22 @@ The count then follows from the intersection of the two calibrated instruments:
 | credit model (K_eff = 15,303, licensed on 37,654–61,328) | below n ≈ 27,000 the projection falls under 0.2778 (n = 20,000 → 0.223; n = 24,000 → 0.245); at n = 28,000 → **0.2937** |
 | ledger mass slope (within-family, +0.0178 per 6,436 dots) | every dot above ≈ 38,000 is priced against us; 37,654 → 28,000 → **0.3045** |
 
+**Pass 4 addition — a second field, and a negative result about leaderboards.** Pooling the group's
+own sixteen live-scored artifacts into a score²-weighted consensus gives, at the identical 28,000-dot
+budget, **4,398.3** pooled SGMC credit — *worse than the plain curvature ridge (5,454.7)*. Agreement
+between submissions that scored 0.09–0.28 on the hidden set is therefore **not** a proxy for the
+official SGMC off-catalogue population; the consensus is admitted only as a complement. The
+normalised sum does better than either part: **5,698.6** pooled (+4.5 % over the ridge), winning at
+3×3 (814.1 vs 779.2), 4×4 (518.1 vs 495.9) and 5×5 (316.6 vs 303.0) blockings, and lifting the
+shipped emission's SGMC payload DTI from 0.09847 to **0.10507** (+6.7 %). That blend is the primary
+candidate; the ridge-only file ships as the fallback.
+
 **Shipped: n = 28,000 dots**, inside both. Two independent magnitude estimators give
-**0.2937 and 0.3045** — quoted as a range **[0.28, 0.31]**, i.e. a projected improvement of
-**+0.02 to +0.03 over 0.2778**.
+**0.2937 and 0.3045** for the ridge alone — quoted as a range **[0.28, 0.31]** — and
+**0.3233 and 0.325** for the shipped blend, quoted as **[0.30, 0.33]**. The widening between the two
+files is exactly the size of the SGMC gain (+6.7 % credit); the step that converts an SGMC gain into a
+hidden-truth gain **cannot be validated in this workspace** and is labelled as an assumption, not a
+measurement.
 
 ## 6. What would be needed to beat the leader (0.3262)
 

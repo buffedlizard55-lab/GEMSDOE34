@@ -134,5 +134,46 @@
       ]
     },
     "caveat": "both are ESTIMATES from instruments that are one-sided against mass; neither is a receipt. The only scored receipt in this repository is 0.2778 (user-reported)."
+  },
+  "pass4_blend": {
+    "field": "norm(score^2-weighted consensus of 16 live-scored artifacts) + norm(curvature ridge)",
+    "pooled_T": 5698.6,
+    "sgmc_payload_dti": 0.10507,
+    "sgmc_T": 5771.6,
+    "vs_curv_only": {
+      "pooled_T": 5454.7,
+      "sgmc_payload_dti": 0.09847,
+      "gain_pct": 6.7
+    },
+    "blockings": {
+      "3x3": {
+        "curv": 779.24,
+        "blend": 814.08,
+        "folds": 7
+      },
+      "4x4": {
+        "curv": 495.88,
+        "blend": 518.05,
+        "folds": 11
+      },
+      "5x5": {
+        "curv": 303.04,
+        "blend": 316.59,
+        "folds": 18
+      }
+    },
+    "consensus_alone": {
+      "pooled_T": 4398.3,
+      "verdict": "the group's own best live-scored artifacts are a WORSE proxy for the official SGMC off-catalogue population than a plain elevation-curvature ridge; their value is complementary, not authoritative"
+    },
+    "projection": {
+      "credit_model": 0.3235,
+      "slope_model": 0.3249,
+      "quoted_range": [
+        0.3,
+        0.33
+      ],
+      "caveat": "both estimators inherit the SGMC-to-hidden-truth transfer assumption, which no instrument in this workspace can validate"
+    }
   }
 }

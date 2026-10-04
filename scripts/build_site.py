@@ -224,7 +224,7 @@ that are <em>not</em> in the public USGS/INGENIOUS catalogue.</p>
 <div class="grid">
 <div class="kpi"><span class="mut">Public leader (read 2026-10-04)</span><b>0.3262</b><span class="mut">nchuzhoy</span></div>
 <div class="kpi"><span class="mut">Group best (claim)</span><b>0.2778</b><span class="mut">public rank 13</span></div>
-<div class="kpi"><span class="mut">Shipped candidate, projected</span><b>0.29</b><span class="mut">estimate, range [0.28, 0.31] — not a receipt</span></div>
+<div class="kpi"><span class="mut">Shipped candidate, projected</span><b>0.32</b><span class="mut">estimate, range [0.30, 0.33] — not a receipt</span></div>
 <div class="kpi"><span class="mut">Score explained by one identity</span><b>RMSE 0.0045</b><span class="mut">5 live scores, 1 fitted constant</span></div>
 <div class="kpi"><span class="mut">Payload overlap with every prior artifact</span><b>≤ {gate.get('max_payload_dice', '—')}</b><span class="mut">Dice, non-free support</span></div>
 </div>
@@ -251,6 +251,11 @@ multi-scale structure-tensor anisotropy of the <em>detrended elevation</em> band
 5,454.7 pooled credit, against 3,437.9 for the basin-margin-step field this repository was
 built around and 3,236.5 for the ten-band lineament field.
 <a href="validation.html">Validation</a> has the table.</li>
+<li><strong>The consensus of the group's own scored artifacts is not truth — measured.</strong>
+Pooling sixteen live-scored submissions into a score-weighted field gives 4,398.3 pooled credit at a
+fixed 28,000-dot budget, <em>below</em> the plain curvature ridge (5,454.7). The two are
+complementary, not redundant: their normalised sum carries 5,698.6 and wins at every blocking
+tested (3×3, 4×4, 5×5). The primary candidate is that blend; the ridge alone ships as the fallback.</li>
 <li><strong>A mandatory, payload-aware gate.</strong> Because free-mask mass cannot change a
 score, whole-file comparison cannot detect a duplicated hypothesis — measured: two candidates
 sharing a 2,000 px carpet and holding disjoint 50 px payloads reach whole-file Dice 0.976.

@@ -43,7 +43,7 @@ entirely*. Both readings make the free carpet non-harmful, and both make the col
 above valid; they differ on whether that mass can ever earn credit. Every decision here is safe
 under both.
 
-## What pass 3 changed, and what is still blocked
+## What passes 3–4 changed, and what is still blocked
 
 * **Closed:** the count question. `score = T/(0.2n + 0.8K)` is exact, calibrated on five live
   claims to RMSE 0.0045 inside 37,654–61,328 dots, and the shipped count (28,000) sits at the
@@ -55,6 +55,12 @@ under both.
   official compilation, but it is still a catalogue; every arm is validated as a necessary
   condition only. The 1 m DEM, the 1:24,000 geologic maps and the geothermal well records remain
   unreachable from the sandbox and are named with links in `docs/data/hypotheses.json`.
+* **Pass 4, measured:** the score²-weighted consensus of the group's own sixteen live-scored
+  artifacts is a *worse* SGMC proxy than the curvature ridge (4,398.3 vs 5,454.7 pooled credit), so
+  leaderboard agreement is not truth; the normalised sum of the two is better than either
+  (5,698.6, winning at all three blockings). The shipped primary is that blend; the ridge alone
+  remains as the fallback. Both files are gated, both carry projections, and neither projection is a
+  receipt.
 * **Measured negative results, not to be re-tried:** the power-law credit fit (underdetermined,
   c1 at its bound); the leaderboard inversion (LOO correlation −0.381); catalogue distance as a
   ranking feature (identical histograms across top/middle/bottom groups); and H6, the

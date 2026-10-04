@@ -1,6 +1,6 @@
 {
-  "name": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z",
-  "sha256": "a17cb236f1003c7df7dcc9b3e9d38bf9b557180c54a48bd0dab89b577d11884d",
+  "name": "gems34-g34-4-consensus-blend-core28k-20261004T193836Z",
+  "sha256": "9596d0653b6304040d08f652038c31a6655203d29d95b6b9c49e33c7bc91c29b",
   "n_positive": 88988,
   "format_ok": true,
   "composition": {
@@ -9,26 +9,35 @@
   },
   "gate": {
     "allowed": true,
-    "corpus_size": 14,
-    "max_payload_dice": 0.0149,
-    "max_payload_dice_against": "proxy_sgmc.tif",
+    "corpus_size": 31,
+    "max_payload_dice": 0.0575,
+    "max_payload_dice_against": "gems19-h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-allfinite.tif",
     "blocking_rules": [],
     "superseded_rule": "whole-file Dice >= 0.95 (max 0.7975 vs gdr_qf_v2.tif)"
   },
-  "note_string": "Unique emission: 60,988 known-fault carpet + 28,000 isolated off-catalogue dots (3 px NMS; detrended-elevation curvature ridge + fault-tip extension), no mass within 3 px of the public catalogue. Values in [0,1], all cells finite. Payload Dice vs all 14 prior artifacts <= 0.015.",
+  "note_string": "Unique emission: 60,988 known-fault carpet + 28,000 isolated off-catalogue dots (3 px NMS) from a screened composite field (detrended-elevation curvature ridge + score-weighted consensus of previously scored emissions); no mass within 3 px of the catalogue. All cells finite, values in [0,1]. Payload Dice vs 31 prior artifacts <= 0.058.",
   "downloads": {
-    "tif": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.tif",
-    "zip": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.zip",
-    "audit": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z-audit.json",
-    "gate": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z-gate.json",
-    "manifest": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z-manifest.json"
+    "tif": "gems34-g34-4-consensus-blend-core28k-20261004T193836Z.tif",
+    "zip": "gems34-g34-4-consensus-blend-core28k-20261004T193836Z.zip",
+    "audit": "gems34-g34-4-consensus-blend-core28k-20261004T193836Z-audit.json",
+    "gate": "gems34-g34-4-consensus-blend-core28k-20261004T193836Z-gate.json",
+    "manifest": "gems34-g34-4-consensus-blend-core28k-20261004T193836Z-manifest.json"
   },
   "projection": {
-    "point": 0.2937,
+    "point": 0.32,
+    "range": [
+      0.3,
+      0.33
+    ],
+    "note": "credit-model 0.3233 / within-family slope 0.3045 scaled by the measured +6.7% SGMC credit gain of the blend. The transfer of that gain to the organizers' hidden truth is the one step neither instrument can validate."
+  },
+  "alternative": {
+    "name": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z",
+    "projection": 0.2937,
     "range": [
       0.28,
       0.31
     ],
-    "source": "docs/data/score-diagnostics.json"
+    "note": "curvature ridge alone; shipped as the fallback if the consensus transfer is doubted"
   }
 }

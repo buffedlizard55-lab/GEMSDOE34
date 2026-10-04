@@ -1,6 +1,6 @@
 {
   "generated_utc": "2026-10-04T17:51:21.966696Z",
-  "n_entries": 32,
+  "n_entries": 33,
   "entries": [
     {
       "name": "8GEMSDOE-Apex-Geothermal-V1.tif",
@@ -407,7 +407,7 @@
     },
     {
       "name": "gems34-g34-3-screen-curvridge-core28k-20261004T191707Z.tif",
-      "label": "unscored",
+      "label": "unscored (fallback)",
       "score": null,
       "evidence_class": "unscored",
       "sha256_canonical": "49b0a5ef01abfada9efed05b4d4f44082e2d0d7918d011bb2c3fd96bf0380bde",
@@ -426,7 +426,30 @@
         ],
         "source": "docs/data/score-diagnostics.json"
       },
-      "note": "screened detrended-elevation curvature ridge + tip extension; 28,000 dots at 3 px NMS"
+      "note": "FALLBACK. curvature ridge alone"
+    },
+    {
+      "name": "gems34-g34-4-consensus-blend-core28k-20261004T193836Z.tif",
+      "label": "unscored",
+      "score": null,
+      "evidence_class": "unscored",
+      "sha256_canonical": "2cb5cd68aac5a38e0ff63d4c89145d9f6ecfc426157f93815df812a8542813cc",
+      "sha256_support": "151ae2b30dc607ed96cae6c1b080de8ee770a966321bb1f576a2a56d5139c352",
+      "n_positive": 88988,
+      "is_binary": true,
+      "pct_on_catalogue": 68.535,
+      "pct_within_300m": 68.535,
+      "payload_pixels": 28000,
+      "gate": true,
+      "projection": {
+        "value": 0.32,
+        "range": [
+          0.3,
+          0.33
+        ],
+        "source": "docs/data/score-diagnostics.json#pass4_blend"
+      },
+      "note": "PRIMARY. consensus blend + curvature ridge; 28,000 dots at 3 px NMS"
     }
   ]
 }
