@@ -103,3 +103,14 @@ help (`.` `Spearman(score, n) = −1.000` across the ten pure isolated-dot artif
 6,436 dots from the group's own family bought +0.0178). This repository reports the disagreement,
 ships the interior point (28,000, inside the intersection of the two rules), and states on
 `answer-0.2778.md` §7 that the question is settled only by a scored submission.
+
+## IR-34-11 — the sample submission writes NaN outside the footprint; the scored artifacts write zeros
+
+`sample_submission.tif` is NaN outside the 5,167,373-cell valid footprint (measured: `finite ==
+(labels != -1)`), while the artifacts that carry live scores from this group are their `-zeros`
+variants (for example `gemsdoe32-h33-h33-2-b2-…-zeros.tif`, the 0.2778 claim) and the `-nan`
+variants are the unscored twins. Two conventions for the same field cannot both be what the portal
+expects, and the evidence from the group's own scored rows favours `0.0`. This repository ships
+`0.0` outside the footprint, states the choice here, and reports it in the format receipt. It is
+flagged because the problem statement's wording ("outside null/nan") points the other way.
+
